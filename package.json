@@ -1,25 +1,39 @@
 {
-  "name": "gatsby-starter-default",
-  "description": "Gatsby default starter",
+  "name": "envyclient",
   "version": "1.0.0",
-  "author": "Kyle Mathews <mathews.kyle@gmail.com>",
-  "dependencies": {
-    "gatsby": "^1.9.102",
-    "gatsby-link": "^1.6.24",
-    "gatsby-plugin-react-helmet": "^1.0.8"
+  "description": "Envy Client website",
+  "author": "Ahmad Ouerfelli <a.ouerf@gmail.com>",
+  "private": true,
+  "homepage": "https://aouerfelli.github.io/envyclient",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/aouerfelli/envyclient.git"
   },
-  "keywords": [
-    "gatsby"
-  ],
   "license": "MIT",
-  "main": "n/a",
   "scripts": {
     "build": "gatsby build",
     "develop": "gatsby develop",
-    "format": "prettier --trailing-comma es5 --no-semi --single-quote --write \"src/**/*.js\"",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "deploy": "gatsby build --prefix-paths && gh-pages -d public",
+    "format": "prettier --trailing-comma es5 --no-semi --single-quote --write \"src/**/*.js\""
+  },
+  "dependencies": {
+    "gatsby": "^1.9.102",
+    "gatsby-link": "^1.6.24",
+    "gatsby-plugin-google-analytics": "^1.0.12",
+    "gatsby-plugin-manifest": "^1.0.8",
+    "gatsby-plugin-offline": "^1.0.10",
+    "gatsby-plugin-react-helmet": "^1.0.8",
+    "gatsby-plugin-styled-components": "^2.0.2",
+    "styled-components": "^2.2.3"
   },
   "devDependencies": {
+    "babel-eslint": "^8.0.2",
+    "eslint": "^4.11.0",
+    "eslint-config-airbnb": "^16.1.0",
+    "eslint-plugin-import": "^2.8.0",
+    "eslint-plugin-jsx-a11y": "^6.0.2",
+    "eslint-plugin-react": "^7.4.0",
+    "gh-pages": "^1.0.0",
     "prettier": "^1.8.1"
   }
 }

@@ -1,0 +1,13 @@
+{
+  "root": true,
+  "extends": "airbnb",
+  "parser": "babel-eslint",
+  "globals": {
+    "graphql": false
+  },
+  "rules": {
+    "import/no-extraneous-dependencies": "off",
+    "react/jsx-filename-extension": ["error", { "extensions": [".js"] }],
+    "jsx-a11y/anchor-is-valid": ["error", { "components": [] }]
+  }
+}
