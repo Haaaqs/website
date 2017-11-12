@@ -6,6 +6,7 @@
     "graphql": false
   },
   "rules": {
+    "function-paren-newline": ["error", "consistent"],
     "import/no-extraneous-dependencies": "off",
     "react/jsx-filename-extension": ["error", { "extensions": [".js"] }],
     "jsx-a11y/anchor-is-valid": ["error", { "components": [] }]

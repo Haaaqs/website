@@ -10,9 +10,9 @@ const asBoxShadow = (...shadows) =>
 const values = {
   // TODO: Change temporary colors placeholders
   colors: {
-    primary: 'indigo' || config.colors.theme,
-    secondary: 'ghostwhite',
-    background: 'whitesmoke' || config.colors.background,
+    primary: config.colors.theme,
+    secondary: '#f4faf6',
+    background: config.colors.background,
   },
   measurements: {
     height: {

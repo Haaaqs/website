@@ -2,7 +2,7 @@ const config = require('./src/data/config');
 
 module.exports = {
   // Must not have trailing slash
-  pathPrefix: config.pathPrefix.replace(/\/+$/, ''),
+  pathPrefix: config.pathPrefix.replace(/\/+$/g, ''),
   siteMetadata: {
     title: config.metadata.title,
   },
@@ -25,7 +25,6 @@ module.exports = {
         description: config.metadata.desc,
         start_url: config.pathPrefix,
         display: 'minimal-ui',
-        // TODO: Change theme colors (in config)
         theme_color: config.colors.theme,
         background_color: config.colors.background,
         // TODO: Add favicons

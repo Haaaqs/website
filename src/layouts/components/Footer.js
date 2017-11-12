@@ -18,15 +18,11 @@ const Container = styled.footer`
   }
 `;
 
-const Text = styled.p`
-  margin: 0;
-`;
-
 const Footer = () => (
   <Container>
-    <Text>
+    <p>
       &copy; {metadata.year} {metadata.owner}
-    </Text>
+    </p>
   </Container>
 );
 
