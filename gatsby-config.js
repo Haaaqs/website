@@ -1,8 +1,11 @@
 const config = require('./src/data/config');
 
+// Must not have trailing slash
+const pathPrefix = config.pathPrefix.replace(/\/+$/g, '');
+
 module.exports = {
-  // Must not have trailing slash
-  pathPrefix: config.pathPrefix.replace(/\/+$/g, ''),
+  // Include pathPrefix if it is not empty
+  ...((pathPrefix !== '') && { pathPrefix }),
   siteMetadata: {
     title: config.metadata.title,
   },

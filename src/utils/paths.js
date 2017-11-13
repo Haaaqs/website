@@ -1,17 +1,25 @@
-import { withPrefix } from 'gatsby-link';
+const { pathPrefix } = require('../data/config.json');
 
 const pathAsString = path => `${path}`;
 
-export const isHomePath = path => pathAsString(path) === withPrefix('/');
+const stripPathPrefix = (path) => {
+  const pathString = pathAsString(path);
+  return pathString.startsWith(pathPrefix) ?
+    pathString.slice(pathPrefix.length) :
+    pathString;
+};
+
+export const isHomePath = path =>
+  stripPathPrefix(path) === '/';
 
 export const pathToTitleCase = path =>
-  pathAsString(path)
+  stripPathPrefix(path)
     // Remove all leading and trailing slashes from path
     .replace(/^\/+|\/+$/g, '')
     // Separate path by hyphen
     .split('-')
     // Convert each word in path to Title Case
-    .map(s => `${s.substring(0, 1).toUpperCase()}${s.substring(1)}`)
+    .map(s => `${s.charAt(0).toUpperCase()}${s.slice(1)}`)
     // Join all the separated words together with a space
     .join(' ');
 
