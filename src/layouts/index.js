@@ -2,6 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Helmet from 'react-helmet';
 
+import { isHomePath, pathToTitleCase, getNavPaths } from '../utils/paths';
+
 import Wrapper from './components/Wrapper';
 import Header from './components/Header';
 import Content from './components/Content';
@@ -9,23 +11,26 @@ import Footer from './components/Footer';
 
 import './index.styles';
 
-const isHomePath = path => path === '/';
-
-const getRoutes = edges =>
-  edges
-    // Get the node path from each edge
-    .map(edge => edge.node.path)
-    // Filter out root route and routes related to 404 from the node path
-    .filter(path => !(isHomePath(path) || path.includes('404')));
+const title = (page, site) => {
+  const separator = (page === '') ? '' : ' | ';
+  return `${page}${separator}${site}`;
+};
 
 const TemplateWrapper = ({ children, location, data }) => (
   <Wrapper>
-    <Helmet title={data.site.siteMetadata.title} />
+    <Helmet
+      title={title(
+        pathToTitleCase(location.pathname),
+        data.site.siteMetadata.title,
+      )}
+    />
     <Header
-      routes={getRoutes(data.allSitePage.edges)}
+      routes={getNavPaths(data.allSitePage.edges)}
       transparent={isHomePath(location.pathname)}
     />
-    <Content>{children()}</Content>
+    <Content title={pathToTitleCase(location.pathname)}>
+      {children()}
+    </Content>
     <Footer />
   </Wrapper>
 );

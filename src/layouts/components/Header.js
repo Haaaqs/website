@@ -3,18 +3,9 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import Link from 'gatsby-link';
 
-import { measurements, colors, shadows } from '../../data/values.styles';
+import { pathToTitleCase } from '../../utils/paths';
 
-const routeToLabel = route =>
-  `${route}`
-    // Remove all leading and trailing slashes from path
-    .replace(/^\/+|\/+$/g, '')
-    // Separate path by hyphen
-    .split('-')
-    // Convert each word in path to Title Case
-    .map(s => `${s.substring(0, 1).toUpperCase()}${s.substring(1)}`)
-    // Join all the separated words together with a space
-    .join(' ');
+import { measurements, colors, shadows } from '../../data/values.styles';
 
 const HeaderContainer = styled.header`
   position: fixed;
@@ -38,6 +29,7 @@ const HeaderContainer = styled.header`
 const LogoLink = styled(Link)`
   margin: 0;
   height: 100%;
+  opacity: 1;
   /* Temporary styles for text placeholder */
   font-family: serif;
   font-size: 5em;
@@ -53,12 +45,13 @@ const NavigationContainer = styled.nav`
 
   a {
     height: 100%;
-    padding: 0 1em;
+    padding: 0 ${measurements.padding.container};
     text-transform: uppercase;
     line-height: ${measurements.height.header};
 
     &.active {
       opacity: 1;
+      font-weight: bold;
       background: ${colors.primary};
       color: ${colors.secondary};
     }
@@ -69,7 +62,7 @@ const Navigation = ({ routes }) => (
   <NavigationContainer>
     {routes.map(route => (
       <Link key={`${route}`} to={route} activeClassName="active">
-        {routeToLabel(route)}
+        {pathToTitleCase(route)}
       </Link>
     ))}
   </NavigationContainer>

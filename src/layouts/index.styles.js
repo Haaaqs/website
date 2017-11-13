@@ -1,6 +1,6 @@
 import { injectGlobal } from 'styled-components';
 
-import { colors, measurements } from '../data/values.styles';
+import { measurements, colors, opacities } from '../data/values.styles';
 
 const index = injectGlobal`
   ::selection {
@@ -42,7 +42,7 @@ const index = injectGlobal`
     text-decoration: none;
     color: inherit;
     /* TODO: This is only a temporary change to distinguish between regular text and anchors */
-    opacity: 0.87;
+    opacity: ${opacities.primary};
   }
 `;
 

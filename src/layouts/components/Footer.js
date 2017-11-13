@@ -5,7 +5,7 @@ import { measurements, colors } from '../../data/values.styles';
 
 const { metadata } = require('../../data/config.json');
 
-const Container = styled.footer`
+const FooterContainer = styled.footer`
   width: 100%;
   margin: 0;
   padding: ${measurements.padding.container};
@@ -19,11 +19,11 @@ const Container = styled.footer`
 `;
 
 const Footer = () => (
-  <Container>
+  <FooterContainer>
     <p>
       &copy; {metadata.year} {metadata.owner}
     </p>
-  </Container>
+  </FooterContainer>
 );
 
 export default Footer;

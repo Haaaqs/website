@@ -8,12 +8,6 @@ const asBoxShadow = (...shadows) =>
   `;
 
 const values = {
-  // TODO: Change temporary colors placeholders
-  colors: {
-    primary: config.colors.theme,
-    secondary: '#f4faf6',
-    background: config.colors.background,
-  },
   measurements: {
     height: {
       header: '6em',
@@ -21,6 +15,16 @@ const values = {
     padding: {
       container: '1.5em',
     },
+  },
+  // TODO: Change temporary colors placeholders
+  colors: {
+    primary: config.colors.theme,
+    secondary: '#f4faf6',
+    background: config.colors.background,
+  },
+  opacities: {
+    primary: 0.87,
+    secondary: 0.54,
   },
   shadows: {
     text: {},
