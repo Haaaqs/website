@@ -3,6 +3,7 @@ import Link from 'gatsby-link';
 import styled, { css } from 'styled-components';
 
 import { measurements, colors, opacities } from '../data/values.styles';
+import splashBg from '../images/splash-bg.jpg';
 
 const imageBackgroundStyle = css`
   background-color: transparent;
@@ -11,7 +12,7 @@ const imageBackgroundStyle = css`
       rgba(0, 0, 0, ${opacities.secondary}),
       rgba(0, 0, 0, ${opacities.secondary})
     ),
-    url('https://source.unsplash.com/random');
+    url(${splashBg});
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;

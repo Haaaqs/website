@@ -13,14 +13,6 @@ module.exports = {
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-styled-components',
     {
-      resolve: 'gatsby-plugin-google-analytics',
-      options: {
-        // TODO: Set Google Analytics tracking ID (in config)
-        trackingId: config.googleAnalyticsId,
-        anonymize: true,
-      },
-    },
-    {
       resolve: 'gatsby-plugin-manifest',
       options: {
         name: config.metadata.title,

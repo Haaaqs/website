@@ -1,37 +1,41 @@
 {
-  "pathPrefix": "/envyclient",
-  "metadata": {
-    "title": "Envy Client",
-    "label": "Envy",
-    "desc": "Envy Client website",
-    "owner": "iHaq",
-    "year": 2017
-  },
-  "colors": {
-    "theme": "#21aa2f",
-    "background": "#fafafa"
-  },
-  "googleAnalyticsId": "",
-  "socialMedia": [
-    {
-      "type": "Twitter",
-      "url": "https://twitter.com/verbleantileak"
+    "pathPrefix": "/envyclient",
+    "metadata": {
+        "title": "Envy Client",
+        "label": "Envy",
+        "desc": "Envy Client website",
+        "owner": "iHaq",
+        "year": 2017
     },
-    {
-      "type": "Discord",
-      "url": "https://discordapp.com/invite/pdYsurr"
+    "colors": {
+        "theme": "#21aa2f",
+        "background": "#fafafa"
     },
-    {
-      "type": "YouTube",
-      "url": "https://www.youtube.com/ihaq"
-    },
-    {
-      "type": "GitHub",
-      "url": "https://github.com/HaqGamer"
-    },
-    {
-      "type": "Email",
-      "url": "mailto:ihaq@envyclient.com"
-    }
-  ]
+    "socialMedia": [
+        {
+            "id": "twitter",
+            "title": "Twitter",
+            "link": "https://twitter.com/verbleantileak"
+        },
+        {
+            "id": "discord",
+            "title": "Discord",
+            "link": "https://discordapp.com/invite/pdYsurr"
+        },
+        {
+            "id": "youtube",
+            "title": "YouTube",
+            "link": "https://www.youtube.com/ihaq"
+        },
+        {
+            "id": "github",
+            "title": "GitHub",
+            "link": "https://github.com/HaqGamer"
+        },
+        {
+            "id": "email",
+            "title": "Email",
+            "link": "mailto:ihaq@envyclient.com"
+        }
+    ]
 }

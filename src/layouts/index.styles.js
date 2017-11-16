@@ -49,6 +49,8 @@ const index = injectGlobal`
   a {
     text-decoration: none;
     color: inherit;
+    /* For SVG anchors */
+    fill: currentColor;
     /* TODO: This is only a temporary change to distinguish between regular text and anchors */
     opacity: ${opacities.primary};
   }
