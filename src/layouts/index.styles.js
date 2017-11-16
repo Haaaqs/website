@@ -1,12 +1,20 @@
-import { injectGlobal } from 'styled-components';
+import { css, injectGlobal } from 'styled-components';
 
 import { measurements, colors, opacities } from '../data/values.styles';
 
+const selectionStyle = css`
+  background: ${colors.primary};
+  color: ${colors.secondary};
+  text-shadow: none;
+`;
+
 const index = injectGlobal`
+  ::-moz-selection {
+    ${selectionStyle}
+  }
+
   ::selection {
-    background: ${colors.primary};
-    color: ${colors.secondary};
-    text-shadow: none;
+    ${selectionStyle}
   }
 
   /*

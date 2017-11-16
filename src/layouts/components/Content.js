@@ -13,10 +13,16 @@ const ContentContainer = styled.main`
   flex: 1 0 auto;
   width: 100%;
   margin: 0;
-  margin-top: ${measurements.height.header};
-  padding: ${measurements.padding.container};
-  background: ${colors.background};
+  /* Account for fixed header height */
+  padding-top: ${measurements.height.header};
   ${shadows.box[16]};
+  background: ${props => (
+    props.transparent ? 'transparent' : colors.background
+  )};
+
+  & > div {
+    padding: ${measurements.padding.container};
+  }
 `;
 
 const Title = styled.h2`
@@ -42,10 +48,12 @@ const Title = styled.h2`
   }
 `;
 
+const isHome = title => title === '';
+
 const Content = ({ children, title }) => (
-  <ContentContainer>
+  <ContentContainer transparent={isHome(title)}>
     {/* Include title as header if given */}
-    {title !== '' && (
+    {!isHome(title) && (
       <Title>
         &mdash; {title} &mdash;
         <hr />

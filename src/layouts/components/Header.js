@@ -19,11 +19,11 @@ const HeaderContainer = styled.header`
   padding: 0 ${measurements.padding.container};
   height: ${measurements.height.header};
   background: ${props =>
-    (props.transparent ? 'transparent' : colors.secondary)};
+    (props.home ? 'transparent' : colors.secondary)};
   color: ${props =>
-    (props.transparent ? colors.secondary : colors.primary)};
+    (props.home ? colors.secondary : colors.primary)};
   ${props =>
-    (props.transparent ? 'box-shadow: none;' : shadows.box[4])};
+    (props.home ? 'box-shadow: none;' : shadows.box[4])};
 `;
 
 const LogoLink = styled(Link)`
@@ -72,9 +72,10 @@ Navigation.propTypes = {
   routes: PropTypes.arrayOf(PropTypes.string).isRequired,
 };
 
-const Header = ({ routes, transparent }) => (
-  <HeaderContainer transparent={transparent}>
-    <LogoLink to="/">
+const Header = ({ routes, home }) => (
+  <HeaderContainer home={home}>
+    {/* Hide logo on home page */}
+    <LogoLink to="/" style={{ visibility: home ? 'hidden' : '' }}>
       {/* TODO: Change temporary placeholder text for logo graphic */}
       E
     </LogoLink>
@@ -84,12 +85,12 @@ const Header = ({ routes, transparent }) => (
 
 Header.propTypes = {
   routes: PropTypes.arrayOf(PropTypes.string),
-  transparent: PropTypes.bool,
+  home: PropTypes.bool,
 };
 
 Header.defaultProps = {
   routes: [],
-  transparent: false,
+  home: false,
 };
 
 export default Header;

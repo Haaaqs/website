@@ -26,7 +26,7 @@ const TemplateWrapper = ({ children, location, data }) => (
     />
     <Header
       routes={getNavPaths(data.allSitePage.edges)}
-      transparent={isHomePath(location.pathname)}
+      home={isHomePath(location.pathname)}
     />
     <Content title={pathToTitleCase(location.pathname)}>
       {children()}
