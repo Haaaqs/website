@@ -1,8 +1,11 @@
 import React from 'react';
 import styled from 'styled-components';
 
+import Divider from '../../components/Divider';
+
+import { hexToRgb } from '../../utils/colors';
+
 import { measurements, colors } from '../../data/values.styles';
-import icons from '../../images/icons.svg';
 
 const { metadata, socialMedia } = require('../../data/config.json');
 
@@ -13,43 +16,45 @@ const FooterContainer = styled.footer`
   text-align: center;
   background: transparent;
   color: ${colors.secondary};
-`;
 
-const CopyrightLabel = styled.p`
-  font-size: 1em;
-  margin: 0;
-`;
+  p {
+    font-size: 1em;
+    margin: 0;
+  }
 
-const IconsContainer = styled.div`
-  margin-top: 1em;
+  hr {
+    width: 50%;
+    margin: 1em auto;
+  }
 `;
 
 const Icon = styled.svg`
   fill: currentColor;
   stroke: none;
-  width: 1.5em;
+  height: ${measurements.height.icon};
   margin: 0 0.5em;
 `;
 
-const getSocialMediaLinks = () => (
-  <IconsContainer>
+const socialMediaIcons = () => (
+  <div>
     {socialMedia.map(social => (
       <Icon viewBox="0 0 24 24" key={social.id}>
         <a href={social.link}>
-          {/* On localhost: Unsafe attempt to load URL. Domains, protocols and ports must match. */}
-          <use href={`${icons}#${social.id}`} />
+          <title>{social.title}</title>
+          <path d={social.icon} />
         </a>
       </Icon>
     ))}
-  </IconsContainer>
+  </div>
 );
 
 const Footer = () => (
   <FooterContainer>
-    <CopyrightLabel>
+    <p>
       &copy; {metadata.year} {metadata.owner}
-    </CopyrightLabel>
-    {getSocialMediaLinks()}
+    </p>
+    <Divider color={hexToRgb(colors.secondary)} />
+    {socialMediaIcons()}
   </FooterContainer>
 );
 

@@ -30,9 +30,9 @@ const LogoLink = styled(Link)`
   margin: 0;
   height: 100%;
   opacity: 1;
-  /* Temporary styles for text placeholder */
+  /* TODO: Remove styles for temporary text placeholder when logo is used */
   font-family: serif;
-  font-size: 5em;
+  font-size: ${measurements.height.header};
   font-weight: bold;
   padding: 0 0.125em;
 `;

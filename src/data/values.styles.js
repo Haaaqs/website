@@ -2,6 +2,8 @@ import { css } from 'styled-components';
 
 const config = require('./config.json');
 
+const pxToEm = px => `${px / 16}em`;
+
 const asBoxShadowStyle = (...shadows) =>
   css`
     box-shadow: ${shadows.join(', ')};
@@ -10,13 +12,14 @@ const asBoxShadowStyle = (...shadows) =>
 const values = {
   measurements: {
     height: {
-      header: '6em',
+      header: pxToEm(72),
+      divider: '1px',
+      icon: pxToEm(24),
     },
     padding: {
-      container: '1.5em',
+      container: pxToEm(24),
     },
   },
-  // TODO: Change temporary colors placeholders
   colors: {
     primary: config.colors.theme,
     secondary: '#f4faf6',

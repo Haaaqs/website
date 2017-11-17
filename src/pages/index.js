@@ -24,7 +24,12 @@ const IndexContainer = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: calc(100vh - ${measurements.height.header});
+  /* Subtract header and top/bottom container padding heights from viewport */
+  height: calc(
+    100vh -
+    ${measurements.height.header} -
+    (${measurements.padding.container} * 2)
+  );
   background: transparent;
   color: ${colors.secondary};
   &::before {
@@ -34,7 +39,7 @@ const IndexContainer = styled.div`
     left: 0;
     display: block;
     width: 100%;
-    height: 100vh;
+    height: 100%;
     z-index: -1;
     ${imageBackgroundStyle};
   }
