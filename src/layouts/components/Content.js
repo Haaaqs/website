@@ -6,12 +6,7 @@ import Divider from '../../components/Divider';
 
 import { hexToRgb } from '../../utils/colors';
 
-import {
-  measurements,
-  colors,
-  opacities,
-  shadows,
-} from '../../data/values.styles';
+import { measurements, colors, opacities, shadows } from '../../data/values.styles';
 
 const ContentContainer = styled.main`
   flex: 1 0 auto;
@@ -19,22 +14,21 @@ const ContentContainer = styled.main`
   margin: 0;
   padding: ${measurements.padding.container};
   /* Account for fixed header height */
-  padding-top: calc(
-    ${measurements.height.header} + ${measurements.padding.container}
-  );
+  padding-top: calc(${measurements.height.header} + ${measurements.padding.container});
   ${shadows.box[16]};
-  background: ${props => (
-    props.transparent ? 'transparent' : colors.background
-  )};
+  background: ${props => (props.transparent ? 'transparent' : colors.background)};
 `;
 
 const TitleContainer = styled.div`
+  text-align: center;
+  margin-bottom: ${measurements.padding.container};
+
   h2 {
     margin: 0.5em 0;
     font-size: 2em;
     font-weight: bold;
-    text-align: center;
     text-transform: uppercase;
+    letter-spacing: 0.25em;
     color: ${colors.primary};
     opacity: ${opacities.primary};
   }

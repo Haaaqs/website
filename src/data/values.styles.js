@@ -1,12 +1,20 @@
 import { css } from 'styled-components';
 
+import { joinAsString } from '../utils/strings';
+import { getFontFamilies } from '../utils/fonts';
+
 const config = require('./config.json');
 
 const pxToEm = px => `${px / 16}em`;
 
 const asBoxShadowStyle = (...shadows) =>
   css`
-    box-shadow: ${shadows.join(', ')};
+    box-shadow: ${joinAsString(shadows)};
+  `;
+
+const asFontFamilyStyle = (...fontStack) =>
+  css`
+    font-family: ${joinAsString(fontStack)};
   `;
 
 const values = {
@@ -28,6 +36,9 @@ const values = {
   opacities: {
     primary: 0.87,
     secondary: 0.54,
+  },
+  font: {
+    stack: asFontFamilyStyle(getFontFamilies(), 'sans-serif'),
   },
   shadows: {
     text: {},

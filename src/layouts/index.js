@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Helmet from 'react-helmet';
 
+import { getFontImport } from '../utils/fonts';
 import { isHomePath, pathToTitleCase, getNavPaths } from '../utils/paths';
 
 import Wrapper from './components/Wrapper';
@@ -12,25 +13,20 @@ import Footer from './components/Footer';
 import './index.styles';
 
 const title = (page, site) => {
-  const separator = (page === '') ? '' : ' | ';
+  const separator = page === '' ? '' : ' | ';
   return `${page}${separator}${site}`;
 };
+
+const fontImport = getFontImport();
 
 const TemplateWrapper = ({ children, location, data }) => (
   <Wrapper>
     <Helmet
-      title={title(
-        pathToTitleCase(location.pathname),
-        data.site.siteMetadata.title,
-      )}
+      title={title(pathToTitleCase(location.pathname), data.site.siteMetadata.title)}
+      link={fontImport === null ? [] : [fontImport]}
     />
-    <Header
-      routes={getNavPaths(data.allSitePage.edges)}
-      home={isHomePath(location.pathname)}
-    />
-    <Content title={pathToTitleCase(location.pathname)}>
-      {children()}
-    </Content>
+    <Header routes={getNavPaths(data.allSitePage.edges)} home={isHomePath(location.pathname)} />
+    <Content title={pathToTitleCase(location.pathname)}>{children()}</Content>
     <Footer />
   </Wrapper>
 );

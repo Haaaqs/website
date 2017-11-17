@@ -1,11 +1,46 @@
 import React from 'react';
-import Link from 'gatsby-link';
+import PropTypes from 'prop-types';
+import styled from 'styled-components';
+
+import { measurements } from '../data/values.styles';
+
+const SponsorBannerContainer = styled.div`
+  text-align: center;
+
+  a {
+    display: inline-block;
+    /* opacity: 1; */
+
+    img {
+      margin: ${measurements.padding.container};
+      /* Account for padding around content container and margin around image */
+      max-width: calc(100vw - (${measurements.padding.container} * 4));
+      max-height: calc(100vh - (${measurements.padding.container} * 4));
+    }
+  }
+`;
+
+const SponsorBanner = ({ name, link, bannerImg }) => (
+  <SponsorBannerContainer>
+    <a href={link} title={name}>
+      <img src={bannerImg} alt={name} />
+    </a>
+  </SponsorBannerContainer>
+);
+
+SponsorBanner.propTypes = {
+  name: PropTypes.string.isRequired,
+  link: PropTypes.string.isRequired,
+  bannerImg: PropTypes.string.isRequired,
+};
 
 const SponsorsPage = () => (
   <div>
-    <h1>Hi from the sponsors page</h1>
-    <p>Welcome to page sponsors</p>
-    <Link to="/">Go back to the homepage</Link>
+    <SponsorBanner
+      link="https://superalts.com/"
+      bannerImg="https://multimc.info/assets/img/SuperAlts.gif"
+      name="SuperAlts"
+    />
   </div>
 );
 

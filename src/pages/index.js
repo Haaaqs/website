@@ -25,11 +25,7 @@ const IndexContainer = styled.div`
   justify-content: center;
   align-items: center;
   /* Subtract header and top/bottom container padding heights from viewport */
-  height: calc(
-    100vh -
-    ${measurements.height.header} -
-    (${measurements.padding.container} * 2)
-  );
+  height: calc(100vh - (${measurements.height.header} + (${measurements.padding.container} * 2)));
   background: transparent;
   color: ${colors.secondary};
   &::before {

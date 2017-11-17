@@ -1,6 +1,6 @@
 import { css, injectGlobal } from 'styled-components';
 
-import { measurements, colors, opacities } from '../data/values.styles';
+import { measurements, colors, opacities, font } from '../data/values.styles';
 
 const selectionStyle = css`
   background: ${colors.primary};
@@ -42,7 +42,7 @@ const index = injectGlobal`
     height: 100%;
     margin: 0;
     padding: 0;
-    font-family: sans-serif;
+    ${font.stack};
     scroll-behavior: smooth;
   }
 
@@ -52,8 +52,12 @@ const index = injectGlobal`
     /* For SVG anchors */
     fill: inherit;
     stroke: inherit;
+
     /* TODO: This is only a temporary change to distinguish between regular text and anchors */
     opacity: ${opacities.primary};
+    &:hover {
+      opacity: 1;
+    }
   }
 `;
 

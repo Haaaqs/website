@@ -42,6 +42,7 @@ const NavigationContainer = styled.nav`
   justify-content: center;
   align-items: center;
   height: 100%;
+  overflow-x: auto;
 
   a {
     height: 100%;

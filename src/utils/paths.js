@@ -1,3 +1,5 @@
+import { strip } from './strings';
+
 const { pathPrefix } = require('../data/config.json');
 
 const pathAsString = path => `${path}`;
@@ -13,9 +15,8 @@ export const isHomePath = path =>
   stripPathPrefix(path) === '/';
 
 export const pathToTitleCase = path =>
-  stripPathPrefix(path)
-    // Remove all leading and trailing slashes from path
-    .replace(/^\/+|\/+$/g, '')
+  // Remove all leading and trailing slashes from path
+  strip(stripPathPrefix(path), '/')
     // Separate path by hyphen
     .split('-')
     // Convert each word in path to Title Case
