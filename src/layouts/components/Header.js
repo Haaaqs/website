@@ -19,6 +19,7 @@ const HeaderContainer = styled.header`
   padding: 0 ${measurements.padding.container};
   height: ${measurements.height.header};
   overflow: hidden;
+  z-index: 1;
   background: ${props => (props.home ? 'transparent' : colors.secondary)};
   color: ${props => (props.home ? colors.secondary : colors.primary)};
   ${props => (props.home ? 'box-shadow: none;' : shadows.box[4])};

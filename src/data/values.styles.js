@@ -20,6 +20,9 @@ const asFontFamilyStyle = (...fontStack) =>
 const values = {
   measurements: {
     unit: pxToEm(1),
+    width: {
+      player: pxToEm(560),
+    },
     height: {
       header: pxToEm(72),
       icon: pxToEm(24),
@@ -28,7 +31,7 @@ const values = {
       container: pxToEm(24),
     },
     border: {
-      card: pxToEm(2),
+      card: pxToEm(4),
     },
   },
   colors: {

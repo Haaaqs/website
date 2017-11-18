@@ -1,13 +1,6 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-import styled from 'styled-components';
 
-import { measurements } from '../data/values.styles';
-
-const VideoEmbedContainer = styled.iframe`
-  max-width: calc(100vw - (${measurements.padding.container} * 2));
-  max-height: calc(100vh - (${measurements.padding.container} * 2));
-`;
+import YouTubeVideo from '../components/YouTubeVideo';
 
 class YouTubeVideoContainer extends Component {
   static fetchVideoFeed = () => {
@@ -46,11 +39,7 @@ class YouTubeVideoContainer extends Component {
     const videosInfo = YouTubeVideoContainer.getVideoInfoFromFeed(videosDom);
     console.log(videosInfo);
     // TODO: Temporary video placeholder
-    return {
-      title: 'Cheating on Hypixel w/ Envy #1337',
-      thumbnail: 'https://i1.ytimg.com/vi/TslbwDpTU_8/hqdefault.jpg',
-      content: 'https://www.youtube.com/embed/TslbwDpTU_8',
-    };
+    return videosInfo[0];
   };
 
   state = { loading: true };
@@ -67,65 +56,8 @@ class YouTubeVideoContainer extends Component {
   render = () => <YouTubeVideo {...this.state} />;
 }
 
-const YouTubeVideo = ({ loading, video }) => {
-  const renderLoading = () => <div>Loading...</div>;
-
-  const renderError = () => <div>Video could not be loaded</div>;
-
-  const renderVideo = () => {
-    const { title, thumbnail, content } = video;
-    return (
-      <div>
-        <img src={thumbnail} alt={title} />
-        <VideoEmbedContainer
-          title={title}
-          width="560"
-          height="315"
-          src={content}
-          frameBorder="0"
-          allowFullScreen
-        />
-      </div>
-    );
-  };
-
-  if (loading) {
-    return renderLoading();
-  } else if (video) {
-    return renderVideo();
-  }
-  return renderError();
-};
-
-YouTubeVideo.propTypes = {
-  loading: PropTypes.bool.isRequired,
-  video: PropTypes.shape({
-    title: PropTypes.string.isRequired,
-    thumbnail: PropTypes.string.isRequired,
-    content: PropTypes.string.isRequired,
-  }),
-};
-
-YouTubeVideo.defaultProps = {
-  video: {
-    title: '',
-    thumbnail: '',
-    content: '',
-  },
-};
-
 const VideoPage = () => (
   <YouTubeVideoContainer />
-  // <div>
-  //   <VideoEmbed
-  //     title="Cheating on Hypixel w/ Envy #1337"
-  //     width="560"
-  //     height="315"
-  //     src="https://www.youtube.com/embed/TslbwDpTU_8"
-  //     frameBorder="0"
-  //     allowFullScreen
-  //   />
-  // </div>
 );
 
 export default VideoPage;
