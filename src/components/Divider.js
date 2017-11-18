@@ -9,17 +9,17 @@ const getColor = ({ r, g, b }, opacity) =>
 const Divider = styled.hr`
   margin: 0;
   border: none;
-  height: ${measurements.height.divider};
+  height: ${measurements.unit};
   background: linear-gradient(
     to right,
-    ${props => getColor(props.color, 0)},
-    ${props => getColor(props.color, opacities.primary)},
-    ${props => getColor(props.color, 0)}
+    ${props => getColor(props.baseColor, 0)},
+    ${props => getColor(props.baseColor, opacities.primary)},
+    ${props => getColor(props.baseColor, 0)}
   );
 `;
 
 Divider.propTypes = {
-  color: PropTypes.shape({
+  baseColor: PropTypes.shape({
     r: PropTypes.number,
     g: PropTypes.number,
     b: PropTypes.number,
@@ -27,7 +27,7 @@ Divider.propTypes = {
 };
 
 Divider.defaultProps = {
-  color: {
+  baseColor: {
     r: 0,
     g: 0,
     b: 0,

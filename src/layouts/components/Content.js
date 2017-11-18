@@ -42,7 +42,7 @@ const Content = ({ children, title }) => (
     {!isHome(title) && (
       <TitleContainer>
         <h2>&mdash; {title} &mdash;</h2>
-        <Divider color={hexToRgb(colors.primary)} />
+        <Divider baseColor={hexToRgb(colors.primary)} />
       </TitleContainer>
     )}
     {children}

@@ -19,9 +19,9 @@ const asFontFamilyStyle = (...fontStack) =>
 
 const values = {
   measurements: {
+    unit: pxToEm(1),
     height: {
       header: pxToEm(72),
-      divider: '1px',
       icon: pxToEm(24),
     },
     padding: {
@@ -36,6 +36,8 @@ const values = {
   opacities: {
     primary: 0.87,
     secondary: 0.54,
+    hint: 0.38,
+    faint: 0.12,
   },
   font: {
     stack: asFontFamilyStyle(getFontFamilies(), 'sans-serif'),

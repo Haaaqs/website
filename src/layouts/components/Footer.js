@@ -1,11 +1,12 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 import Divider from '../../components/Divider';
 
 import { hexToRgb } from '../../utils/colors';
 
-import { measurements, colors } from '../../data/values.styles';
+import { measurements, colors, opacities } from '../../data/values.styles';
 
 const { metadata, socialMedia } = require('../../data/config.json');
 
@@ -29,16 +30,27 @@ const FooterContainer = styled.footer`
 `;
 
 const Icon = styled.svg`
-  fill: currentColor;
-  stroke: none;
   height: ${measurements.height.icon};
   margin: 0 0.5em;
+
+  &:hover {
+    fill: ${props => props.socialColor || 'currentColor'};
+    filter: drop-shadow(0 0 ${measurements.unit} rgba(0, 0, 0, ${opacities.hint}));
+  }
 `;
+
+Icon.propTypes = {
+  socialColor: PropTypes.string,
+};
+
+Icon.defaultProps = {
+  socialColor: colors.secondary,
+};
 
 const socialMediaIcons = () => (
   <div>
     {socialMedia.map(social => (
-      <Icon viewBox="0 0 24 24" key={social.id}>
+      <Icon viewBox="0 0 24 24" socialColor={social.color} key={social.id}>
         <a href={social.link}>
           <title>{social.title}</title>
           <path d={social.icon} />
@@ -53,7 +65,7 @@ const Footer = () => (
     <p>
       &copy; {metadata.year} {metadata.owner}
     </p>
-    <Divider color={hexToRgb(colors.secondary)} />
+    <Divider baseColor={hexToRgb(colors.secondary)} />
     {socialMediaIcons()}
   </FooterContainer>
 );

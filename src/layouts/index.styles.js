@@ -59,6 +59,12 @@ const index = injectGlobal`
       opacity: 1;
     }
   }
+
+  svg {
+    fill: currentColor;
+    stroke: currentColor;
+    stroke-width: 0;
+  }
 `;
 
 export default index;
