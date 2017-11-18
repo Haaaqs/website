@@ -10,6 +10,7 @@ import { measurements, colors, opacities, shadows } from '../../data/values.styl
 
 const ContentContainer = styled.main`
   flex: 1 0 auto;
+  text-align: center;
   width: 100%;
   margin: 0;
   padding: ${measurements.padding.container};
@@ -20,7 +21,6 @@ const ContentContainer = styled.main`
 `;
 
 const TitleContainer = styled.div`
-  text-align: center;
   margin-bottom: ${measurements.padding.container};
 
   h2 {
@@ -28,7 +28,9 @@ const TitleContainer = styled.div`
     font-size: 2em;
     font-weight: bold;
     text-transform: uppercase;
-    letter-spacing: 0.25em;
+    letter-spacing: ${measurements.unit};
+    white-space: nowrap;
+    overflow-x: auto;
     color: ${colors.primary};
     opacity: ${opacities.primary};
   }

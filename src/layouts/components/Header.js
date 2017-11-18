@@ -28,7 +28,6 @@ const LogoLink = styled(Link)`
   position: relative;
   margin: 0;
   height: 100%;
-  /* opacity: 1; */
   padding-right: ${measurements.padding.container};
   border-right: ${measurements.unit} solid ${colors.primary};
   box-shadow: 0.25em 0 0.25em rgba(0, 0, 0, ${opacities.faint});
@@ -53,7 +52,6 @@ const LogoLink = styled(Link)`
   }
 
   &:hover {
-    opacity: 1;
     color: ${colors.secondary};
 
     &::before {

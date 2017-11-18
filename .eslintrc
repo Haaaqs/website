@@ -1,6 +1,10 @@
 {
   "root": true,
+  "parser": "babel-eslint",
   "extends": "airbnb",
+  "env": {
+    "browser": true
+  },
   "globals": {
     "graphql": false
   },

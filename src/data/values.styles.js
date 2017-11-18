@@ -27,6 +27,9 @@ const values = {
     padding: {
       container: pxToEm(24),
     },
+    border: {
+      card: pxToEm(2),
+    },
   },
   colors: {
     primary: config.colors.theme,

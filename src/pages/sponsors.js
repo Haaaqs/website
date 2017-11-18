@@ -5,14 +5,13 @@ import styled from 'styled-components';
 import { measurements } from '../data/values.styles';
 
 const SponsorBannerContainer = styled.div`
-  text-align: center;
-
   a {
     display: inline-block;
+    margin: ${measurements.padding.container};
     /* opacity: 1; */
 
     img {
-      margin: ${measurements.padding.container};
+      border-radius: ${measurements.border.card};
       /* Account for padding around content container and margin around image */
       max-width: calc(100vw - (${measurements.padding.container} * 4));
       max-height: calc(100vh - (${measurements.padding.container} * 4));
