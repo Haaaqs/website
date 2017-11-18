@@ -10,15 +10,17 @@ const VideoEmbedContainer = styled.iframe`
 `;
 
 class YouTubeVideoContainer extends Component {
-  static fetchVideoFeed = () =>
-    fetch('https://www.youtube.com/feeds/videos.xml?channel_id=UCL2p91rc87TExMrzvxd2CWg');
+  static fetchVideoFeed = () => {
+    const corsProxy = 'https://cors.io/?';
+    const feedUrl = 'https://www.youtube.com/feeds/videos.xml?channel_id=UCL2p91rc87TExMrzvxd2CWg';
+    return fetch(`${corsProxy}${feedUrl}`);
+  }
 
   static parseVideoFeed = async (res) => {
-    const resString = await res.text();
-    const parser = new DOMParser();
-    const videoData = parser.parseFromString(resString, 'application/xml');
+    const videoData = await res.text();
+    const parsedVideoData = (new DOMParser()).parseFromString(videoData, 'application/xml');
     // TODO: Transform into JS object
-    console.log(videoData.documentElement.children);
+    console.log(parsedVideoData.documentElement.children);
     // TODO: Temporary video placeholder
     return {
       title: 'Cheating on Hypixel w/ Envy #1337',
