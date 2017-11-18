@@ -11,20 +11,45 @@ const VideoEmbedContainer = styled.iframe`
 
 class YouTubeVideoContainer extends Component {
   static fetchVideoFeed = () => {
-    const corsProxy = 'https://cors.io/?';
+    // TODO: Using CORS proxy to bypass missing Access-Control-Allow-Origin header on feed
+    const corsProxies = ['https://cors-anywhere.herokuapp.com/', 'https://cors.io/?'];
     const feedUrl = 'https://www.youtube.com/feeds/videos.xml?channel_id=UCL2p91rc87TExMrzvxd2CWg';
-    return fetch(`${corsProxy}${feedUrl}`);
-  }
+    return fetch(`${corsProxies[0]}${feedUrl}`);
+  };
+
+  static flashToEmbed = (url) => {
+    const embedUrl = 'https://www.youtube.com/embed/';
+    const parser = document.createElement('a');
+    parser.href = url;
+    const videoId = parser.pathname.split('/').pop();
+    return `${embedUrl}${videoId}`;
+  };
+
+  static getVideoInfoFromFeed = videoDom =>
+    Array.from(videoDom.getElementsByTagName('entry'))
+      .map(parent => Array.from(parent.children).find(child => child.tagName === 'media:group'))
+      .map(parent =>
+        Array.from(parent.children)
+          // .filter(child => ['title', 'thumbnail', 'content'].includes(child.localName))
+          .reduce((entry, media) => ({ ...entry, [media.localName]: media }), {}))
+      .map(({ title, content, thumbnail }) => ({
+        title: title.textContent,
+        thumbnail: thumbnail.attributes.url.textContent,
+        content: YouTubeVideoContainer.flashToEmbed(content.attributes.url.textContent),
+      }));
 
   static parseVideoFeed = async (res) => {
     const videoData = await res.text();
-    const parsedVideoData = (new DOMParser()).parseFromString(videoData, 'application/xml');
-    // TODO: Transform into JS object
-    console.log(parsedVideoData.documentElement.children);
+    const parser = new DOMParser();
+    const parsedVideoData = parser.parseFromString(videoData, 'application/xml');
+    const videosDom = parsedVideoData.documentElement;
+    const videosInfo = YouTubeVideoContainer.getVideoInfoFromFeed(videosDom);
+    console.log(videosInfo);
     // TODO: Temporary video placeholder
     return {
       title: 'Cheating on Hypixel w/ Envy #1337',
-      src: 'https://www.youtube.com/embed/TslbwDpTU_8',
+      thumbnail: 'https://i1.ytimg.com/vi/TslbwDpTU_8/hqdefault.jpg',
+      content: 'https://www.youtube.com/embed/TslbwDpTU_8',
     };
   };
 
@@ -48,16 +73,19 @@ const YouTubeVideo = ({ loading, video }) => {
   const renderError = () => <div>Video could not be loaded</div>;
 
   const renderVideo = () => {
-    const { title, src } = video;
+    const { title, thumbnail, content } = video;
     return (
-      <VideoEmbedContainer
-        title={title}
-        width="560"
-        height="315"
-        src={src}
-        frameBorder="0"
-        allowFullScreen
-      />
+      <div>
+        <img src={thumbnail} alt={title} />
+        <VideoEmbedContainer
+          title={title}
+          width="560"
+          height="315"
+          src={content}
+          frameBorder="0"
+          allowFullScreen
+        />
+      </div>
     );
   };
 
@@ -73,14 +101,16 @@ YouTubeVideo.propTypes = {
   loading: PropTypes.bool.isRequired,
   video: PropTypes.shape({
     title: PropTypes.string.isRequired,
-    src: PropTypes.string.isRequired,
+    thumbnail: PropTypes.string.isRequired,
+    content: PropTypes.string.isRequired,
   }),
 };
 
 YouTubeVideo.defaultProps = {
   video: {
     title: '',
-    src: '',
+    thumbnail: '',
+    content: '',
   },
 };
 
