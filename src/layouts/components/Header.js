@@ -33,10 +33,6 @@ const LogoLink = styled(Link)`
   border-right: ${measurements.unit} solid ${colors.primary};
   box-shadow: 0.25em 0 0.25em rgba(0, 0, 0, ${opacities.faint});
 
-  /* TODO: This effect is a proof of concept, disabled for now */
-
-  /* transition: color 0.2s ease;
-
   &::before {
     content: '';
     display: inline-block;
@@ -48,8 +44,6 @@ const LogoLink = styled(Link)`
     left: -${measurements.padding.container};
     z-index: -1;
     transform: translateX(calc(-1 * (100% + ${measurements.padding.container})));
-    transition: transform 0.2s ease;
-    will-change: transform;
   }
 
   &:hover {
@@ -58,7 +52,7 @@ const LogoLink = styled(Link)`
     &::before {
       transform: translateX(0);
     }
-  } */
+  }
 
   svg {
     height: 100%;

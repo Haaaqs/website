@@ -2,19 +2,39 @@ import React, { Component } from 'react';
 
 import YouTubeVideo from '../components/YouTubeVideo';
 
+const { socialMedia, metadata: { label: videoFilter } } = require('../data/config.json');
+
+const getPathnameSegment = (url) => {
+  const parser = document.createElement('a');
+  parser.href = url;
+  const segments = parser.pathname.split('/');
+  return segments.pop();
+};
+
 class YouTubeVideoContainer extends Component {
+  // YouTube video feed helper functions
+
+  static getYouTubeChannelUrl = () => socialMedia.find(social => social.id === 'youtube').link;
+
+  static getYouTubeChannelId = () =>
+    getPathnameSegment(YouTubeVideoContainer.getYouTubeChannelUrl());
+
+  static getYouTubeFeedUrl = () => {
+    const baseFeedUrl = 'https://www.youtube.com/feeds/videos.xml?channel_id=';
+    const channelId = YouTubeVideoContainer.getYouTubeChannelId();
+    return `${baseFeedUrl}${channelId}`;
+  };
+
   static fetchVideoFeed = () => {
     // TODO: Using CORS proxy to bypass missing Access-Control-Allow-Origin header on feed
     const corsProxies = ['https://cors-anywhere.herokuapp.com/', 'https://cors.io/?'];
-    const feedUrl = 'https://www.youtube.com/feeds/videos.xml?channel_id=UCL2p91rc87TExMrzvxd2CWg';
+    const feedUrl = YouTubeVideoContainer.getYouTubeFeedUrl();
     return fetch(`${corsProxies[0]}${feedUrl}`);
   };
 
-  static flashToEmbed = (url) => {
+  static getEmbedUrl = (url) => {
     const embedUrl = 'https://www.youtube.com/embed/';
-    const parser = document.createElement('a');
-    parser.href = url;
-    const videoId = parser.pathname.split('/').pop();
+    const videoId = getPathnameSegment(url);
     return `${embedUrl}${videoId}`;
   };
 
@@ -28,36 +48,49 @@ class YouTubeVideoContainer extends Component {
       .map(({ title, content, thumbnail }) => ({
         title: title.textContent,
         thumbnail: thumbnail.attributes.url.textContent,
-        content: YouTubeVideoContainer.flashToEmbed(content.attributes.url.textContent),
+        content: YouTubeVideoContainer.getEmbedUrl(content.attributes.url.textContent),
       }));
 
   static parseVideoFeed = async (res) => {
     const videoData = await res.text();
-    const parser = new DOMParser();
-    const parsedVideoData = parser.parseFromString(videoData, 'application/xml');
-    const videosDom = parsedVideoData.documentElement;
-    const videosInfo = YouTubeVideoContainer.getVideoInfoFromFeed(videosDom);
-    console.log(videosInfo);
-    // TODO: Temporary video placeholder
-    return videosInfo[0];
+    const parsedVideoFeedData = (new DOMParser()).parseFromString(videoData, 'application/xml');
+    const videoFeedDom = parsedVideoFeedData.documentElement;
+    const videoFeedInfo = YouTubeVideoContainer.getVideoInfoFromFeed(videoFeedDom);
+    return videoFeedInfo;
   };
 
-  state = { loading: true };
+  static filterVideos = async (res) => {
+    const videoFeedInfo = await YouTubeVideoContainer.parseVideoFeed(res);
+    const filteredVideoFeed = videoFeedInfo.filter(video => video.title.includes(videoFilter));
+    return filteredVideoFeed;
+  }
+
+  // YouTube videos container rendering
+
+  state = { loading: true, videos: null, error: null };
 
   componentDidMount = () => {
     YouTubeVideoContainer.fetchVideoFeed()
-      .then(YouTubeVideoContainer.parseVideoFeed)
+      .then(YouTubeVideoContainer.filterVideos)
       .then(
-        video => this.setState({ loading: false, video }),
+        videos => this.setState({ loading: false, videos }),
         error => this.setState({ loading: false, error }),
       );
   };
 
-  render = () => <YouTubeVideo {...this.state} />;
+  render = () => {
+    const { loading, videos, error } = this.state;
+    return (
+      <div>
+        {videos !== null && videos.map((video) => {
+          const videoProps = { loading, error, video };
+          return <YouTubeVideo key={video.title} {...videoProps} />;
+        })}
+      </div>
+    );
+  };
 }
 
-const VideoPage = () => (
-  <YouTubeVideoContainer />
-);
+const VideoPage = () => <YouTubeVideoContainer />;
 
 export default VideoPage;

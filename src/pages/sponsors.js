@@ -4,10 +4,13 @@ import styled from 'styled-components';
 
 import { measurements } from '../data/values.styles';
 
+const { sponsors } = require('../data/config.json');
+
 const SponsorBannerContainer = styled.div`
+  margin: ${measurements.padding.container};
+
   a {
     display: inline-block;
-    margin: ${measurements.padding.container};
     /* opacity: 1; */
 
     img {
@@ -19,10 +22,10 @@ const SponsorBannerContainer = styled.div`
   }
 `;
 
-const SponsorBanner = ({ name, link, bannerImg }) => (
+const SponsorBanner = ({ name, link, imageSrc }) => (
   <SponsorBannerContainer>
     <a href={link} title={name}>
-      <img src={bannerImg} alt={name} />
+      <img src={imageSrc} alt={name} />
     </a>
   </SponsorBannerContainer>
 );
@@ -30,16 +33,14 @@ const SponsorBanner = ({ name, link, bannerImg }) => (
 SponsorBanner.propTypes = {
   name: PropTypes.string.isRequired,
   link: PropTypes.string.isRequired,
-  bannerImg: PropTypes.string.isRequired,
+  imageSrc: PropTypes.string.isRequired,
 };
 
 const SponsorsPage = () => (
   <div>
-    <SponsorBanner
-      link="https://superalts.com/"
-      bannerImg="https://multimc.info/assets/img/SuperAlts.gif"
-      name="SuperAlts"
-    />
+    {sponsors.map(({ name, link, imageSrc }) => (
+      <SponsorBanner key={name} name={name} link={link} imageSrc={imageSrc} />
+    ))}
   </div>
 );
 
