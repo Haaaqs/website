@@ -10,7 +10,7 @@
   },
   "rules": {
     "function-paren-newline": ["error", "consistent"],
-    "object-curly-newline": ["error", "consistent"],
+    "object-curly-newline": ["error", { "consistent": true }],
     "import/no-extraneous-dependencies": "off",
     "react/jsx-filename-extension": ["error", { "extensions": [".js"] }],
     "jsx-a11y/anchor-is-valid": ["error", { "components": [] }]
