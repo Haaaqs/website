@@ -24,7 +24,7 @@
         {
             "id": "undetectable",
             "title": "Undetectable",
-            "desc": "Meant to bypass NCP, WatchDog and G.W.E.N",
+            "desc": "Capable of bypassing NCP, WatchDog and G.W.E.N",
             "icon": "privacy"
         },
         {

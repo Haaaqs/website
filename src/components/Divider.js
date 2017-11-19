@@ -3,6 +3,8 @@ import styled from 'styled-components';
 
 import { measurements, opacities } from '../data/values.styles';
 
+import { hexToRgb } from '../utils/colors';
+
 const getColor = ({ r, g, b }, opacity) =>
   `rgba(${r}, ${g}, ${b}, ${opacity})`;
 
@@ -12,26 +14,19 @@ const Divider = styled.hr`
   height: ${measurements.unit};
   background: linear-gradient(
     to right,
-    ${props => getColor(props.baseColor, 0)},
-    ${props => getColor(props.baseColor, opacities.primary)},
-    ${props => getColor(props.baseColor, 0)}
+    /* Ouch for performance */
+    ${props => getColor(hexToRgb(props.baseColor), 0)},
+    ${props => getColor(hexToRgb(props.baseColor), opacities.primary)},
+    ${props => getColor(hexToRgb(props.baseColor), 0)}
   );
 `;
 
 Divider.propTypes = {
-  baseColor: PropTypes.shape({
-    r: PropTypes.number,
-    g: PropTypes.number,
-    b: PropTypes.number,
-  }),
+  baseColor: PropTypes.string,
 };
 
 Divider.defaultProps = {
-  baseColor: {
-    r: 0,
-    g: 0,
-    b: 0,
-  },
+  baseColor: '#000',
 };
 
 export default Divider;

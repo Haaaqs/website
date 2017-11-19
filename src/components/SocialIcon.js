@@ -30,6 +30,8 @@ const socialIconData = {
 };
 
 const SocialIconContainer = Icon.extend`
+  height: ${measurements.height.icon};
+
   &:hover {
     fill: ${props => props.socialColor || 'currentColor'};
     filter:

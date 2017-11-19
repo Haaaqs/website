@@ -1,37 +1,36 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 import SocialIcon from '../../components/SocialIcon';
 import Divider from '../../components/Divider';
 
-import { measurements, colors } from '../../data/values.styles';
-
-import { hexToRgb } from '../../utils/colors';
+import { measurements, colors, fonts } from '../../data/values.styles';
 
 const { metadata, social } = require('../../data/config.json');
 
-const FooterContainer = styled.footer`
+const FooterWrapper = styled.footer`
   width: 100%;
   margin: 0;
   padding: ${measurements.padding.container};
   text-align: center;
   background: transparent;
   color: ${colors.secondary};
+`;
 
-  p {
-    font-size: 1em;
-    margin: 0;
-  }
+const FooterContainer = styled.div`
+  display: inline-block;
+`;
 
-  hr {
-    width: 50%;
-    margin: 1em auto;
-  }
+const FooterDivider = styled(Divider)`
+  margin: 1em auto;
+`;
+
+const FooterText = styled.p`
+  margin: 0;
+  font-size: ${fonts.sizes[16]};
 `;
 
 const FooterIcon = styled(SocialIcon)`
-  height: ${measurements.height.icon};
   margin: 0 0.5em;
 `;
 
@@ -44,13 +43,13 @@ const socialIcons = () => (
 );
 
 const Footer = () => (
-  <FooterContainer>
-    <p>
-      &copy; {metadata.year} {metadata.owner}
-    </p>
-    <Divider baseColor={hexToRgb(colors.secondary)} />
-    {socialIcons()}
-  </FooterContainer>
+  <FooterWrapper>
+    <FooterContainer>
+      <FooterText>&copy; {metadata.year} {metadata.owner}</FooterText>
+      <FooterDivider baseColor={colors.secondary} />
+      {socialIcons()}
+    </FooterContainer>
+  </FooterWrapper>
 );
 
 export default Footer;

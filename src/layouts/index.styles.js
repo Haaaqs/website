@@ -1,6 +1,6 @@
 import { css, injectGlobal } from 'styled-components';
 
-import { media, measurements, colors, opacities, font } from '../data/values.styles';
+import { measurements, colors, opacities, fonts } from '../data/values.styles';
 
 const selectionStyle = css`
   background: ${colors.primary};
@@ -39,7 +39,7 @@ const index = injectGlobal`
   }
 
   body {
-    ${font.stack}
+    ${fonts.stack}
     height: 100%;
     margin: 0;
     padding: 0;

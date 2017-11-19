@@ -52,8 +52,13 @@ const values = {
     hint: 0.38,
     faint: 0.12,
   },
-  font: {
+  fonts: {
     stack: asFontFamilyStyle(getFontFamilies(), 'sans-serif'),
+    sizes: {
+      16: pxToEm(16),
+      14: pxToEm(14),
+      12: pxToEm(12),
+    },
   },
   shadows: {
     text: {},

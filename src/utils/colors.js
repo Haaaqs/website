@@ -11,7 +11,7 @@ export const rgbToHex = ({ r, g, b }) =>
 
 const asFullHex = (hex) => {
   const shortHexRegex = /^#?([a-f\d])([a-f\d])([a-f\d])$/i;
-  return hex.replace(shortHexRegex, (m, r, g, b) => `${r}${r}${g}${g}${b}${b}`);
+  return hex.replace(shortHexRegex, (_, r, g, b) => `${r}${r}${g}${g}${b}${b}`);
 };
 
 export const hexToRgb = (hex, alpha = 1) => {

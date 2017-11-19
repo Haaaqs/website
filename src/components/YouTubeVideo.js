@@ -2,7 +2,9 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import styled, { css } from 'styled-components';
 
-import { measurements, colors, shadows } from '../data/values.styles';
+import Card from '../components/Card';
+
+import { measurements, fonts } from '../data/values.styles';
 
 const videoContentStyle = css`
   position: absolute;
@@ -20,19 +22,13 @@ const VideoWrapper = styled.div`
   max-width: calc(100vw - (${measurements.padding.container} * 4));
 `;
 
-const VideoContainer = styled.div`
+const VideoContainer = Card.extend`
   position: relative;
+  padding: 0;
   width: 100%;
   /* Maintain 16:9 aspect ratio for height */
   padding-top: ${(9 / 16) * 100}%;
   overflow: hidden;
-  border-radius: ${measurements.border.card};
-  background: ${colors.secondary};
-  ${shadows.box[2]}
-
-  &:hover {
-    ${shadows.box[8]}
-  }
 `;
 
 const InfoContainer = styled.div`
@@ -50,7 +46,7 @@ const InfoText = styled.p`
 
 const ErrorText = styled.p`
   margin: 0;
-  font-size: 0.75em;
+  font-size: ${fonts.sizes[12]};
   font-weight: bold;
 `;
 

@@ -4,8 +4,6 @@ import styled from 'styled-components';
 
 import Divider from '../../components/Divider';
 
-import { hexToRgb } from '../../utils/colors';
-
 import { measurements, colors, opacities, shadows } from '../../data/values.styles';
 
 const ContentContainer = styled.main`
@@ -44,7 +42,7 @@ const Content = ({ children, title }) => (
     {!isHome(title) && (
       <TitleContainer>
         <h2>&mdash; {title} &mdash;</h2>
-        <Divider baseColor={hexToRgb(colors.primary)} />
+        <Divider baseColor={colors.primary} />
       </TitleContainer>
     )}
     {children}
