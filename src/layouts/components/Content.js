@@ -4,7 +4,7 @@ import styled from 'styled-components';
 
 import Divider from '../../components/Divider';
 
-import { measurements, colors, opacities, shadows } from '../../data/values.styles';
+import { measurements, colors, opacities, shadows } from '../../data/values.css';
 
 const ContentContainer = styled.main`
   flex: 1 0 auto;
@@ -25,7 +25,7 @@ const TitleContainer = styled.div`
     margin: 0.5em 0;
     font-size: 2em;
     font-weight: bold;
-    text-transform: uppercase;
+    text-transform: lowercase;
     letter-spacing: ${measurements.unit};
     white-space: nowrap;
     overflow-x: auto;

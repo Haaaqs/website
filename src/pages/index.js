@@ -2,7 +2,7 @@ import React from 'react';
 import Link from 'gatsby-link';
 import styled, { css } from 'styled-components';
 
-import { measurements, colors, opacities } from '../data/values.styles';
+import { measurements, colors, opacities } from '../data/values.css';
 
 import splashBg from '../images/index/splash-bg.jpg';
 

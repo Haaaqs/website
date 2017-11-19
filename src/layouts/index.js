@@ -10,7 +10,7 @@ import Header from './components/Header';
 import Content from './components/Content';
 import Footer from './components/Footer';
 
-import './index.styles';
+import './index.css';
 
 const title = (page, site) => {
   const separator = page === '' ? '' : ' | ';

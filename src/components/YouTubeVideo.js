@@ -4,7 +4,7 @@ import styled, { css } from 'styled-components';
 
 import Card from '../components/Card';
 
-import { measurements, fonts } from '../data/values.styles';
+import { measurements, fonts } from '../data/values.css';
 
 const videoContentStyle = css`
   position: absolute;

@@ -2,18 +2,21 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
-import { measurements } from '../data/values.styles';
+import { measurements } from '../data/values.css';
 
 const { sponsors } = require('../data/config.json');
 
 const SponsorBannerContainer = styled.div`
+  display: block;
   margin: ${measurements.padding.container};
 
   a {
-    display: inline-block;
+    display: block;
     /* opacity: 1; */
 
     img {
+      display: block;
+      margin: 0 auto;
       border-radius: ${measurements.border.card};
       /* Account for padding around content container and margin around image */
       max-width: calc(100vw - (${measurements.padding.container} * 4));

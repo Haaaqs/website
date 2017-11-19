@@ -1,8 +1,26 @@
 import styled from 'styled-components';
 
-import { measurements, colors, shadows } from '../data/values.styles';
+import { measurements, colors, opacities, fonts, shadows } from '../data/values.css';
+
+export const Title = styled.h3`
+  margin: ${measurements.border.card} 0;
+  font-size: ${fonts.sizes[18]};
+  font-weight: bold;
+  /* text-transform: uppercase; */
+  text-shadow: 0 ${measurements.unit} ${colors.primary};
+  opacity: ${opacities.primary};
+`;
+
+export const Info = styled.p`
+  margin: 0;
+  font-size: ${fonts.sizes[14]};
+  font-weight: normal;
+  opacity: ${opacities.secondary};
+`;
 
 const Card = styled.div`
+  position: relative;
+  display: inline-block;
   padding: ${measurements.padding.container};
   border-radius: ${measurements.border.card};
   background: ${colors.secondary};

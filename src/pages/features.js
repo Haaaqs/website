@@ -1,11 +1,11 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import Card from '../components/Card';
+import Card, { Title, Info } from '../components/Card';
 import Divider from '../components/Divider';
 
 import { getIconSvg } from '../data/icons.svg';
-import { measurements, colors, opacities, fonts } from '../data/values.styles';
+import { measurements, colors } from '../data/values.css';
 
 const { features } = require('../data/config.json');
 
@@ -25,29 +25,14 @@ const FeatureContainer = Card.extend`
   }
 `;
 
-const FeatureTitle = styled.h3`
-  margin: 0;
-  margin-top: 0.5em;
-  margin-bottom: 0.5em;
-  text-transform: uppercase;
-  text-shadow: 0 ${measurements.unit} ${colors.primary};
-  opacity: ${opacities.primary};
-`;
-
-const FeatureDesc = styled.p`
-  margin: 0;
-  font-size: ${fonts.sizes[14]};
-  opacity: ${opacities.secondary};
-`;
-
 const FeaturesPage = () => (
   <FeaturesWrapper>
     {features.map(({ id, title, desc, icon }) => (
       <FeatureContainer key={id}>
         {getIconSvg(icon)}
         <Divider baseColor={colors.primary} />
-        <FeatureTitle>{title}</FeatureTitle>
-        <FeatureDesc>{desc}</FeatureDesc>
+        <Title>{title}</Title>
+        <Info>{desc}</Info>
       </FeatureContainer>
     ))}
   </FeaturesWrapper>

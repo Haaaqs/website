@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import SocialIcon from '../../components/SocialIcon';
 import Divider from '../../components/Divider';
 
-import { measurements, colors, fonts } from '../../data/values.styles';
+import { measurements, colors, fonts } from '../../data/values.css';
 
 const { metadata, social } = require('../../data/config.json');
 

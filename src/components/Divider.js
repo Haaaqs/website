@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
-import { measurements, opacities } from '../data/values.styles';
+import { measurements, opacities } from '../data/values.css';
 
 import { hexToRgb } from '../utils/colors';
 

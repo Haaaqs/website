@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import Icon from './Icon';
 
 import { getIconPath } from '../data/icons.svg';
-import { measurements, opacities } from '../data/values.styles';
+import { measurements, opacities } from '../data/values.css';
 
 const socialIconData = {
   youtube: {

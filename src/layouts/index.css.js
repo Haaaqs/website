@@ -1,6 +1,6 @@
 import { css, injectGlobal } from 'styled-components';
 
-import { measurements, colors, opacities, fonts } from '../data/values.styles';
+import { measurements, colors, opacities, fonts } from '../data/values.css';
 
 const selectionStyle = css`
   background: ${colors.primary};

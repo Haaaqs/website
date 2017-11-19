@@ -7,7 +7,7 @@ import { Logo } from '../../data/icons.svg';
 
 import { pathToTitleCase } from '../../utils/paths';
 
-import { measurements, colors, shadows, opacities } from '../../data/values.styles';
+import { measurements, colors, shadows, opacities } from '../../data/values.css';
 
 const HeaderContainer = styled.header`
   position: fixed;

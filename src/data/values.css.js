@@ -39,6 +39,7 @@ const values = {
     },
     border: {
       card: pxToEm(4),
+      circle: '50%',
     },
   },
   colors: {
@@ -58,6 +59,7 @@ const values = {
       16: pxToEm(16),
       14: pxToEm(14),
       12: pxToEm(12),
+      18: pxToEm(18),
     },
   },
   shadows: {

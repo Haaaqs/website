@@ -1,11 +1,89 @@
 import React from 'react';
-import Link from 'gatsby-link';
+import styled from 'styled-components';
+
+import Card, { Title, Info } from '../components/Card';
+
+import SocialIcon from '../components/SocialIcon';
+
+import creditImages from '../data/credits.jpg';
+import { measurements, colors } from '../data/values.css';
+
+const { credits } = require('../data/config.json');
+
+const outlineStyleProperty = `solid ${measurements.unit} ${colors.primary}`;
+
+const CreditContainer = Card.extend`
+  padding: 0;
+  margin: ${measurements.padding.container};
+  border: ${outlineStyleProperty};
+  border-radius: ${measurements.border.circle};
+  overflow: hidden;
+
+  /* TODO: Try and figure out a way to keep this class-free */
+  &:hover {
+    & .credit__avatar {
+      /* Arbitrary values */
+      filter: blur(0.5em);
+      transform: scale(1.125);
+    }
+
+    & .credit__details {
+      transform: translateY(0);
+    }
+  }
+`;
+
+const CreditAvatar = styled.img`
+  display: block;
+  max-width: calc(100vw - (${measurements.padding.container} * 4));
+`;
+
+const CreditDetails = styled.div`
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  text-align: center;
+  width: 100%;
+  height: 50%;
+  background: ${colors.secondary};
+  transform: translateY(100%);
+
+  &::before {
+    content: '';
+    position: absolute;
+    display: block;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    background: inherit;
+    border-top: ${outlineStyleProperty};
+    left: 0;
+    top: 0;
+    transform: skewY(-10deg);
+    transform-origin: left top;
+  }
+`;
+
+const CreditIcon = styled(SocialIcon)`
+  margin: 0.5em;
+`;
 
 const CreditsPage = () => (
   <div>
-    <h1>Hi from the credits page</h1>
-    <p>Welcome to page credits</p>
-    <Link to="/">Go back to the homepage</Link>
+    {credits.map(({ id, name, desc, social }) => (
+      <CreditContainer key={id}>
+        <CreditAvatar className="credit__avatar" src={creditImages[id]} alt={name} />
+        <CreditDetails className="credit__details">
+          <Title>{name}</Title>
+          <Info>{desc}</Info>
+          <div>
+            {social.map(props => (
+              <CreditIcon key={props.id} {...props} />
+            ))}
+          </div>
+        </CreditDetails>
+      </CreditContainer>
+    ))}
   </div>
 );
 
