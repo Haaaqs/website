@@ -4,6 +4,8 @@ import styled from 'styled-components';
 
 import Divider from '../../components/Divider';
 
+import Icon, { getIconPath } from '../../data/icons.svg';
+
 import { hexToRgb } from '../../utils/colors';
 
 import { measurements, colors, opacities } from '../../data/values.styles';
@@ -29,7 +31,7 @@ const FooterContainer = styled.footer`
   }
 `;
 
-const Icon = styled.svg`
+const FooterIcon = styled(Icon)`
   height: ${measurements.height.icon};
   margin: 0 0.5em;
 
@@ -39,23 +41,23 @@ const Icon = styled.svg`
   }
 `;
 
-Icon.propTypes = {
+FooterIcon.propTypes = {
   socialColor: PropTypes.string,
 };
 
-Icon.defaultProps = {
+FooterIcon.defaultProps = {
   socialColor: colors.secondary,
 };
 
 const socialMediaIcons = () => (
   <div>
     {socialMedia.map(social => (
-      <Icon viewBox="0 0 24 24" socialColor={social.color} key={social.id}>
+      <FooterIcon key={social.id} socialColor={social.color}>
         <a href={social.link}>
           <title>{social.title}</title>
-          <path d={social.icon} />
+          {getIconPath(social.id)}
         </a>
-      </Icon>
+      </FooterIcon>
     ))}
   </div>
 );

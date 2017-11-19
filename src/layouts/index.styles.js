@@ -54,21 +54,11 @@ const index = injectGlobal`
   a {
     text-decoration: none;
     color: inherit;
-    /* For SVG anchors */
-    fill: inherit;
-    stroke: inherit;
-
     /* TODO: This is only a temporary change to distinguish between regular text and anchors */
     opacity: ${opacities.primary};
     &:hover {
       opacity: 1;
     }
-  }
-
-  svg {
-    fill: currentColor;
-    stroke: currentColor;
-    stroke-width: 0;
   }
 `;
 

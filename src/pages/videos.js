@@ -45,6 +45,7 @@ class YouTubeVideoContainer extends Component {
         Array.from(parent.children)
           // .filter(child => ['title', 'thumbnail', 'content'].includes(child.localName))
           .reduce((entry, media) => ({ ...entry, [media.localName]: media }), {}))
+      // TODO: Store video ID in video object
       .map(({ title, content, thumbnail }) => ({
         title: title.textContent,
         thumbnail: thumbnail.attributes.url.textContent,
