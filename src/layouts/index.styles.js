@@ -1,6 +1,6 @@
 import { css, injectGlobal } from 'styled-components';
 
-import { measurements, colors, opacities, font } from '../data/values.styles';
+import { media, measurements, colors, opacities, font } from '../data/values.styles';
 
 const selectionStyle = css`
   background: ${colors.primary};
@@ -44,6 +44,11 @@ const index = injectGlobal`
     padding: 0;
     ${font.stack};
     scroll-behavior: smooth;
+
+    font-size: 1em;
+    ${media.mobile`
+      font-size: 0.75em;
+    `};
   }
 
   a {

@@ -25,6 +25,13 @@ const TemplateWrapper = ({ children, location, data }) => (
       title={title(pathToTitleCase(location.pathname), data.site.siteMetadata.title)}
       link={fontImport === null ? [] : [fontImport]}
     />
+    {/* TODO: Routes navigation should be in the order of:
+        Features
+        Sponsors
+        Credits
+        Videos
+        Download
+    */}
     <Header routes={getNavPaths(data.allSitePage.edges)} home={isHomePath(location.pathname)} />
     <Content title={pathToTitleCase(location.pathname)}>{children()}</Content>
     <Footer />

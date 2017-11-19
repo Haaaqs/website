@@ -18,6 +18,13 @@ const asFontFamilyStyle = (...fontStack) =>
   `;
 
 const values = {
+  media: {
+    mobile: (...args) => css`
+      @media (max-width: 420px) {
+        ${css(...args)}
+      }
+    `,
+  },
   measurements: {
     unit: pxToEm(1),
     width: {
