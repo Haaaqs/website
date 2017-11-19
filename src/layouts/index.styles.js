@@ -39,16 +39,11 @@ const index = injectGlobal`
   }
 
   body {
+    ${font.stack}
     height: 100%;
     margin: 0;
     padding: 0;
-    ${font.stack};
     scroll-behavior: smooth;
-
-    font-size: 1em;
-    ${media.mobile`
-      font-size: 0.75em;
-    `};
   }
 
   a {

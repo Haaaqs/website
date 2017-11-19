@@ -32,5 +32,3 @@ export const getIconSvg = iconId => (
 );
 
 export const Logo = getIconSvg('logo');
-
-export default Icon;

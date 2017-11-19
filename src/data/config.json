@@ -22,16 +22,19 @@
     ],
     "features": [
         {
+            "id": "undetectable",
             "title": "Undetectable",
             "desc": "Meant to bypass NCP, WatchDog and G.W.E.N",
             "icon": "privacy"
         },
         {
+            "id": "noob_friendly",
             "title": "Noob Friendly",
             "desc": "Sports a simple and clean design",
             "icon": "group"
         },
         {
+            "id": "opti_fine",
             "title": "OptiFine",
             "desc": "Do I even have to explain this?",
             "icon": "laptop"
@@ -39,12 +42,69 @@
     ],
     "sponsors": [
         {
+            "id": "super_alts",
             "name": "SuperAlts",
             "link": "https://superalts.com/",
             "imageSrc": "https://multimc.info/assets/img/SuperAlts.gif"
         }
     ],
-    "socialMedia": [
+    "credits": [
+        {
+            "id": "hero_code",
+            "name": "HeroCode",
+            "desc": "ClickGUI and Setting(Value) Manager",
+            "social": [
+                {
+                    "id": "youtube",
+                    "link": "https://www.youtube.com/channel/UCJum3PIbnYvIfIEu05GL_yQ"
+                },
+                {
+                    "id": "twitter",
+                    "link": "https://twitter.com/intent/user?user_id=899267504354324480"
+                }
+            ]
+        },
+        {
+            "id": "roy",
+            "name": "ROYGBIV",
+            "desc": "Design ideas",
+            "social": [
+                {
+                    "id": "youtube",
+                    "link": "https://www.youtube.com/channel/UCbmnT-JpuReyTDLzuoiLiTA"
+                }
+            ]
+        },
+        {
+            "id": "og",
+            "name": "OGArtworks",
+            "desc": "Help with some modules",
+            "social": [
+                {
+                    "id": "youtube",
+                    "link": "https://www.youtube.com/channel/UCnefepAz8P7zz6bzCnhx-4Q"
+                }
+            ]
+        },
+        {
+            "id": "louise",
+            "name": "Louise",
+            "desc": "Graphics",
+            "social": [
+                {
+                    "id": "youtube",
+                    "link": "https://www.youtube.com/channel/UCd3oLEaa15W6ARtahlue-VQ"
+                }
+            ]
+        }
+    ],
+    "social": [
+        {
+            "id": "youtube",
+            "title": "YouTube",
+            "link": "https://www.youtube.com/channel/UCL2p91rc87TExMrzvxd2CWg",
+            "color": "#ff0000"
+        },
         {
             "id": "twitter",
             "title": "Twitter",
@@ -56,12 +116,6 @@
             "title": "Discord",
             "link": "https://discordapp.com/invite/pdYsurr",
             "color": "#7289da"
-        },
-        {
-            "id": "youtube",
-            "title": "YouTube",
-            "link": "https://www.youtube.com/channel/UCL2p91rc87TExMrzvxd2CWg",
-            "color": "#ff0000"
         },
         {
             "id": "github",

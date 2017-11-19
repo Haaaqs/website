@@ -3,9 +3,10 @@ import { strip } from './strings';
 const { fonts } = require('../data/config.json');
 
 export const getFontFamilies = () =>
-  fonts.reduce((families, font) => families.concat(`'${font.family}'`), []);
+  fonts.reduce((families, { family }) => families.concat(`'${family}'`), []);
 
-const getFontFamilyImport = font => `${font.family.replace(' ', '+')}:${font.variants.join(',')}`;
+const getFontFamilyImport = ({ family, variants }) =>
+  `${family.replace(' ', '+')}:${variants.join(',')}`;
 
 const buildFontImport = () => {
   const rel = 'stylesheet';

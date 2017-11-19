@@ -16,7 +16,7 @@ const ContentContainer = styled.main`
   padding: ${measurements.padding.container};
   /* Account for fixed header height */
   padding-top: calc(${measurements.height.header} + ${measurements.padding.container});
-  ${shadows.box[16]};
+  ${shadows.box[16]}
   background: ${props => (props.transparent ? 'transparent' : colors.background)};
 `;
 

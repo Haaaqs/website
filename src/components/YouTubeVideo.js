@@ -28,15 +28,15 @@ const VideoContainer = styled.div`
   overflow: hidden;
   border-radius: ${measurements.border.card};
   background: ${colors.secondary};
-  ${shadows.box[2]};
+  ${shadows.box[2]}
 
   &:hover {
-    ${shadows.box[8]};
+    ${shadows.box[8]}
   }
 `;
 
 const InfoContainer = styled.div`
-  ${videoContentStyle};
+  ${videoContentStyle}
   display: inline-flex;
   flex-direction: column;
   justify-content: center;
@@ -57,7 +57,7 @@ const ErrorText = styled.p`
 const VideoThumbnail = styled.input.attrs({
   type: 'image',
 })`
-  ${videoContentStyle};
+  ${videoContentStyle}
   /* Center thumbnail vertically to crop black bars from 4:3 aspect ratio */
   top: 50%;
   transform: translateY(-50%);
@@ -67,7 +67,7 @@ const VideoEmbed = styled.iframe.attrs({
   frameBorder: 0,
   allowFullScreen: true,
 })`
-  ${videoContentStyle};
+  ${videoContentStyle}
   height: 100%;
 `;
 
@@ -128,7 +128,6 @@ class YouTubeVideo extends Component {
     if (loading) {
       return YouTubeVideo.renderLoading();
     } else if (video) {
-      // return this.state.play ? this.renderVideo() : this.renderThumbnail();
       return (
         <div>
           {/* TODO: Temporary loading placeholder for when video and thumbnail are loading */}

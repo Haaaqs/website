@@ -20,7 +20,7 @@ const asFontFamilyStyle = (...fontStack) =>
 const values = {
   media: {
     mobile: (...args) => css`
-      @media (max-width: 420px) {
+      @media (max-width: 576px) {
         ${css(...args)}
       }
     `,

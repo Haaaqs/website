@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 import YouTubeVideo from '../components/YouTubeVideo';
 
-const { socialMedia, metadata: { label: videoFilter } } = require('../data/config.json');
+const { social, metadata: { label: videoFilter } } = require('../data/config.json');
 
 const getPathnameSegment = (url) => {
   const parser = document.createElement('a');
@@ -14,7 +14,7 @@ const getPathnameSegment = (url) => {
 class YouTubeVideoContainer extends Component {
   // YouTube video feed helper functions
 
-  static getYouTubeChannelUrl = () => socialMedia.find(social => social.id === 'youtube').link;
+  static getYouTubeChannelUrl = () => social.find(({ id }) => id === 'youtube').link;
 
   static getYouTubeChannelId = () =>
     getPathnameSegment(YouTubeVideoContainer.getYouTubeChannelUrl());
@@ -40,10 +40,10 @@ class YouTubeVideoContainer extends Component {
 
   static getVideoInfoFromFeed = videoDom =>
     Array.from(videoDom.getElementsByTagName('entry'))
-      .map(parent => Array.from(parent.children).find(child => child.tagName === 'media:group'))
-      .map(parent =>
-        Array.from(parent.children)
-          // .filter(child => ['title', 'thumbnail', 'content'].includes(child.localName))
+      .map(({ children }) => Array.from(children).find(({ tagName }) => tagName === 'media:group'))
+      .map(({ children }) =>
+        Array.from(children)
+          // .filter(({ localName }) => ['title', 'thumbnail', 'content'].includes(localName))
           .reduce((entry, media) => ({ ...entry, [media.localName]: media }), {}))
       // TODO: Store video ID in video object
       .map(({ title, content, thumbnail }) => ({
@@ -62,7 +62,7 @@ class YouTubeVideoContainer extends Component {
 
   static filterVideos = async (res) => {
     const videoFeedInfo = await YouTubeVideoContainer.parseVideoFeed(res);
-    const filteredVideoFeed = videoFeedInfo.filter(video => video.title.includes(videoFilter));
+    const filteredVideoFeed = videoFeedInfo.filter(({ title }) => title.includes(videoFilter));
     return filteredVideoFeed;
   }
 

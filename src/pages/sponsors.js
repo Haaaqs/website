@@ -38,8 +38,8 @@ SponsorBanner.propTypes = {
 
 const SponsorsPage = () => (
   <div>
-    {sponsors.map(({ name, link, imageSrc }) => (
-      <SponsorBanner key={name} name={name} link={link} imageSrc={imageSrc} />
+    {sponsors.map(({ id, ...bannerProps }) => (
+      <SponsorBanner key={id} {...bannerProps} />
     ))}
   </div>
 );

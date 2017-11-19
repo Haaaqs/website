@@ -3,7 +3,8 @@ import Link from 'gatsby-link';
 import styled, { css } from 'styled-components';
 
 import { measurements, colors, opacities } from '../data/values.styles';
-import splashBg from '../images/splash-bg.jpg';
+
+import splashBg from '../images/index/splash-bg.jpg';
 
 const imageBackgroundStyle = css`
   background-color: transparent;
@@ -28,6 +29,7 @@ const IndexContainer = styled.div`
   height: calc(100vh - (${measurements.height.header} + (${measurements.padding.container} * 2)));
   background: transparent;
   color: ${colors.secondary};
+
   &::before {
     content: '';
     position: absolute;
@@ -35,9 +37,9 @@ const IndexContainer = styled.div`
     left: 0;
     display: block;
     width: 100%;
-    height: 100%;
+    height: 100vh;
     z-index: -1;
-    ${imageBackgroundStyle};
+    ${imageBackgroundStyle}
   }
 `;
 
