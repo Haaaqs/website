@@ -74,12 +74,12 @@ const VideoEmbed = styled.iframe.attrs({
 class YouTubeVideo extends Component {
   static propTypes = {
     loading: PropTypes.bool.isRequired,
+    error: PropTypes.instanceOf(Error),
     video: PropTypes.shape({
       title: PropTypes.string.isRequired,
       thumbnail: PropTypes.string.isRequired,
       content: PropTypes.string.isRequired,
     }),
-    error: PropTypes.instanceOf(Error),
   };
 
   static defaultProps = {

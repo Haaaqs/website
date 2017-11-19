@@ -2,14 +2,12 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
-import Icon from '../../components/Icon';
+import SocialIcon from '../../components/SocialIcon';
 import Divider from '../../components/Divider';
 
-import { getIconPath } from '../../data/icons.svg';
+import { measurements, colors } from '../../data/values.styles';
 
 import { hexToRgb } from '../../utils/colors';
-
-import { measurements, colors, opacities } from '../../data/values.styles';
 
 const { metadata, social } = require('../../data/config.json');
 
@@ -32,35 +30,15 @@ const FooterContainer = styled.footer`
   }
 `;
 
-const FooterIcon = styled(Icon)`
+const FooterIcon = styled(SocialIcon)`
   height: ${measurements.height.icon};
   margin: 0 0.5em;
-
-  &:hover {
-    fill: ${props => props.socialColor || 'currentColor'};
-    filter:
-      drop-shadow(0 0 ${measurements.unit}
-      rgba(0, 0, 0, ${opacities.hint}));
-  }
 `;
-
-FooterIcon.propTypes = {
-  socialColor: PropTypes.string,
-};
-
-FooterIcon.defaultProps = {
-  socialColor: colors.secondary,
-};
 
 const socialIcons = () => (
   <div>
-    {social.map(({ id, title, link, color }) => (
-      <FooterIcon key={id} socialColor={color}>
-        <a href={link}>
-          <title>{title}</title>
-          {getIconPath(id)}
-        </a>
-      </FooterIcon>
+    {social.map(({ id, link }) => (
+      <FooterIcon key={id} id={id} link={link} />
     ))}
   </div>
 );

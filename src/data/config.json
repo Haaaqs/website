@@ -101,33 +101,23 @@
     "social": [
         {
             "id": "youtube",
-            "title": "YouTube",
-            "link": "https://www.youtube.com/channel/UCL2p91rc87TExMrzvxd2CWg",
-            "color": "#ff0000"
+            "link": "https://www.youtube.com/channel/UCL2p91rc87TExMrzvxd2CWg"
         },
         {
             "id": "twitter",
-            "title": "Twitter",
-            "link": "https://twitter.com/intent/user?user_id=2786788057",
-            "color": "#1da1f2"
+            "link": "https://twitter.com/intent/user?user_id=2786788057"
         },
         {
             "id": "discord",
-            "title": "Discord",
-            "link": "https://discordapp.com/invite/pdYsurr",
-            "color": "#7289da"
+            "link": "https://discordapp.com/invite/pdYsurr"
         },
         {
             "id": "github",
-            "title": "GitHub",
-            "link": "https://github.com/HaqGamer",
-            "color": "#24292e"
+            "link": "https://github.com/HaqGamer"
         },
         {
             "id": "email",
-            "title": "Email",
-            "link": "mailto:ihaq@envyclient.com",
-            "color": "#dd4b39"
+            "link": "mailto:ihaq@envyclient.com"
         }
     ]
 }

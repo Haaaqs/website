@@ -23,12 +23,8 @@ const iconPathData = {
     'M20 8l-8 5-8-5V6l8 5 8-5m0-2H4c-1.11 0-2 .89-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.11-.9-2-2-2z',
 };
 
-export const getIconPath = iconId => <path d={iconPathData[iconId]} />;
+export const getIconPath = id => <path d={iconPathData[id]} />;
 
-export const getIconSvg = iconId => (
-  <Icon>
-    {getIconPath(iconId)}
-  </Icon>
-);
+export const getIconSvg = id => <Icon>{getIconPath(id)}</Icon>;
 
 export const Logo = getIconSvg('logo');
