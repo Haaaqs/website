@@ -4,7 +4,7 @@ import styled from 'styled-components';
 
 import Divider from '../../components/Divider';
 
-import { measurements, colors, opacities, shadows } from '../../data/values.css';
+import { measurements, colors, opacities, fonts, shadows } from '../../data/values.css';
 
 const ContentContainer = styled.main`
   flex: 1 0 auto;
@@ -20,17 +20,23 @@ const ContentContainer = styled.main`
 
 const TitleContainer = styled.div`
   margin-bottom: ${measurements.padding.container};
+`;
 
-  h2 {
-    margin: 0.5em 0;
-    font-size: 2em;
-    font-weight: bold;
-    text-transform: lowercase;
-    letter-spacing: ${measurements.unit};
-    white-space: nowrap;
-    overflow-x: auto;
-    color: ${colors.primary};
-    opacity: ${opacities.primary};
+const Title = styled.h1`
+  margin: 0.5em 0;
+  font-size: ${fonts.sizes[32]};
+  font-weight: bold;
+  text-transform: lowercase;
+  letter-spacing: ${measurements.unit};
+  white-space: nowrap;
+  overflow-x: auto;
+  color: ${colors.primary};
+  opacity: ${opacities.primary};
+
+  &::before,
+  &::after {
+    /* space - em dash - space */
+    content: '\\0020\\2014\\0020';
   }
 `;
 
@@ -41,7 +47,7 @@ const Content = ({ children, title }) => (
     {/* Include title as header if given */}
     {!isHome(title) && (
       <TitleContainer>
-        <h2>&mdash; {title} &mdash;</h2>
+        <Title>{title}</Title>
         <Divider baseColor={colors.primary} />
       </TitleContainer>
     )}

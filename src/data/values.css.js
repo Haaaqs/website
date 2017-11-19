@@ -56,10 +56,12 @@ const values = {
   fonts: {
     stack: asFontFamilyStyle(getFontFamilies(), 'sans-serif'),
     sizes: {
-      16: pxToEm(16),
-      14: pxToEm(14),
       12: pxToEm(12),
+      14: pxToEm(14),
+      16: pxToEm(16),
       18: pxToEm(18),
+      24: pxToEm(24),
+      32: pxToEm(32),
     },
   },
   shadows: {
