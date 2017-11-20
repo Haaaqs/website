@@ -18,6 +18,7 @@ export const isHomePath = path =>
 
 export const pathToTitleCase = path =>
   strip(stripPathPrefix(path), '/')
+    .split('.')[0]
     .split('-')
     .map(toTitleCase)
     .join(' ');
