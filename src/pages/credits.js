@@ -10,12 +10,9 @@ import { measurements, colors } from '../data/values.css';
 
 const { credits } = require('../data/config.json');
 
-const outlineStyleProperty = `solid ${measurements.unit} ${colors.primary}`;
-
 const CreditContainer = Card.extend`
   padding: 0;
   margin: ${measurements.padding.container};
-  border: ${outlineStyleProperty};
   border-radius: ${measurements.border.circle};
   overflow: hidden;
 
@@ -56,7 +53,7 @@ const CreditDetails = styled.div`
     height: 100%;
     z-index: -1;
     background: inherit;
-    border-top: ${outlineStyleProperty};
+    border-top: solid ${measurements.unit} ${colors.primary};
     left: 0;
     top: 0;
     transform: skewY(-10deg);

@@ -40,10 +40,10 @@ const SocialIconContainer = Icon.extend`
   }
 `;
 
-const SocialIcon = ({ id, link, ...iconProps }) => {
+const SocialIcon = ({ id, link, ...props }) => {
   const { title, color } = socialIconData[id];
   return (
-    <SocialIconContainer socialColor={color} {...iconProps}>
+    <SocialIconContainer socialColor={color} {...props}>
       <a href={link}>
         <title>{title}</title>
         {getIconPath(id)}

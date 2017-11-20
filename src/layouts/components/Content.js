@@ -40,7 +40,6 @@ const Title = styled.h1`
   font-size: ${fonts.sizes[32]};
   font-weight: bold;
   text-transform: lowercase;
-  letter-spacing: ${measurements.unit};
   white-space: nowrap;
   overflow-x: auto;
   color: ${colors.primary};

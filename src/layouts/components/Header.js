@@ -11,8 +11,8 @@ import { measurements, colors, shadows, opacities } from '../../data/values.css'
 
 const HeaderContainer = styled.header`
   position: fixed;
-  top: 0;
   left: 0;
+  top: 0;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -37,22 +37,23 @@ const LogoLink = styled(Link)`
 
   &::before {
     content: '';
-    display: inline-block;
-    background: ${colors.primary};
+    position: absolute;
+    left: -${measurements.padding.container};
+    top: 0;
+    display: block;
     width: calc(100% + ${measurements.padding.container});
     height: 100%;
-    position: absolute;
-    top: 0;
-    left: -${measurements.padding.container};
     z-index: -1;
-    transform: translateX(calc(-1 * (100% + ${measurements.padding.container})));
+    background: ${colors.primary};
+    transform-origin: left top;
+    transform: scaleX(0);
   }
 
   &:hover {
     color: ${colors.secondary};
 
     &::before {
-      transform: translateX(0);
+      transform: scaleX(1);
     }
   }
 
@@ -72,6 +73,7 @@ const NavigationContainer = styled.nav`
   /* box-shadow: inset 1em 0 1em -1em black, inset -1em 0 1em -1em black; */
 
   a {
+    position: relative;
     display: inline-flex;
     justify-content: center;
     align-items: center;
@@ -81,11 +83,34 @@ const NavigationContainer = styled.nav`
     white-space: nowrap;
     text-overflow: ellipsis;
 
-    &.active {
+    &::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      display: block;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      background: ${colors.primary};
+      transform-origin: left bottom;
+      transform: scaleY(0);
+    }
+
+    &:hover {
+      &::before {
+        transform: scaleY(0.05);
+      }
+    }
+
+    &.active[aria-current] {
       opacity: 1;
       font-weight: bold;
-      background: ${colors.primary};
       color: ${colors.secondary};
+
+      &::before {
+        transform: scaleY(1);
+      }
     }
   }
 `;

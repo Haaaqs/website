@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { measurements, colors, opacities, fonts, shadows } from '../data/values.css';
 
 export const Title = styled.h3`
-  margin: ${measurements.border.card} 0;
+  margin: ${4 / 16}em 0;
   font-size: ${fonts.sizes[18]};
   font-weight: bold;
   /* text-transform: uppercase; */

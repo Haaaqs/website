@@ -8,8 +8,8 @@ import { measurements, fonts } from '../data/values.css';
 
 const videoContentStyle = css`
   position: absolute;
-  top: 0;
   left: 0;
+  top: 0;
   width: 100%;
   min-height: 100%;
 `;
@@ -96,7 +96,9 @@ class YouTubeVideo extends Component {
   renderError = () => (
     <InfoContainer>
       <InfoText>Video could not be loaded</InfoText>
-      <ErrorText>{`${this.props.error}`}</ErrorText>
+      ${this.props.error !== null &&
+        <ErrorText>{`${this.props.error}`}</ErrorText>
+      }
     </InfoContainer>
   );
 

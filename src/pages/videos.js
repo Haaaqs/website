@@ -7,12 +7,28 @@ import fetchYouTubeVideos from '../data/youtube-feed';
 class YouTubeVideoContainer extends Component {
   state = { loading: true, videos: null, error: null };
 
-  componentDidMount = () => {
-    fetchYouTubeVideos().then(
-      videos => this.setState({ loading: false, videos }),
-      error => this.setState({ loading: false, error }),
-    );
+  componentDidMount = async () => {
+    this.mounted = true;
+
+    try {
+      const videos = await fetchYouTubeVideos();
+      this.setStateIfMounted({ loading: false, videos });
+    } catch (error) {
+      this.setStateIfMounted({ loading: false, error });
+    }
   };
+
+  componentWillUnmount = () => {
+    this.mounted = false;
+  };
+
+  setStateIfMounted = (state) => {
+    if (this.mounted) {
+      this.setState(state);
+    }
+  };
+
+  mounted = false;
 
   render = () => {
     const { loading, videos, error } = this.state;
@@ -20,8 +36,8 @@ class YouTubeVideoContainer extends Component {
       <div>
         {videos !== null &&
           videos.map(({ id, title, thumbnail, content }) => {
-            const videoProps = { loading, error, video: { title, thumbnail, content } };
-            return <YouTubeVideo key={id} {...videoProps} />;
+            const props = { loading, error, video: { title, thumbnail, content } };
+            return <YouTubeVideo key={id} {...props} />;
           })}
       </div>
     );

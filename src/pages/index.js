@@ -30,8 +30,8 @@ const IndexContainer = styled.div`
   &::before {
     content: '';
     position: absolute;
-    top: 0;
     left: 0;
+    top: 0;
     display: block;
     width: 100%;
     height: 100vh;
@@ -58,22 +58,36 @@ const IndexPage = () => (
           margin: 0,
           display: 'block',
           fontSize: fonts.sizes[32],
+          fontWeight: 'normal',
           opacity: opacities.primary,
           textTransform: 'uppercase',
         }}
       >
-        {title}
+        {title.split(' ').map((word, index) => (
+            word === label ? (
+              // eslint-disable-next-line react/no-array-index-key
+              <strong key={index} style={{ fontWeight: 'bold' }}>
+                {word}
+              </strong>
+            ) : (
+              // eslint-disable-next-line react/no-array-index-key
+              <span key={index} style={{ opacity: opacities.secondary }}>
+                {word}
+              </span>
+            )
+        ))}
       </h1>
       <p
         style={{
           margin: 0,
           display: 'block',
           fontSize: fonts.sizes[16],
-          opacity: opacities.secondary,
+          opacity: opacities.primary,
           textTransform: 'lowercase',
         }}
       >
-        Developed by <strong style={{ textTransform: 'none' }}>{owner}</strong>
+        <span style={{ opacity: opacities.secondary }}>Developed by</span>{' '}
+        <strong style={{ textTransform: 'none' }}>{owner}</strong>
       </p>
       <a
         href="http://ad.envyclient.com/1"
