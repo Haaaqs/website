@@ -2,7 +2,7 @@ import React from 'react';
 import Link from 'gatsby-link';
 import styled from 'styled-components';
 
-import { Logo } from '../data/icons.svg';
+import { logo } from '../data/icons.svg';
 import { colors } from '../data/values.css';
 
 const FourOhFourContainer = styled.div`
@@ -49,7 +49,7 @@ const NotFoundPage = () => (
         You&#39;ve lost your path. Click on the logo to get back on track.
       </FourOhFourDesc>
     </FourOhFourDetails>
-    <LogoHomeLink to="/">{Logo}</LogoHomeLink>
+    <LogoHomeLink to="/">{logo}</LogoHomeLink>
   </FourOhFourContainer>
 );
 

@@ -1,19 +1,16 @@
 import React from 'react';
-import Link from 'gatsby-link';
 import styled, { css } from 'styled-components';
 
-import { measurements, colors, opacities } from '../data/values.css';
+import { logo } from '../data/icons.svg';
+import { measurements, colors, opacities, fonts } from '../data/values.css';
 
 import splashBg from '../images/index/splash-bg.jpg';
 
+const { metadata: { title, label, owner } } = require('../data/config.json');
+
 const imageBackgroundStyle = css`
   background-color: transparent;
-  background-image:
-    linear-gradient(
-      rgba(0, 0, 0, ${opacities.secondary}),
-      rgba(0, 0, 0, ${opacities.secondary})
-    ),
-    url(${splashBg});
+  background-image: url(${splashBg});
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -40,15 +37,52 @@ const IndexContainer = styled.div`
     height: 100vh;
     z-index: -1;
     ${imageBackgroundStyle}
+    filter: brightness(${opacities.secondary});
+    opacity: ${opacities.primary};
+  }
+
+  &:hover {
+    &::before {
+      opacity: 1;
+    }
   }
 `;
 
 const IndexPage = () => (
   <IndexContainer>
-    <h1>Hi people</h1>
-    <p>Welcome to your new Gatsby site.</p>
-    <p>Now go build something great.</p>
-    <Link to="/page-2/">Go to page 2</Link>
+    {logo}
+    {/* TODO: Prototype, not final */}
+    <div>
+      <h1
+        style={{
+          margin: 0,
+          display: 'block',
+          fontSize: fonts.sizes[32],
+          opacity: opacities.primary,
+          textTransform: 'uppercase',
+        }}
+      >
+        {title}
+      </h1>
+      <p
+        style={{
+          margin: 0,
+          display: 'block',
+          fontSize: fonts.sizes[16],
+          opacity: opacities.secondary,
+          textTransform: 'lowercase',
+        }}
+      >
+        Developed by <strong style={{ textTransform: 'none' }}>{owner}</strong>
+      </p>
+      <a
+        href="http://ad.envyclient.com/1"
+        role="button"
+        style={{ margin: measurements.padding.container, display: 'block' }}
+      >
+        Download <strong>{label}</strong>
+      </a>
+    </div>
   </IndexContainer>
 );
 

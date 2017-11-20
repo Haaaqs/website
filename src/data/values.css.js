@@ -39,6 +39,7 @@ const values = {
     },
     border: {
       card: pxToEm(4),
+      button: pxToEm(2),
       circle: '50%',
     },
   },

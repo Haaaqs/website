@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import Link from 'gatsby-link';
 import styled from 'styled-components';
 
-import { Logo } from '../../data/icons.svg';
+import { logo } from '../../data/icons.svg';
 
 import { pathToTitleCase } from '../../utils/paths';
 
@@ -109,7 +109,7 @@ const Header = ({ routes, home }) => (
     {/* Hide logo on home page */}
     <LogoLink to="/" style={{ visibility: home ? 'hidden' : '' }}>
       {/* TODO: Change temporary placeholder logo for logo graphic */}
-      {Logo}
+      {logo}
     </LogoLink>
     <Navigation routes={routes} />
   </HeaderContainer>

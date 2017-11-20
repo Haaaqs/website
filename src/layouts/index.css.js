@@ -1,6 +1,6 @@
 import { css, injectGlobal } from 'styled-components';
 
-import { measurements, colors, opacities, fonts } from '../data/values.css';
+import { measurements, colors, opacities, fonts, shadows } from '../data/values.css';
 
 const selectionStyle = css`
   background: ${colors.primary};
@@ -51,8 +51,23 @@ const index = injectGlobal`
     color: inherit;
     /* TODO: This is only a temporary change to distinguish between regular text and anchors */
     opacity: ${opacities.primary};
+
     &:hover {
       opacity: 1;
+    }
+
+    &[role='button'] {
+      /* opacity: 1; */
+      text-transform: lowercase;
+      color: ${colors.secondary};
+      background: ${colors.primary};
+      padding: 1em 1.5em;
+      border-radius: ${measurements.border.button};
+      ${shadows.box[2]}
+
+      &:hover {
+        ${shadows.box[8]};
+      }
     }
   }
 `;
