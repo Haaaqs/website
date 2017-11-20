@@ -6,16 +6,6 @@ import Divider from '../../components/Divider';
 
 import { measurements, colors, opacities, fonts, shadows } from '../../data/values.css';
 
-/* TODO: Temporary animation to give content a lift animation when refreshed */
-const contentLiftAnimation = keyframes`
-  from {
-    transform: translateY(${measurements.height.header});
-  }
-  to {
-    transform: translateY(0);
-  }
-`;
-
 const ContentContainer = styled.main`
   flex: 1 0 auto;
   text-align: center;
@@ -26,9 +16,6 @@ const ContentContainer = styled.main`
   padding-top: calc(${measurements.height.header} + ${measurements.padding.container});
   ${shadows.box[16]}
   background: ${props => (props.transparent ? 'transparent' : colors.background)};
-
-  /* TODO: Application for temporary animation to give content a lift animation when refreshed */
-  /* animation: 1s 0s 1 ease-out ${contentLiftAnimation}; */
 `;
 
 const TitleContainer = styled.div`

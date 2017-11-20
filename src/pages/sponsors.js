@@ -13,14 +13,10 @@ const SponsorBannerContainer = Card.extend`
 
   a {
     display: block;
-    /* opacity: 1; */
 
     img {
       display: block;
-      border-radius: ${measurements.border.card};
-      /* Account for padding around content container and margin around image */
       max-width: calc(100vw - (${measurements.padding.container} * 4));
-      max-height: calc(100vh - (${measurements.padding.container} * 4));
     }
   }
 `;
