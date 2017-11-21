@@ -36,7 +36,6 @@ const LogoHomeLink = styled(Link)`
     &:hover {
       fill: ${colors.secondary};
       stroke: ${colors.primary};
-      stroke-width: ${0.25 / 16}em;
     }
   }
 `;

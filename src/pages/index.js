@@ -22,7 +22,6 @@ const IndexContainer = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  /* Subtract header and top/bottom container padding heights from viewport */
   height: calc(100vh - (${measurements.height.header} + (${measurements.padding.container} * 2)));
   background: transparent;
   color: ${colors.secondary};
@@ -50,6 +49,7 @@ const IndexContainer = styled.div`
 
 const IndexPage = () => (
   <IndexContainer>
+    {/* FIXME: On Edge, logo pushes content down below footer */}
     <Logo animated />
     {/* TODO: Prototype, not final */}
     <div>

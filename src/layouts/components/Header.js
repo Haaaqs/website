@@ -59,6 +59,7 @@ const LogoLink = styled(Link)`
 
   svg {
     fill: currentColor;
+    stroke-width: 0;
     height: 100%;
     padding: 0.5em 0;
   }
