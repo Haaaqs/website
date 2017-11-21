@@ -2,73 +2,47 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import styled, { css, keyframes } from 'styled-components';
 
-import { measurements, colors, opacities } from '../data/values.css';
+import { colors, opacities } from '../data/values.css';
 
-const pathStyleProperties = {
-  animation: {
-    draw: {
-      duration: 5,
-      delay: 0,
-    },
-    fill: {
-      duration: 1,
-      delay: 5,
-    },
-  },
-};
-
-const pathStrokeDrawAnimation = keyframes`
-  to {
-    stroke-dashoffset: 0;
+const pathDrawAnimation = keyframes`
+  0% {
+    stroke-width: inherit;
+    fill: transparent;
   }
-`;
 
-const pathStrokeFadeAnimation = keyframes`
-  to {
-    stroke-opacity: 0;
+  85% {
+    stroke-dashoffset: 0px;
+    stroke-width: inherit;
+    fill: transparent;
   }
-`;
 
-const pathFillFadeAnimation = keyframes`
-  to {
+  100% {
+    stroke-dashoffset: 0px;
+    stroke-width: 0;
     fill: inherit;
   }
 `;
 
 const pathAnimationStyle = css`
-  stroke-dasharray: ${props => `${props.length} ${props.length}`};
-  stroke-dashoffset: ${props => props.length};
+  stroke-dasharray: ${props => `${props.length}px ${props.length}px`};
+  stroke-dashoffset: ${props => props.length}px;
 
-  fill: transparent;
-
-  animation-name:
-    ${pathStrokeDrawAnimation},
-    ${pathStrokeFadeAnimation},
-    ${pathFillFadeAnimation};
-  animation-duration:
-    ${pathStyleProperties.animation.draw.duration}s,
-    ${pathStyleProperties.animation.fill.duration}s,
-    ${pathStyleProperties.animation.fill.duration}s;
-  animation-delay:
-    ${pathStyleProperties.animation.draw.delay}s,
-    ${pathStyleProperties.animation.fill.delay}s,
-    ${pathStyleProperties.animation.fill.delay}s;
+  animation-name: ${pathDrawAnimation};
+  animation-duration: 5s;
   animation-timing-function: ease-in;
-  animation-fill-mode: forwards;
   animation-iteration-count: 1;
 `;
 
 const LogoContainer = styled.svg.attrs({
-  viewBox: '0 0 25 37',
+  viewBox: '0 0 29 41',
 })`
   fill: ${colors.primary};
   stroke: ${colors.secondary};
   stroke-width: ${0.25 / 16}em;
-  padding: ${measurements.padding.container};
 `;
 
 const LogoBack = styled.path.attrs({
-  d: 'M20,30.27h-9.9a.51.51,0,0,1-.53-.5V22.92a.51.51,0,0,1,.53-.5h8.47a.51.51,0,0,0,.53-.5V16.2a.51.51,0,0,0-.53-.5H10.05a.51.51,0,0,1-.53-.5V8.35a.51.51,0,0,1,.53-.5H20a.54.54,0,0,0,.44-.22L25,1.12H.5a.5.5,0,0,0-.5.5V36.5a.5.5,0,0,0,.5.5H25l-4.6-6.51A.54.54,0,0,0,20,30.27Z',
+  d: 'M21.95 32.27h-9.9c-.29 0-.53-.22-.53-.5v-6.85c0-.28.24-.5.53-.5h8.47c.29 0 .53-.22.53-.5V18.2c0-.28-.24-.5-.53-.5h-8.47c-.29 0-.53-.22-.53-.5v-6.85c0-.28.24-.5.53-.5h9.9c.18 0 .34-.08.44-.22L27 3.12H2.5c-.28 0-.5.22-.5.5V38.5c0 .28.22.5.5.5H27l-4.6-6.51c-.1-.13-.27-.22-.45-.22z',
 })`
   fill-opacity: ${opacities.secondary};
   stroke-opacity: ${opacities.secondary};
@@ -77,7 +51,7 @@ const LogoBack = styled.path.attrs({
 `;
 
 const LogoFront = styled.path.attrs({
-  d: 'M20,29.15h-9.9a.51.51,0,0,1-.53-.5V21.8a.51.51,0,0,1,.53-.5h8.47a.51.51,0,0,0,.53-.5V15.07a.51.51,0,0,0-.53-.5H10.05a.51.51,0,0,1-.53-.5V7.23a.51.51,0,0,1,.53-.5H20a.54.54,0,0,0,.44-.22L25,0H.5A.5.5,0,0,0,0,.5V35.38a.5.5,0,0,0,.5.5H25l-4.6-6.51A.54.54,0,0,0,20,29.15Z',
+  d: 'M21.95 31.15h-9.9c-.29 0-.53-.22-.53-.5V23.8c0-.28.24-.5.53-.5h8.47c.29 0 .53-.22.53-.5v-5.74c0-.28-.24-.5-.53-.5h-8.47c-.29 0-.53-.22-.53-.5V9.23c0-.28.24-.5.53-.5h9.9c.18 0 .34-.08.44-.22L27 2H2.5c-.28 0-.5.22-.5.5v34.88c0 .28.22.5.5.5H27l-4.6-6.51c-.1-.14-.27-.22-.45-.22z',
 })`
   ${props => (props.animate && props.pathFrontLength !== null)
     && pathAnimationStyle};

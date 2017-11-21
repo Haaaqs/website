@@ -17,13 +17,16 @@ const asFontFamilyStyle = (...fontStack) =>
     font-family: ${joinAsString(fontStack)};
   `;
 
+const asMediaQuery = maxWidth =>
+  (...args) => css`
+    @media (max-width: ${maxWidth}px) {
+      ${css(...args)}
+    }
+  `;
+
 const values = {
-  media: {
-    mobile: (...args) => css`
-      @media (max-width: 576px) {
-        ${css(...args)}
-      }
-    `,
+  medias: {
+    mobile: asMediaQuery(576),
   },
   measurements: {
     unit: pxToEm(1),

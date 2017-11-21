@@ -19,10 +19,13 @@ const imageBackgroundStyle = css`
 
 const IndexContainer = styled.div`
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  flex-wrap: wrap;
   justify-content: center;
   align-items: center;
+  width: calc(100vw - (${measurements.padding.container} * 2));
   height: calc(100vh - (${measurements.height.header} + (${measurements.padding.container} * 2)));
+  padding: ${measurements.padding.container};
   background: transparent;
   color: ${colors.secondary};
 
@@ -35,9 +38,10 @@ const IndexContainer = styled.div`
     width: 100%;
     height: 100vh;
     z-index: -1;
-    ${imageBackgroundStyle}
-    filter: brightness(${opacities.secondary});
     opacity: ${opacities.primary};
+    /* FIXME: Fixed background image with filter produces janky positioning and scrolling on Firefox */
+    filter: brightness(${opacities.secondary});
+    ${imageBackgroundStyle}
   }
 
   &:hover {
@@ -49,10 +53,25 @@ const IndexContainer = styled.div`
 
 const IndexPage = () => (
   <IndexContainer>
-    {/* FIXME: On Edge, logo pushes content down below footer */}
-    <Logo animated />
     {/* TODO: Prototype, not final */}
-    <div>
+    <Logo
+      animated
+      style={{
+        width: '100%',
+        height: '100%',
+        maxWidth: '50vw',
+        maxHeight: '50vh',
+      }}
+    />
+    <div
+      style={{
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'center',
+        alignItems: 'center',
+        padding: measurements.padding.container,
+      }}
+    >
       <h1
         style={{
           margin: 0,
@@ -92,7 +111,6 @@ const IndexPage = () => (
       <a
         style={{
           margin: measurements.padding.container,
-          display: 'block',
           fontSize: '2vmin',
           opacity: opacities.primary,
           textTransform: 'lowercase',

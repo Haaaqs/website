@@ -57,7 +57,7 @@ const index = injectGlobal`
     }
 
     &[role='button'] {
-      /* opacity: 1; */
+      display: inline-block;
       text-transform: lowercase;
       color: ${colors.secondary};
       background: ${colors.primary};
