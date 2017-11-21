@@ -52,7 +52,7 @@
         {
             "id": "hero_code",
             "name": "HeroCode",
-            "desc": "Setting (Value) Manager",
+            "desc": "Settings Manager",
             "social": [
                 {
                     "id": "youtube",
@@ -82,7 +82,7 @@
             "social": []
         },
         {
-            "id": "roy",
+            "id": "roygbiv",
             "name": "ROYGBIV",
             "desc": "Design ideas",
             "social": [

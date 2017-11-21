@@ -6,7 +6,6 @@ export const Title = styled.h3`
   margin: ${4 / 16}em 0;
   font-size: ${fonts.sizes[18]};
   font-weight: bold;
-  /* text-transform: uppercase; */
   text-shadow: 0 ${measurements.unit} ${colors.primary};
   opacity: ${opacities.primary};
 `;
@@ -21,6 +20,7 @@ export const Info = styled.p`
 const Card = styled.div`
   position: relative;
   display: inline-block;
+  overflow: hidden;
   padding: ${measurements.padding.container};
   border-radius: ${measurements.border.card};
   background: ${colors.secondary};

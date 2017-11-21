@@ -14,7 +14,6 @@ const CreditContainer = Card.extend`
   padding: 0;
   margin: ${measurements.padding.container};
   border-radius: ${measurements.border.circle};
-  overflow: hidden;
 
   /* TODO: Try and figure out a way to keep this class-free */
   &:hover {

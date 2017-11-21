@@ -3,8 +3,10 @@ import PropTypes from 'prop-types';
 import styled, { css } from 'styled-components';
 
 import Card from '../components/Card';
+import Icon from '../components/Icon';
 
-import { measurements, fonts } from '../data/values.css';
+import { getIconPath } from '../data/icons.svg';
+import { measurements, colors, opacities, fonts } from '../data/values.css';
 
 const videoContentStyle = css`
   position: absolute;
@@ -28,7 +30,6 @@ const VideoContainer = Card.extend`
   width: 100%;
   /* Maintain 16:9 aspect ratio for height */
   padding-top: ${(9 / 16) * 100}%;
-  overflow: hidden;
 `;
 
 const InfoContainer = styled.div`
@@ -50,6 +51,18 @@ const ErrorText = styled.p`
   font-weight: bold;
 `;
 
+const PlayIcon = Icon.extend`
+  pointer-events: none;
+  position: absolute;
+  /* TODO: Use flexbox on parent to center instead */
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 25%;
+  fill: ${colors.secondary};
+  opacity: ${opacities.primary};
+`;
+
 const VideoThumbnail = styled.input.attrs({
   type: 'image',
 })`
@@ -57,6 +70,12 @@ const VideoThumbnail = styled.input.attrs({
   /* Center thumbnail vertically to crop black bars from 4:3 aspect ratio */
   top: 50%;
   transform: translateY(-50%);
+
+  filter: brightness(${opacities.secondary});
+
+  &:hover {
+    filter: brightness(${opacities.primary});
+  }
 `;
 
 const VideoEmbed = styled.iframe.attrs({
@@ -105,13 +124,18 @@ class YouTubeVideo extends Component {
   renderThumbnail = () => {
     const { title, thumbnail } = this.props.video;
     return (
-      <VideoThumbnail
-        hidden={this.state.play}
-        src={thumbnail}
-        alt={title}
-        title={title}
-        onClick={this.playVideo}
-      />
+      <div>
+        <VideoThumbnail
+          hidden={this.state.play}
+          src={thumbnail}
+          alt={title}
+          title={title}
+          onClick={this.playVideo}
+        />
+        <PlayIcon>
+          {getIconPath('play')}
+        </PlayIcon>
+      </div>
     );
   };
 
@@ -129,7 +153,7 @@ class YouTubeVideo extends Component {
       return (
         <div>
           {/* TODO: Temporary loading placeholder for when video and thumbnail are loading */}
-          {YouTubeVideo.renderLoading()}
+          {/* {YouTubeVideo.renderLoading()} */}
           {this.state.play ? this.renderVideo() : this.renderThumbnail()}
         </div>
       );
