@@ -1,8 +1,8 @@
 import React from 'react';
 import styled, { css } from 'styled-components';
 
-import { logo } from '../data/icons.svg';
-import { measurements, colors, opacities, fonts } from '../data/values.css';
+import Logo from '../components/Logo';
+import { measurements, colors, opacities } from '../data/values.css';
 
 import splashBg from '../images/index/splash-bg.jpg';
 
@@ -50,14 +50,14 @@ const IndexContainer = styled.div`
 
 const IndexPage = () => (
   <IndexContainer>
-    {logo}
+    <Logo animated />
     {/* TODO: Prototype, not final */}
     <div>
       <h1
         style={{
           margin: 0,
           display: 'block',
-          fontSize: fonts.sizes[32],
+          fontSize: '5vmin',
           fontWeight: 'normal',
           opacity: opacities.primary,
           textTransform: 'uppercase',
@@ -81,7 +81,7 @@ const IndexPage = () => (
         style={{
           margin: 0,
           display: 'block',
-          fontSize: fonts.sizes[16],
+          fontSize: '2vmin',
           opacity: opacities.primary,
           textTransform: 'lowercase',
         }}
@@ -90,9 +90,15 @@ const IndexPage = () => (
         <strong style={{ textTransform: 'none' }}>{owner}</strong>
       </p>
       <a
+        style={{
+          margin: measurements.padding.container,
+          display: 'block',
+          fontSize: '2vmin',
+          opacity: opacities.primary,
+          textTransform: 'lowercase',
+        }}
         href="http://ad.envyclient.com/1"
         role="button"
-        style={{ margin: measurements.padding.container, display: 'block' }}
       >
         Download <strong>{label}</strong>
       </a>
