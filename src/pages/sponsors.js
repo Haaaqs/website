@@ -35,8 +35,10 @@ SponsorBanner.propTypes = {
   imageSrc: PropTypes.string.isRequired,
 };
 
-const SponsorsPage = () => (
-  <div>{sponsors.map(({ id, ...props }) => <SponsorBanner key={id} {...props} />)}</div>
+const SponsorsPage = ({ transition }) => (
+  <div style={transition && transition.style}>
+    {sponsors.map(({ id, ...props }) => <SponsorBanner key={id} {...props} />)}
+  </div>
 );
 
 export default SponsorsPage;

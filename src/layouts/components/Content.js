@@ -10,7 +10,6 @@ import { measurements, colors, opacities, fonts, shadows } from '../../data/valu
 const ContentContainer = styled.main`
   flex: 1 0 auto;
   text-align: center;
-  width: 100%;
   margin: 0;
   padding: ${measurements.padding.container};
   /* Account for fixed header height */

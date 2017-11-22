@@ -34,7 +34,7 @@ class YouTubeVideoContainer extends Component {
     const { loading, videos, error } = this.state;
     return (
       <div>
-        {videos !== null &&
+        {videos === null ? <YouTubeVideo {...this.state} /> :
           videos.map(({ id, title, thumbnail, content }) => {
             const props = { loading, error, video: { title, thumbnail, content } };
             return <YouTubeVideo key={id} {...props} />;
@@ -44,6 +44,8 @@ class YouTubeVideoContainer extends Component {
   };
 }
 
-const VideoPage = () => <YouTubeVideoContainer />;
+const VideoPage = ({ transition }) => (
+  <YouTubeVideoContainer style={transition && transition.style} />
+);
 
 export default VideoPage;
