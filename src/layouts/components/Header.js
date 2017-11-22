@@ -22,9 +22,9 @@ const HeaderContainer = styled.header`
   height: ${measurements.height.header};
   overflow: hidden;
   z-index: 1;
-  background: ${props => (props.home ? 'transparent' : colors.secondary)};
-  color: ${props => (props.home ? colors.secondary : colors.primary)};
-  ${props => (props.home ? 'box-shadow: none;' : shadows.box[4])};
+  background: ${({ home }) => (home ? 'transparent' : colors.secondary)};
+  color: ${({ home }) => (home ? colors.secondary : colors.primary)};
+  ${({ home }) => (home ? 'box-shadow: none;' : shadows.box[4])};
 `;
 
 const LogoLink = styled(Link)`

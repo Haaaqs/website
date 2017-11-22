@@ -10,11 +10,11 @@ const selectionStyle = css`
 
 const index = injectGlobal`
   ::-moz-selection {
-    ${selectionStyle}
+    ${selectionStyle};
   }
 
   ::selection {
-    ${selectionStyle}
+    ${selectionStyle};
   }
 
   /*
@@ -39,7 +39,7 @@ const index = injectGlobal`
   }
 
   body {
-    ${fonts.stack}
+    ${fonts.stack};
     height: 100%;
     margin: 0;
     padding: 0;
@@ -49,7 +49,6 @@ const index = injectGlobal`
   a {
     text-decoration: none;
     color: inherit;
-    /* TODO: This is only a temporary change to distinguish between regular text and anchors */
     opacity: ${opacities.primary};
 
     &:hover {
@@ -58,10 +57,10 @@ const index = injectGlobal`
 
     &[role='button'] {
       display: inline-block;
-      text-transform: lowercase;
-      color: ${colors.secondary};
-      background: ${colors.primary};
       padding: 1em 1.5em;
+      text-transform: lowercase;
+      background: ${colors.primary};
+      color: ${colors.secondary};
       border-radius: ${measurements.border.button};
       ${shadows.box[2]}
 

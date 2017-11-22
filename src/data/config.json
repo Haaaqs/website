@@ -1,129 +1,129 @@
 {
-    "pathPrefix": "/envyclient",
-    "metadata": {
-        "title": "Envy Client",
-        "label": "Envy",
-        "desc": "Envy Client website",
-        "owner": "iHaq",
-        "year": 2017
+  "pathPrefix": "/envyclient",
+  "metadata": {
+    "title": "Envy Client",
+    "label": "Envy",
+    "desc": "Envy Client website",
+    "owner": "iHaq",
+    "year": 2017
+  },
+  "colors": {
+    "theme": "#21aa2f",
+    "background": "#fafafa"
+  },
+  "fonts": [
+    {
+      "family": "Open Sans",
+      "variants": [
+          400,
+          700
+        ]
+    }
+  ],
+  "features": [
+    {
+      "id": "undetectable",
+      "title": "Undetectable",
+      "desc": "Capable of bypassing NCP, WatchDog, and G.W.E.N",
+      "icon": "privacy"
     },
-    "colors": {
-        "theme": "#21aa2f",
-        "background": "#fafafa"
+    {
+      "id": "noob_friendly",
+      "title": "Noob Friendly",
+      "desc": "Sports a simple and clean design",
+      "icon": "group"
     },
-    "fonts": [
+    {
+      "id": "opti_fine",
+      "title": "OptiFine",
+      "desc": "Do I even have to explain this?",
+      "icon": "laptop"
+    }
+  ],
+  "sponsors": [
+    {
+      "id": "super_alts",
+      "name": "SuperAlts",
+      "link": "https://superalts.com/",
+      "imageSrc": "https://multimc.info/assets/img/SuperAlts.gif"
+    }
+  ],
+  "credits": [
+    {
+      "id": "hero_code",
+      "name": "HeroCode",
+      "desc": "Settings Manager",
+      "social": [
         {
-            "family": "Open Sans",
-            "variants": [
-                400,
-                700
-            ]
+          "id": "youtube",
+          "link": "https://www.youtube.com/channel/UCJum3PIbnYvIfIEu05GL_yQ"
+        },
+        {
+          "id": "twitter",
+          "link": "https://twitter.com/intent/user?user_id=899267504354324480"
         }
-    ],
-    "features": [
+      ]
+    },
+    {
+      "id": "og",
+      "name": "OG",
+      "desc": "Help with some modules",
+      "social": [
         {
-            "id": "undetectable",
-            "title": "Undetectable",
-            "desc": "Capable of bypassing NCP, WatchDog, and G.W.E.N",
-            "icon": "privacy"
-        },
-        {
-            "id": "noob_friendly",
-            "title": "Noob Friendly",
-            "desc": "Sports a simple and clean design",
-            "icon": "group"
-        },
-        {
-            "id": "opti_fine",
-            "title": "OptiFine",
-            "desc": "Do I even have to explain this?",
-            "icon": "laptop"
+          "id": "youtube",
+          "link": "https://www.youtube.com/channel/UCnefepAz8P7zz6bzCnhx-4Q"
         }
-    ],
-    "sponsors": [
+      ]
+    },
+    {
+      "id": "mat",
+      "name": "Mat",
+      "desc": "Overall help with the client",
+      "social": []
+    },
+    {
+      "id": "roygbiv",
+      "name": "ROYGBIV",
+      "desc": "Design ideas",
+      "social": [
         {
-            "id": "super_alts",
-            "name": "SuperAlts",
-            "link": "https://superalts.com/",
-            "imageSrc": "https://multimc.info/assets/img/SuperAlts.gif"
+          "id": "youtube",
+          "link": "https://www.youtube.com/channel/UCbmnT-JpuReyTDLzuoiLiTA"
         }
-    ],
-    "credits": [
+      ]
+    },
+    {
+      "id": "louise",
+      "name": "Louise",
+      "desc": "Graphics",
+      "social": [
         {
-            "id": "hero_code",
-            "name": "HeroCode",
-            "desc": "Settings Manager",
-            "social": [
-                {
-                    "id": "youtube",
-                    "link": "https://www.youtube.com/channel/UCJum3PIbnYvIfIEu05GL_yQ"
-                },
-                {
-                    "id": "twitter",
-                    "link": "https://twitter.com/intent/user?user_id=899267504354324480"
-                }
-            ]
-        },
-        {
-            "id": "og",
-            "name": "OG",
-            "desc": "Help with some modules",
-            "social": [
-                {
-                    "id": "youtube",
-                    "link": "https://www.youtube.com/channel/UCnefepAz8P7zz6bzCnhx-4Q"
-                }
-            ]
-        },
-        {
-            "id": "mat",
-            "name": "Mat",
-            "desc": "Overall help with the client",
-            "social": []
-        },
-        {
-            "id": "roygbiv",
-            "name": "ROYGBIV",
-            "desc": "Design ideas",
-            "social": [
-                {
-                    "id": "youtube",
-                    "link": "https://www.youtube.com/channel/UCbmnT-JpuReyTDLzuoiLiTA"
-                }
-            ]
-        },
-        {
-            "id": "louise",
-            "name": "Louise",
-            "desc": "Graphics",
-            "social": [
-                {
-                    "id": "youtube",
-                    "link": "https://www.youtube.com/channel/UCd3oLEaa15W6ARtahlue-VQ"
-                }
-            ]
+          "id": "youtube",
+          "link": "https://www.youtube.com/channel/UCd3oLEaa15W6ARtahlue-VQ"
         }
-    ],
-    "social": [
-        {
-            "id": "youtube",
-            "link": "https://www.youtube.com/channel/UCL2p91rc87TExMrzvxd2CWg"
-        },
-        {
-            "id": "twitter",
-            "link": "https://twitter.com/intent/user?user_id=2786788057"
-        },
-        {
-            "id": "discord",
-            "link": "https://discordapp.com/invite/pdYsurr"
-        },
-        {
-            "id": "github",
-            "link": "https://github.com/HaqGamer"
-        },
-        {
-            "id": "email",
-            "link": "mailto:ihaq@envyclient.com"
-        }
-    ]
+      ]
+    }
+  ],
+  "social": [
+    {
+      "id": "youtube",
+      "link": "https://www.youtube.com/channel/UCL2p91rc87TExMrzvxd2CWg"
+    },
+    {
+      "id": "twitter",
+      "link": "https://twitter.com/intent/user?user_id=2786788057"
+    },
+    {
+      "id": "discord",
+      "link": "https://discordapp.com/invite/pdYsurr"
+    },
+    {
+      "id": "github",
+      "link": "https://github.com/HaqGamer"
+    },
+    {
+      "id": "email",
+      "link": "mailto:ihaq@envyclient.com"
+    }
+  ]
 }

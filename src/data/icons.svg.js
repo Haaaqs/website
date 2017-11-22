@@ -32,8 +32,6 @@ const iconPathData = {
   ],
 };
 
-// TODO: Find a better key value to use
-// eslint-disable-next-line react/no-array-index-key
-export const getIconPath = id => iconPathData[id].map((d, i) => <path key={i} d={d} />);
+export const getIconPath = id => iconPathData[id].map(d => <path key={d} d={d} />);
 
 export const getIconSvg = id => <Icon>{getIconPath(id)}</Icon>;

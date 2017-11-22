@@ -6,7 +6,7 @@ import Card, { Title, Info } from '../components/Card';
 import SocialIcon from '../components/SocialIcon';
 
 import creditImages from '../data/credits.jpg';
-import { measurements, colors } from '../data/values.css';
+import { measurements, colors, effects } from '../data/values.css';
 
 const { credits } = require('../data/config.json');
 
@@ -18,9 +18,8 @@ const CreditContainer = Card.extend`
   /* TODO: Try and figure out a way to keep this class-free */
   &:hover {
     & .credit__avatar {
-      /* Arbitrary values */
-      filter: blur(0.5em);
-      transform: scale(1.125);
+      filter: ${effects.blurScale.blur};
+      transform: ${effects.blurScale.scale};
     }
 
     & .credit__details {

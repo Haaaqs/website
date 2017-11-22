@@ -16,6 +16,7 @@ const FeaturesWrapper = styled.div`
 
 const FeatureContainer = Card.extend`
   flex: 1;
+  overflow: visible;
   margin: ${measurements.padding.container};
 
   svg {

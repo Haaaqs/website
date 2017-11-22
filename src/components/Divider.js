@@ -8,16 +8,22 @@ import { hexToRgb } from '../utils/colors';
 const getColor = ({ r, g, b }, opacity) =>
   `rgba(${r}, ${g}, ${b}, ${opacity})`;
 
+const getBackgroundGradient = (baseColor) => {
+  const rgbBaseColor = hexToRgb(baseColor);
+  return `
+    ${getColor(rgbBaseColor, 0)},
+    ${getColor(rgbBaseColor, opacities.primary)},
+    ${getColor(rgbBaseColor, 0)}
+  `;
+};
+
 const Divider = styled.hr`
   margin: 0;
   border: none;
   height: ${measurements.unit};
   background: linear-gradient(
     to right,
-    /* Ouch for performance */
-    ${props => getColor(hexToRgb(props.baseColor), 0)},
-    ${props => getColor(hexToRgb(props.baseColor), opacities.primary)},
-    ${props => getColor(hexToRgb(props.baseColor), 0)}
+    ${({ baseColor }) => getBackgroundGradient(baseColor)}
   );
 `;
 

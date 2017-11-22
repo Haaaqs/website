@@ -66,6 +66,7 @@ const values = {
       18: pxToEm(18),
       24: pxToEm(24),
       32: pxToEm(32),
+      48: pxToEm(48),
     },
   },
   shadows: {
@@ -114,6 +115,12 @@ const values = {
         '0 9px 46px 8px rgba(0, 0, 0, 0.12)',
         '0 11px 15px -7px rgba(0, 0, 0, 0.4)',
       ),
+    },
+  },
+  effects: {
+    blurScale: {
+      blur: `blur(${pxToEm(8)})`,
+      scale: 'scale(1.125)',
     },
   },
 };

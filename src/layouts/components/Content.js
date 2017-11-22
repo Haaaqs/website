@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styled, { keyframes } from 'styled-components';
+import styled from 'styled-components';
 
 import Divider from '../../components/Divider';
 
@@ -14,8 +14,8 @@ const ContentContainer = styled.main`
   padding: ${measurements.padding.container};
   /* Account for fixed header height */
   padding-top: calc(${measurements.height.header} + ${measurements.padding.container});
-  ${shadows.box[16]}
-  background: ${props => (props.transparent ? 'transparent' : colors.background)};
+  ${shadows.box[16]};
+  background: ${({ transparent }) => (transparent ? 'transparent' : colors.background)};
 `;
 
 const TitleContainer = styled.div`

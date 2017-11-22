@@ -24,8 +24,8 @@ const pathDrawAnimation = keyframes`
 `;
 
 const pathAnimationStyle = css`
-  stroke-dasharray: ${props => `${props.length}px ${props.length}px`};
-  stroke-dashoffset: ${props => props.length}px;
+  stroke-dasharray: ${({ length }) => `${length}px ${length}px`};
+  stroke-dashoffset: ${({ length }) => length}px;
 
   animation-name: ${pathDrawAnimation};
   animation-duration: 5s;
@@ -46,14 +46,14 @@ const LogoBack = styled.path.attrs({
 })`
   fill-opacity: ${opacities.secondary};
   stroke-opacity: ${opacities.secondary};
-  ${props => (props.animate && props.pathBackLength !== null)
+  ${({ animate, pathBackLength }) => (animate && pathBackLength !== null)
     && pathAnimationStyle};
 `;
 
 const LogoFront = styled.path.attrs({
   d: 'M21.95 31.15h-9.9c-.29 0-.53-.22-.53-.5V23.8c0-.28.24-.5.53-.5h8.47c.29 0 .53-.22.53-.5v-5.74c0-.28-.24-.5-.53-.5h-8.47c-.29 0-.53-.22-.53-.5V9.23c0-.28.24-.5.53-.5h9.9c.18 0 .34-.08.44-.22L27 2H2.5c-.28 0-.5.22-.5.5v34.88c0 .28.22.5.5.5H27l-4.6-6.51c-.1-.14-.27-.22-.45-.22z',
 })`
-  ${props => (props.animate && props.pathFrontLength !== null)
+  ${({ animate, pathFrontLength }) => (animate && pathFrontLength !== null)
     && pathAnimationStyle};
 `;
 

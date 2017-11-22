@@ -33,10 +33,8 @@ const SocialIconContainer = Icon.extend`
   height: ${measurements.height.icon};
 
   &:hover {
-    fill: ${props => props.socialColor || 'currentColor'};
-    filter:
-      drop-shadow(0 0 ${measurements.unit}
-      rgba(0, 0, 0, ${opacities.hint}));
+    fill: ${({ socialColor }) => socialColor || 'currentColor'};
+    filter: drop-shadow(0 0 ${measurements.unit} rgba(0, 0, 0, ${opacities.hint}));
   }
 `;
 

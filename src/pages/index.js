@@ -2,11 +2,13 @@ import React from 'react';
 import styled, { css } from 'styled-components';
 
 import Logo from '../components/Logo';
-import { measurements, colors, opacities } from '../data/values.css';
+import { measurements, colors, opacities, fonts } from '../data/values.css';
 
 import splashBg from '../images/index/splash-bg.jpg';
 
 const { metadata: { title, label, owner } } = require('../data/config.json');
+
+const fontSizeCalculation = em => `calc(${em} + 0.25vmin)`;
 
 const imageBackgroundStyle = css`
   background-color: transparent;
@@ -28,6 +30,7 @@ const IndexContainer = styled.div`
   padding: ${measurements.padding.container};
   background: transparent;
   color: ${colors.secondary};
+  overflow: hidden;
 
   &::before {
     content: '';
@@ -39,9 +42,8 @@ const IndexContainer = styled.div`
     height: 100vh;
     z-index: -1;
     opacity: ${opacities.primary};
-    /* FIXME: Fixed background image with filter produces janky positioning and scrolling on Firefox */
     filter: brightness(${opacities.secondary});
-    ${imageBackgroundStyle}
+    ${imageBackgroundStyle};
   }
 
   &:hover {
@@ -58,7 +60,6 @@ const IndexPage = () => (
       animated
       style={{
         width: '100%',
-        height: '100%',
         maxWidth: '50vw',
         maxHeight: '50vh',
       }}
@@ -76,7 +77,7 @@ const IndexPage = () => (
         style={{
           margin: 0,
           display: 'block',
-          fontSize: '5vmin',
+          fontSize: fontSizeCalculation(fonts.sizes[48]),
           fontWeight: 'normal',
           opacity: opacities.primary,
           textTransform: 'uppercase',
@@ -85,12 +86,12 @@ const IndexPage = () => (
         {title.split(' ').map((word, index) => (
             word === label ? (
               // eslint-disable-next-line react/no-array-index-key
-              <strong key={index} style={{ fontWeight: 'bold' }}>
+              <strong key={`${index}: ${word}`} style={{ fontWeight: 'bold' }}>
                 {word}
               </strong>
             ) : (
               // eslint-disable-next-line react/no-array-index-key
-              <span key={index} style={{ opacity: opacities.secondary }}>
+              <span key={`${index}: ${word}`} style={{ opacity: opacities.secondary }}>
                 {word}
               </span>
             )
@@ -100,7 +101,7 @@ const IndexPage = () => (
         style={{
           margin: 0,
           display: 'block',
-          fontSize: '2vmin',
+          fontSize: fontSizeCalculation(fonts.sizes[16]),
           opacity: opacities.primary,
           textTransform: 'lowercase',
         }}
@@ -111,7 +112,7 @@ const IndexPage = () => (
       <a
         style={{
           margin: measurements.padding.container,
-          fontSize: '2vmin',
+          fontSize: fontSizeCalculation(fonts.sizes[16]),
           opacity: opacities.primary,
           textTransform: 'lowercase',
         }}
