@@ -3,7 +3,7 @@ import Link from 'gatsby-link';
 import styled from 'styled-components';
 
 import Logo from '../components/Logo';
-import { colors } from '../data/values.css';
+import { measurements, colors } from '../data/values.css';
 
 const FourOhFourContainer = styled.div`
 `;
@@ -27,16 +27,16 @@ const FourOhFourDesc = styled.p`
 `;
 
 const LogoHomeLink = styled(Link)`
-  display: block;
+  display: inline-block;
+`;
 
-  /* TODO: Make this take up only rest of viewport height */
-  svg {
-    width: 60vw;
+const LogoHome = styled(Logo)`
+  width: 50vmin;
+  max-width: calc(100vw - (${measurements.padding.container} * 2));
 
-    &:hover {
-      fill: ${colors.secondary};
-      stroke: ${colors.primary};
-    }
+  &:hover {
+    fill: ${colors.secondary};
+    stroke: ${colors.primary};
   }
 `;
 
@@ -49,7 +49,7 @@ const NotFoundPage = () => (
       </FourOhFourDesc>
     </FourOhFourDetails>
     <LogoHomeLink to="/">
-      <Logo />
+      <LogoHome />
     </LogoHomeLink>
   </FourOhFourContainer>
 );

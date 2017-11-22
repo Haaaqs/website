@@ -15,14 +15,13 @@ const CreditContainer = Card.extend`
   margin: ${measurements.padding.container};
   border-radius: ${measurements.border.circle};
 
-  /* TODO: Try and figure out a way to keep this class-free */
   &:hover {
-    & .credit__avatar {
+    & > img {
       filter: ${effects.blurScale.blur};
       transform: ${effects.blurScale.scale};
     }
 
-    & .credit__details {
+    & > div {
       transform: translateY(0);
     }
   }
