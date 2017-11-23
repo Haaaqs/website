@@ -1,4 +1,7 @@
+import React from 'react';
 import styled from 'styled-components';
+
+import LiftTransition from './LiftTransition';
 
 import { measurements, colors, opacities, fonts, shadows } from '../data/values.css';
 
@@ -17,6 +20,11 @@ export const Info = styled.p`
   opacity: ${opacities.secondary};
 `;
 
+// FIXME: Styles from parent not being inherited by card child
+const CardWrapper = styled.div`
+  display: inline-block;
+`;
+
 const Card = styled.div`
   position: relative;
   display: inline-block;
@@ -32,3 +40,13 @@ const Card = styled.div`
 `;
 
 export default Card;
+
+// const CardLiftTransition = ({ ...props }) => (
+//   <LiftTransition>
+//     <CardWrapper>
+//       <Card {...props} />
+//     </CardWrapper>
+//   </LiftTransition>
+// );
+
+// export default CardLiftTransition;

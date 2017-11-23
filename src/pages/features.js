@@ -14,7 +14,8 @@ const FeaturesWrapper = styled.div`
   flex-wrap: wrap;
 `;
 
-const FeatureContainer = Card.extend`
+// FIXME: Set max-width (for small viewport)
+const FeatureContainer = styled(Card)`
   flex: 1;
   overflow: visible;
   margin: ${measurements.padding.container};

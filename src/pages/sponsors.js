@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import styled from 'styled-components';
 
 import Card from '../components/Card';
 
@@ -7,7 +8,7 @@ import { measurements } from '../data/values.css';
 
 const { sponsors } = require('../data/config.json');
 
-const SponsorBannerContainer = Card.extend`
+const SponsorBannerContainer = styled(Card)`
   margin: ${measurements.padding.container};
   padding: 0;
 

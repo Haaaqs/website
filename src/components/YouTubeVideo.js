@@ -24,7 +24,7 @@ const VideoWrapper = styled.div`
   max-width: calc(100vw - (${measurements.padding.container} * 4));
 `;
 
-const VideoContainer = Card.extend`
+const VideoContainer = styled(Card)`
   position: relative;
   padding: 0;
   width: 100%;
