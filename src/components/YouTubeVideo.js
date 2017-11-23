@@ -162,7 +162,7 @@ class YouTubeVideo extends Component {
 
   render = () => (
     <VideoWrapper>
-      <VideoContainer>{this.renderContent()}</VideoContainer>
+      <VideoContainer index={this.props.index}>{this.renderContent()}</VideoContainer>
     </VideoWrapper>
   );
 }

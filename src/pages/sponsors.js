@@ -39,7 +39,7 @@ SponsorBanner.propTypes = {
 
 const SponsorsPage = () => (
   <CardList>
-    {sponsors.map(({ id, ...props }) => <SponsorBanner key={id} {...props} />)}
+    {sponsors.map(({ id, ...props }, i) => <SponsorBanner key={id} index={i} {...props} />)}
   </CardList>
 );
 

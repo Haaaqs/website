@@ -1,7 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import CardList from '../components/CardList';
 import Card, { Title, Info } from '../components/Card';
 import Divider from '../components/Divider';
 
@@ -10,8 +9,7 @@ import { measurements, colors } from '../data/values.css';
 
 const { features } = require('../data/config.json');
 
-// FIXME: Flex property not applied when extending CardList
-const FeaturesWrapper = styled(CardList)`
+const FeaturesWrapper = styled.div`
   display: flex;
   flex-wrap: wrap;
 `;
@@ -31,8 +29,8 @@ const FeatureContainer = styled(Card)`
 
 const FeaturesPage = () => (
   <FeaturesWrapper>
-    {features.map(({ id, title, desc, icon }) => (
-      <FeatureContainer key={id}>
+    {features.map(({ id, title, desc, icon }, i) => (
+      <FeatureContainer key={id} index={i}>
         {getIconSvg(icon)}
         <Divider baseColor={colors.primary} />
         <Title>{title}</Title>

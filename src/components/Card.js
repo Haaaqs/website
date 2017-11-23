@@ -1,4 +1,7 @@
+import React from 'react';
 import styled from 'styled-components';
+
+import { CardLiftTransition } from '../components/CardList';
 
 import { measurements, colors, opacities, fonts, shadows } from '../data/values.css';
 
@@ -17,7 +20,7 @@ export const Info = styled.p`
   opacity: ${opacities.secondary};
 `;
 
-const Card = styled.div`
+const CardStyle = styled(CardLiftTransition)`
   position: relative;
   display: inline-block;
   overflow: hidden;
@@ -30,5 +33,14 @@ const Card = styled.div`
     ${shadows.box[8]}
   }
 `;
+
+// FIXME: Unknown prop `index` on <div> tag
+const Card = ({ children, ...props }) => (
+  <CardStyle {...props}>
+    <div>
+      {children}
+    </div>
+  </CardStyle>
+);
 
 export default Card;
