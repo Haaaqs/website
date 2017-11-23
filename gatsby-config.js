@@ -1,10 +1,8 @@
 const config = require('./src/data/config');
 
-// Must not have trailing slash
 const pathPrefix = config.pathPrefix.replace(/\/+$/g, '');
 
 module.exports = {
-  // Include pathPrefix if it is not empty
   ...((pathPrefix !== '') && { pathPrefix }),
   siteMetadata: {
     title: config.metadata.title,
@@ -15,7 +13,6 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-nprogress',
       options: {
-        // Setting a color is optional.
         color: config.colors.theme,
         showSpinner: false,
       },
@@ -27,11 +24,21 @@ module.exports = {
         short_name: config.metadata.label,
         description: config.metadata.desc,
         start_url: config.pathPrefix,
-        display: 'minimal-ui',
+        display: 'standalone',
         theme_color: config.colors.theme,
         background_color: config.colors.background,
-        // TODO: Add favicons
-        icons: [],
+        icons: [
+          {
+            src: '/android-chrome-192x192.png',
+            sizes: '192x192',
+            type: 'image/png',
+          },
+          {
+            src: '/android-chrome-512x512.png',
+            sizes: '512x512',
+            type: 'image/png',
+          },
+        ],
       },
     },
     // 'gatsby-plugin-offline',
