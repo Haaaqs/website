@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
+import CardList from '../components/CardList';
 import Card from '../components/Card';
 
 import { measurements } from '../data/values.css';
@@ -37,9 +38,9 @@ SponsorBanner.propTypes = {
 };
 
 const SponsorsPage = () => (
-  <div>
+  <CardList>
     {sponsors.map(({ id, ...props }) => <SponsorBanner key={id} {...props} />)}
-  </div>
+  </CardList>
 );
 
 export default SponsorsPage;

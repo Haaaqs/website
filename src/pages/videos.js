@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 
+import CardList from '../components/CardList';
 import YouTubeVideo from '../components/YouTubeVideo';
 
 import fetchYouTubeVideos from '../data/youtube-feed';
@@ -33,13 +34,13 @@ class YouTubeVideoContainer extends Component {
   render = () => {
     const { loading, videos, error } = this.state;
     return (
-      <div>
-        {videos === null ? <YouTubeVideo {...this.state} /> :
+      <CardList>
+        {videos === null ? [<YouTubeVideo key={videos} {...this.state} />] :
           videos.map(({ id, title, thumbnail, content }) => {
             const props = { loading, error, video: { title, thumbnail, content } };
             return <YouTubeVideo key={id} {...props} />;
           })}
-      </div>
+      </CardList>
     );
   };
 }

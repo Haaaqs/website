@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
+import CardList from '../components/CardList';
 import Card, { Title, Info } from '../components/Card';
 
 import SocialIcon from '../components/SocialIcon';
@@ -24,6 +25,7 @@ const CreditDetails = styled.div`
   height: 50%;
   background: ${colors.secondary};
   transform: translateY(100%);
+  padding: 0 ${measurements.padding.container};
 
   &::before {
     content: '';
@@ -63,7 +65,7 @@ const CreditContainer = styled(Card)`
 `;
 
 const CreditsPage = () => (
-  <div>
+  <CardList>
     {credits.map(({ id, name, desc, social }) => (
       <CreditContainer key={id}>
         <CreditAvatar className="credit__avatar" src={creditImages[id]} alt={name} />
@@ -78,7 +80,7 @@ const CreditsPage = () => (
         </CreditDetails>
       </CreditContainer>
     ))}
-  </div>
+  </CardList>
 );
 
 export default CreditsPage;

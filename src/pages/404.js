@@ -2,10 +2,12 @@ import React from 'react';
 import Link from 'gatsby-link';
 import styled from 'styled-components';
 
+import CardList from '../components/CardList';
 import Logo from '../components/Logo';
+
 import { measurements, colors } from '../data/values.css';
 
-const FourOhFourContainer = styled.div`
+const FourOhFourContainer = styled(CardList)`
 `;
 
 const FourOhFourDetails = styled.div`

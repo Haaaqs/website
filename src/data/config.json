@@ -50,6 +50,12 @@
   ],
   "credits": [
     {
+      "id": "mat",
+      "name": "Mat",
+      "desc": "Overall help with the client",
+      "social": []
+    },
+    {
       "id": "hero_code",
       "name": "HeroCode",
       "desc": "Settings Manager",
@@ -74,12 +80,6 @@
           "link": "https://www.youtube.com/channel/UCnefepAz8P7zz6bzCnhx-4Q"
         }
       ]
-    },
-    {
-      "id": "mat",
-      "name": "Mat",
-      "desc": "Overall help with the client",
-      "social": []
     },
     {
       "id": "roygbiv",
