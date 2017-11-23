@@ -22,4 +22,4 @@ const buildFontImport = () => {
   };
 };
 
-export const getFontImport = () => (fonts.length === 0 ? null : buildFontImport());
+export const getFontImport = () => (fonts.length === 0 ? {} : buildFontImport());
