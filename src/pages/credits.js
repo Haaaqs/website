@@ -62,10 +62,10 @@ const CreditIcon = styled(SocialIcon)`
   margin: 0.5em;
 `;
 
-const CreditsPage = ({ transition }) => (
+const CreditsPage = () => (
   <div>
     {credits.map(({ id, name, desc, social }) => (
-      <CreditContainer key={id} style={transition && transition.style}>
+      <CreditContainer key={id}>
         <CreditAvatar className="credit__avatar" src={creditImages[id]} alt={name} />
         <CreditDetails className="credit__details">
           <Title>{name}</Title>

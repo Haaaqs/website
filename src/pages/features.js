@@ -26,8 +26,8 @@ const FeatureContainer = Card.extend`
   }
 `;
 
-const FeaturesPage = ({ transition }) => (
-  <FeaturesWrapper style={transition && transition.style}>
+const FeaturesPage = () => (
+  <FeaturesWrapper>
     {features.map(({ id, title, desc, icon }) => (
       <FeatureContainer key={id}>
         {getIconSvg(icon)}

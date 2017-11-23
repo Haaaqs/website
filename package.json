@@ -18,7 +18,7 @@
   },
   "dependencies": {
     "gatsby": "^1.9.119",
-    "gatsby-link": "^1.6.24",
+    "gatsby-link": "^1.6.28",
     "gatsby-plugin-manifest": "^1.0.8",
     "gatsby-plugin-nprogress": "^1.0.7",
     "gatsby-plugin-offline": "^1.0.10",
@@ -33,8 +33,8 @@
     "eslint-config-airbnb": "^16.1.0",
     "eslint-plugin-import": "^2.8.0",
     "eslint-plugin-jsx-a11y": "^6.0.2",
-    "eslint-plugin-react": "^7.4.0",
-    "gh-pages": "^1.0.0",
-    "prettier": "^1.8.1"
+    "eslint-plugin-react": "^7.5.1",
+    "gh-pages": "^1.1.0",
+    "prettier": "^1.8.2"
   }
 }

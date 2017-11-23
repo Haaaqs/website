@@ -44,8 +44,8 @@ class YouTubeVideoContainer extends Component {
   };
 }
 
-const VideoPage = ({ transition }) => (
-  <YouTubeVideoContainer style={transition && transition.style} />
+const VideoPage = () => (
+  <YouTubeVideoContainer />
 );
 
 export default VideoPage;
