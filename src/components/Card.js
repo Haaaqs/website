@@ -20,7 +20,7 @@ export const Info = styled.p`
   opacity: ${opacities.secondary};
 `;
 
-const CardStyle = styled(CardLiftTransition)`
+const Card = styled.div`
   position: relative;
   display: inline-block;
   overflow: hidden;
@@ -33,14 +33,5 @@ const CardStyle = styled(CardLiftTransition)`
     ${shadows.box[8]}
   }
 `;
-
-// FIXME: Unknown prop `index` on <div> tag
-const Card = ({ children, ...props }) => (
-  <CardStyle {...props}>
-    <div>
-      {children}
-    </div>
-  </CardStyle>
-);
 
 export default Card;

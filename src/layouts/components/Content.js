@@ -11,6 +11,7 @@ const ContentContainer = styled.main`
   flex: 1 0 auto;
   text-align: center;
   margin: 0;
+  /* overflow-x: hidden; */
   padding: ${measurements.padding.container};
   /* Account for fixed header height */
   padding-top: calc(${measurements.height.header} + ${measurements.padding.container});

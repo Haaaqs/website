@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
+import CardList from '../components/CardList';
 import Card, { Title, Info } from '../components/Card';
 import Divider from '../components/Divider';
 
@@ -9,16 +10,17 @@ import { measurements, colors } from '../data/values.css';
 
 const { features } = require('../data/config.json');
 
-const FeaturesWrapper = styled.div`
+const FeaturesWrapper = styled(CardList)`
   display: flex;
   flex-wrap: wrap;
 `;
 
-// FIXME: Set max-width (for small viewport)
+// FIXME: When max-width of card is exceeded, text content overflows
 const FeatureContainer = styled(Card)`
   flex: 1;
   overflow: visible;
   margin: ${measurements.padding.container};
+  max-width: calc(100vw - (${measurements.padding.container} * 4));
 
   svg {
     width: 4em;
@@ -29,8 +31,8 @@ const FeatureContainer = styled(Card)`
 
 const FeaturesPage = () => (
   <FeaturesWrapper>
-    {features.map(({ id, title, desc, icon }, i) => (
-      <FeatureContainer key={id} index={i}>
+    {features.map(({ id, title, desc, icon }) => (
+      <FeatureContainer key={id}>
         {getIconSvg(icon)}
         <Divider baseColor={colors.primary} />
         <Title>{title}</Title>

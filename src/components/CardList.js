@@ -12,20 +12,21 @@ const transitionStyle = css`
   transition-property: opacity, transform;
   transition-duration: ${({ timeout }) => `${(timeout / timeoutFactor) * 100}ms`};
   transition-timing-function: ease;
-  transition-delay: ${({ index }) =>
-    (index ? `${index * (timeoutFactor / 2)}ms` : 0)};
+  transition-delay: ${({ index = 0 }) => `${index * (timeoutFactor / 2)}ms`};
 `;
 
 // FIXME: Allow transition to enter and exit when component mounted and unmounted
 export const CardLiftTransition = styled(CSSTransition).attrs({
   classNames,
-  timeout: timeoutFactor,
+  timeout: ({ timeout }) => timeout || timeoutFactor,
   appear: true,
   in: true,
+  // mountOnEnter: true,
+  // unmountOnExit: true,
 })`
   &.${classNames}-appear {
     transform: translateY(${measurements.height.header});
-    opacity: 0.1;
+    opacity: 0;
 
     &.${classNames}-appear-active {
     transform: translateY(0);
@@ -54,32 +55,30 @@ export const CardLiftTransition = styled(CSSTransition).attrs({
   }
 `;
 
-// // eslint-disable-next-line react/prefer-stateless-function
-// class CardList extends Component {
-//   static propTypes = {
-//     children: PropTypes.arrayOf(PropTypes.node).isRequired,
-//     // children: PropTypes.oneOfType(
-//     //   PropTypes.node,
-//     //   PropTypes.arrayOf(PropTypes.node),
-//     // ).isRequired,
-//   };
+// eslint-disable-next-line react/prefer-stateless-function
+class CardList extends Component {
+  static propTypes = {
+    children: PropTypes.arrayOf(PropTypes.node).isRequired,
+    // children: PropTypes.oneOfType(
+    //   PropTypes.node,
+    //   PropTypes.arrayOf(PropTypes.node),
+    // ).isRequired,
+  };
 
-//   // FIXME: Not working for image components (sponsors, videos)
-//   render = () => {
-//     const { children } = this.props;
-//     const timeout = children.length * timeoutFactor;
-//     return (
-//       <TransitionGroup appear in>
-//         {children.map((node, i) => (
-//           <CardLiftTransition timeout={timeout} delayFactor={i}>
-//             {node}
-//           </CardLiftTransition>
-//         ))}
-//       </TransitionGroup>
-//     );
-//   };
-// }
+  // FIXME: Not working for image components (sponsors, videos)
+  render = () => {
+    const { children, ...props } = this.props;
+    const timeout = children.length * timeoutFactor;
+    return (
+      <TransitionGroup {...props} appear in>
+        {children.map((child, index) => (
+          <CardLiftTransition timeout={timeout} key={child.key || index} index={index}>
+            {child}
+          </CardLiftTransition>
+        ))}
+      </TransitionGroup>
+    );
+  };
+}
 
-// export default CardList;
-
-export default ({ children }) => <div>{children}</div>;
+export default CardList;

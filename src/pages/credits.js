@@ -66,8 +66,8 @@ const CreditContainer = styled(Card)`
 
 const CreditsPage = () => (
   <CardList>
-    {credits.map(({ id, name, desc, social }, i) => (
-      <CreditContainer key={id} index={i}>
+    {credits.map(({ id, name, desc, social }) => (
+      <CreditContainer key={id}>
         <CreditAvatar className="credit__avatar" src={creditImages[id]} alt={name} />
         <CreditDetails className="credit__details">
           <Title>{name}</Title>

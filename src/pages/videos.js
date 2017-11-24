@@ -36,9 +36,9 @@ class YouTubeVideoContainer extends Component {
     return (
       <CardList>
         {videos === null ? [<YouTubeVideo key={videos} {...this.state} />] :
-          videos.map(({ id, title, thumbnail, content }, i) => {
+          videos.map(({ id, title, thumbnail, content }) => {
             const props = { loading, error, video: { title, thumbnail, content } };
-            return <YouTubeVideo key={id} index={i} {...props} />;
+            return <YouTubeVideo key={id} {...props} />;
           })}
       </CardList>
     );
