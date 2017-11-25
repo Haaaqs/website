@@ -29,12 +29,12 @@ module.exports = {
         background_color: config.colors.background,
         icons: [
           {
-            src: '/android-chrome-192x192.png',
+            src: `${pathPrefix}/android-chrome-192x192.png`,
             sizes: '192x192',
             type: 'image/png',
           },
           {
-            src: '/android-chrome-512x512.png',
+            src: `${pathPrefix}/android-chrome-512x512.png`,
             sizes: '512x512',
             type: 'image/png',
           },
