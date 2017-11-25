@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Children } from 'react';
 import PropTypes from 'prop-types';
 import { TransitionGroup, CSSTransition } from 'react-transition-group';
 import styled, { css } from 'styled-components';
@@ -16,13 +16,9 @@ const transitionStyle = css`
 `;
 
 // FIXME: Allow transition to enter and exit when component mounted and unmounted
-export const CardLiftTransition = styled(CSSTransition).attrs({
+const CardLiftTransition = styled(CSSTransition).attrs({
   classNames,
   timeout: ({ timeout }) => timeout || timeoutFactor,
-  appear: true,
-  in: true,
-  // mountOnEnter: true,
-  // unmountOnExit: true,
 })`
   &.${classNames}-appear {
     transform: translateY(${measurements.height.header});
@@ -55,30 +51,27 @@ export const CardLiftTransition = styled(CSSTransition).attrs({
   }
 `;
 
-// eslint-disable-next-line react/prefer-stateless-function
-class CardList extends Component {
-  static propTypes = {
-    children: PropTypes.arrayOf(PropTypes.node).isRequired,
-    // children: PropTypes.oneOfType(
-    //   PropTypes.node,
-    //   PropTypes.arrayOf(PropTypes.node),
-    // ).isRequired,
-  };
 
-  // FIXME: Not working for image components (sponsors, videos)
-  render = () => {
-    const { children, ...props } = this.props;
-    const timeout = children.length * timeoutFactor;
-    return (
-      <TransitionGroup {...props} appear in>
-        {children.map((child, index) => (
-          <CardLiftTransition timeout={timeout} key={child.key || index} index={index}>
-            {child}
-          </CardLiftTransition>
-        ))}
-      </TransitionGroup>
-    );
-  };
-}
+// FIXME: Not working when image loading (sponsors, videos)
+const CardList = ({ children, ...props }) => (
+  <TransitionGroup appear {...props}>
+    {Children.map(children, (child, i) => (
+      <CardLiftTransition
+        key={child.key || i}
+        timeout={children.length * timeoutFactor}
+        index={i}
+      >
+        {child}
+      </CardLiftTransition>
+    ))}
+  </TransitionGroup>
+);
+
+CardList.propTypes = {
+  children: PropTypes.oneOfType([
+    PropTypes.node,
+    PropTypes.arrayOf(PropTypes.node),
+  ]).isRequired,
+};
 
 export default CardList;

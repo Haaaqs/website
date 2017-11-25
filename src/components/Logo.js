@@ -4,6 +4,10 @@ import styled, { css, keyframes } from 'styled-components';
 
 import { colors, opacities } from '../data/values.css';
 
+// TODO: Use react-transition-group for animating logo path
+// FIXME: The animation might not start automatically on page load (0%),
+//        so stroke-width will be set to inherit (shows full stroke)
+//        initially before page is loaded.
 const pathDrawAnimation = keyframes`
   0% {
     stroke-width: inherit;

@@ -109,15 +109,15 @@ class YouTubeVideo extends Component {
     error: null,
   };
 
-  static renderLoading = () => (
+  state = { play: false };
+
+  playVideo = () => this.setState({ play: true });
+
+  renderLoading = () => (
     <InfoContainer>
       <InfoText>Loading...</InfoText>
     </InfoContainer>
   );
-
-  state = { play: false };
-
-  playVideo = () => this.setState({ play: true });
 
   renderError = () => (
     <InfoContainer>
@@ -153,7 +153,7 @@ class YouTubeVideo extends Component {
   renderContent = () => {
     const { loading, video } = this.props;
     if (loading) {
-      return YouTubeVideo.renderLoading();
+      return this.renderLoading();
     } else if (video !== null) {
       return <div>{this.state.play ? this.renderVideo() : this.renderThumbnail()}</div>;
     }
@@ -161,8 +161,10 @@ class YouTubeVideo extends Component {
   };
 
   render = () => (
-    <VideoWrapper>
-      <VideoContainer>{this.renderContent()}</VideoContainer>
+    <VideoWrapper {...this.props}>
+      <VideoContainer>
+        {this.renderContent()}
+      </VideoContainer>
     </VideoWrapper>
   );
 }
