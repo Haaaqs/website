@@ -122,7 +122,7 @@ class YouTubeVideo extends Component {
   renderError = () => (
     <InfoContainer>
       <InfoText>Video could not be loaded</InfoText>
-      ${this.props.error !== null && <ErrorText>{`${this.props.error}`}</ErrorText>}
+      <ErrorText>{`${this.props.error}`}</ErrorText>
     </InfoContainer>
   );
 

@@ -19,38 +19,41 @@ const transitionStyle = css`
 const CardLiftTransition = styled(CSSTransition).attrs({
   classNames,
   timeout: ({ timeout }) => timeout || timeoutFactor,
+  mountOnEnter: true,
+  unmountOnExit: true,
 })`
-  &.${classNames}-appear {
-    transform: translateY(${measurements.height.header});
-    opacity: 0;
+  &.${classNames} {
+    &-appear {
+      transform: translateY(${measurements.height.header});
+      opacity: 0;
 
-    &.${classNames}-appear-active {
-    transform: translateY(0);
-    opacity: 1;
-    ${transitionStyle};
-  }
+      &&-active {
+      transform: translateY(0);
+      opacity: 1;
+      ${transitionStyle};
+    }
 
-  &.${classNames}-enter {
-    transform: translateY(${measurements.height.header});
-    opacity: 0.1;
+    &-enter {
+      transform: translateY(${measurements.height.header});
+      opacity: 0.1;
 
-    &.${classNames}-enter-active {
-    transform: translateY(0);
-    opacity: 1;
-    ${transitionStyle};
-  }
+      &&-active {
+      transform: translateY(0);
+      opacity: 1;
+      ${transitionStyle};
+    }
 
-  &.${classNames}-exit {
-    transform: translateY(0);
-    opacity: 1;
+    &-exit {
+      transform: translateY(0);
+      opacity: 1;
 
-    &.${classNames}-exit-active {
-    transform: translateY(${measurements.height.header});
-    opacity: 0.1;
-    ${transitionStyle};
+      &&-active {
+      transform: translateY(${measurements.height.header});
+      opacity: 0.1;
+      ${transitionStyle};
+    }
   }
 `;
-
 
 // FIXME: Not working when image loading (sponsors, videos)
 const CardList = ({ children, ...props }) => (

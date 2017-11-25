@@ -7,9 +7,6 @@ import Logo from '../components/Logo';
 
 import { measurements, colors } from '../data/values.css';
 
-const FourOhFourContainer = styled(CardList)`
-`;
-
 const FourOhFourDetails = styled.div`
   margin: 0.5em
 `;
@@ -28,11 +25,16 @@ const FourOhFourDesc = styled.p`
   margin: 0;
 `;
 
-const LogoHomeLink = styled(Link)`
+const LogoHomeContainer = styled.div`
   display: inline-block;
 `;
 
+const LogoHomeLink = styled(Link)`
+  display: block;
+`;
+
 const LogoHome = styled(Logo)`
+  display: block;
   width: 50vmin;
   max-width: calc(100vw - (${measurements.padding.container} * 2));
 
@@ -43,17 +45,19 @@ const LogoHome = styled(Logo)`
 `;
 
 const NotFoundPage = () => (
-  <FourOhFourContainer>
+  <CardList>
     <FourOhFourDetails>
       <FourOhFourTitle>Route Not Found</FourOhFourTitle>
       <FourOhFourDesc>
         You&#39;ve lost your path. Click on the logo to get back on track.
       </FourOhFourDesc>
     </FourOhFourDetails>
-    <LogoHomeLink to="/">
-      <LogoHome />
-    </LogoHomeLink>
-  </FourOhFourContainer>
+    <LogoHomeContainer>
+      <LogoHomeLink to="/">
+        <LogoHome />
+      </LogoHomeLink>
+    </LogoHomeContainer>
+  </CardList>
 );
 
 export default NotFoundPage;

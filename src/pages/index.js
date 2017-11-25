@@ -2,6 +2,7 @@ import React from 'react';
 import styled, { css } from 'styled-components';
 
 import Logo from '../components/Logo';
+
 import { measurements, colors, opacities, fonts } from '../data/values.css';
 
 import splashBg from '../images/index/splash-bg.jpg';

@@ -4,16 +4,17 @@ import styled from 'styled-components';
 import { measurements, opacities } from '../data/values.css';
 
 import { hexToRgb } from '../utils/colors';
+import { strip } from '../utils/strings';
 
 const getColor = ({ r, g, b }, opacity) =>
   `rgba(${r}, ${g}, ${b}, ${opacity})`;
 
-const getBackgroundGradient = (baseColor) => {
+const getBackgroundGradient = (baseColor, align) => {
   const rgbBaseColor = hexToRgb(baseColor);
   return `
-    ${getColor(rgbBaseColor, 0)},
+    ${align !== 'start' ? getColor(rgbBaseColor, 0) : ''},
     ${getColor(rgbBaseColor, opacities.primary)},
-    ${getColor(rgbBaseColor, 0)}
+    ${align !== 'end' ? getColor(rgbBaseColor, 0) : ''}
   `;
 };
 
@@ -23,16 +24,21 @@ const Divider = styled.hr`
   height: ${measurements.unit};
   background: linear-gradient(
     to right,
-    ${({ baseColor }) => getBackgroundGradient(baseColor)}
+    ${({ baseColor, align }) => strip(getBackgroundGradient(baseColor, align).trim(), ',')}
   );
 `;
 
 Divider.propTypes = {
   baseColor: PropTypes.string,
+  align: PropTypes.oneOf([
+    'start',
+    'end',
+  ]),
 };
 
 Divider.defaultProps = {
   baseColor: '#000',
+  align: null,
 };
 
 export default Divider;
