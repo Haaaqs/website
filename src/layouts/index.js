@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Helmet from 'react-helmet';
+import { withPrefix } from 'gatsby-link';
 
 import { getFontImport } from '../utils/fonts';
 import { isHomePath, pathToTitleCase, getNavPaths } from '../utils/paths';
@@ -25,10 +26,10 @@ const TemplateWrapper = ({ children, location, data }) => (
       title={title(pathToTitleCase(location.pathname), data.site.siteMetadata.title)}
       link={[
         getFontImport(),
-        { rel: 'icon', type: 'image/png', sizes: '32x32', href: '/favicon-32x32.png' },
-        { rel: 'icon', type: 'image/png', sizes: '16x16', href: '/favicon-16x16.png' },
-        { rel: 'apple-touch-icon', sizes: '180x180', href: '/apple-touch-icon.png' },
-        { rel: 'mask-icon', href: '/safari-pinned-tab.svg', color: themeColor },
+        { rel: 'icon', type: 'image/png', sizes: '32x32', href: withPrefix('/favicon-32x32.png') },
+        { rel: 'icon', type: 'image/png', sizes: '16x16', href: withPrefix('/favicon-16x16.png') },
+        { rel: 'apple-touch-icon', sizes: '180x180', href: withPrefix('/apple-touch-icon.png') },
+        { rel: 'mask-icon', color: themeColor, href: withPrefix('/safari-pinned-tab.svg') },
       ]}
     />
     {/* TODO: Routes navigation should be in the order of:
