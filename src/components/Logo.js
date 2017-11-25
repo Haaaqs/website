@@ -31,10 +31,7 @@ const pathAnimationStyle = css`
   stroke-dasharray: ${({ length }) => `${length}px ${length}px`};
   stroke-dashoffset: ${({ length }) => length}px;
 
-  animation-name: ${pathDrawAnimation};
-  animation-duration: 5s;
-  animation-timing-function: ease-in;
-  animation-iteration-count: 1;
+  animation: ${pathDrawAnimation} 5s ease-in 1;
 `;
 
 const LogoContainer = styled.svg.attrs({

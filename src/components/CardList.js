@@ -55,7 +55,7 @@ const CardLiftTransition = styled(CSSTransition).attrs({
   }
 `;
 
-// FIXME: Not working when image loading (sponsors, videos)
+// FIXME: Not working well with videos
 const CardList = ({ children, ...props }) => (
   <TransitionGroup appear {...props}>
     {Children.map(children, (child, i) => (

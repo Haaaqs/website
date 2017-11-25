@@ -4,9 +4,16 @@ import styled, { css } from 'styled-components';
 
 import Card from '../components/Card';
 import Icon from '../components/Icon';
+import { LoadingText as ImageLoadingText } from '../components/Image';
 
 import { getIconPath } from '../data/icons.svg';
 import { measurements, colors, opacities, fonts, effects } from '../data/values.css';
+
+const infoTextStyle = css`
+  margin: 0.25em;
+  font-size: 1rem;
+  font-weight: normal;
+`;
 
 const videoContentStyle = css`
   position: absolute;
@@ -40,15 +47,20 @@ const InfoContainer = styled.div`
   align-items: center;
 `;
 
-const InfoText = styled.p`
-  margin: 0.25em;
-  font-size: 1em;
+const LoadingText = styled(ImageLoadingText)`
+  ${infoTextStyle};
 `;
 
 const ErrorText = styled.p`
   margin: 0;
-  font-size: ${fonts.sizes[12]};
+  font-size: ${fonts.sizes[14]};
   font-weight: bold;
+
+  &::before {
+    ${infoTextStyle};
+    content: 'Video could not be loaded';
+    display: block;
+  }
 `;
 
 const VideoThumbnailContainer = styled.div`
@@ -115,13 +127,12 @@ class YouTubeVideo extends Component {
 
   renderLoading = () => (
     <InfoContainer>
-      <InfoText>Loading...</InfoText>
+      <LoadingText />
     </InfoContainer>
   );
 
   renderError = () => (
     <InfoContainer>
-      <InfoText>Video could not be loaded</InfoText>
       <ErrorText>{`${this.props.error}`}</ErrorText>
     </InfoContainer>
   );

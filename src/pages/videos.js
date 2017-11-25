@@ -35,18 +35,19 @@ class YouTubeVideoContainer extends Component {
     const { loading, videos, error } = this.state;
     return (
       <CardList>
-        {videos === null ? <YouTubeVideo {...this.state} /> :
+        {videos === null ? (
+          <YouTubeVideo {...this.state} />
+        ) : (
           videos.map(({ id, title, thumbnail, content }) => {
             const props = { loading, error, video: { title, thumbnail, content } };
             return <YouTubeVideo key={id} {...props} />;
-          })}
+          })
+        )}
       </CardList>
     );
   };
 }
 
-const VideoPage = () => (
-  <YouTubeVideoContainer />
-);
+const VideoPage = () => <YouTubeVideoContainer />;
 
 export default VideoPage;

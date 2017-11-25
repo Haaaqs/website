@@ -4,6 +4,7 @@ import styled from 'styled-components';
 
 import CardList from '../components/CardList';
 import Card from '../components/Card';
+import Image from '../components/Image';
 
 import { measurements } from '../data/values.css';
 
@@ -28,7 +29,7 @@ const SponsorBannerContainer = styled(Card)`
 const SponsorBanner = ({ name, link, imageSrc, ...props }) => (
   <SponsorBannerContainer {...props}>
     <a href={link} title={name}>
-      <img src={imageSrc} alt={name} />
+      <Image src={imageSrc} alt={name} />
     </a>
   </SponsorBannerContainer>
 );
