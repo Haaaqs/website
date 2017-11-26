@@ -1,7 +1,4 @@
-import React from 'react';
 import styled from 'styled-components';
-
-import { CardLiftTransition } from '../components/CardList';
 
 import { measurements, colors, opacities, fonts, shadows } from '../data/values.css';
 

@@ -13,8 +13,7 @@
   "scripts": {
     "build": "gatsby build",
     "develop": "gatsby develop",
-    "deploy": "gatsby build --prefix-paths && gh-pages -d public",
-    "format": "prettier --trailing-comma es5 --no-semi --single-quote --write \"src/**/*.js\""
+    "deploy": "gatsby build --prefix-paths && gh-pages -d public"
   },
   "dependencies": {
     "gatsby": "^1.9.119",
@@ -30,7 +29,7 @@
   },
   "devDependencies": {
     "babel-eslint": "^8.0.2",
-    "eslint": "^4.11.0",
+    "eslint": "^4.12.0",
     "eslint-config-airbnb": "^16.1.0",
     "eslint-plugin-import": "^2.8.0",
     "eslint-plugin-jsx-a11y": "^6.0.2",
