@@ -58,7 +58,6 @@ const IndexPage = () => (
   <IndexContainer>
     {/* TODO: Prototype, not final */}
     <Logo
-      animated
       style={{
         width: '100%',
         maxWidth: '50vw',

@@ -16,11 +16,9 @@ const transitionStyle = css`
 `;
 
 // FIXME: Allow transition to enter and exit when component mounted and unmounted
-const CardLiftTransition = styled(CSSTransition).attrs({
+const LiftTransition = styled(CSSTransition).attrs({
   classNames,
   timeout: ({ timeout }) => timeout || timeoutFactor,
-  mountOnEnter: true,
-  unmountOnExit: true,
 })`
   &.${classNames} {
     &-appear {
@@ -59,13 +57,13 @@ const CardLiftTransition = styled(CSSTransition).attrs({
 const CardList = ({ children, ...props }) => (
   <TransitionGroup appear {...props}>
     {Children.map(children, (child, i) => (
-      <CardLiftTransition
+      <LiftTransition
         key={child.key || i}
         timeout={children.length * timeoutFactor}
         index={i}
       >
         {child}
-      </CardLiftTransition>
+      </LiftTransition>
     ))}
   </TransitionGroup>
 );
