@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
+import { instanceOf, shape, bool, string } from 'prop-types';
 import styled, { css } from 'styled-components';
 
 import Card from '../components/Card';
@@ -107,12 +107,12 @@ const VideoEmbed = styled.iframe.attrs({
 
 class YouTubeVideo extends Component {
   static propTypes = {
-    loading: PropTypes.bool.isRequired,
-    error: PropTypes.instanceOf(Error),
-    video: PropTypes.shape({
-      title: PropTypes.string.isRequired,
-      thumbnail: PropTypes.string.isRequired,
-      content: PropTypes.string.isRequired,
+    loading: bool.isRequired,
+    error: instanceOf(Error),
+    video: shape({
+      title: string.isRequired,
+      thumbnail: string.isRequired,
+      content: string.isRequired,
     }),
   };
 

@@ -1,5 +1,5 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+import { arrayOf, shape, object, func, string } from 'prop-types';
 import Helmet from 'react-helmet';
 import { withPrefix } from 'gatsby-link';
 
@@ -46,24 +46,24 @@ const TemplateWrapper = ({ children, location, data }) => (
 );
 
 TemplateWrapper.propTypes = {
-  children: PropTypes.func.isRequired,
-  location: PropTypes.shape({
-    hash: PropTypes.string,
-    pathname: PropTypes.string,
-    search: PropTypes.string,
-    state: PropTypes.object,
+  children: func.isRequired,
+  location: shape({
+    hash: string,
+    pathname: string,
+    search: string,
+    state: object,
   }).isRequired,
-  data: PropTypes.shape({
-    site: PropTypes.shape({
-      siteMetadata: PropTypes.shape({
-        title: PropTypes.string,
+  data: shape({
+    site: shape({
+      siteMetadata: shape({
+        title: string,
       }),
     }),
-    allSitePage: PropTypes.shape({
-      edges: PropTypes.arrayOf(
-        PropTypes.shape({
-          node: PropTypes.shape({
-            path: PropTypes.string,
+    allSitePage: shape({
+      edges: arrayOf(
+        shape({
+          node: shape({
+            path: string,
           }),
         }),
       ),
