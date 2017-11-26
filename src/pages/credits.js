@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
+import CardList from '../components/CardList';
 import Card, { Title, Info } from '../components/Card';
 
 import SocialIcon from '../components/SocialIcon';
@@ -9,23 +10,6 @@ import creditImages from '../data/credits.jpg';
 import { measurements, colors, effects } from '../data/values.css';
 
 const { credits } = require('../data/config.json');
-
-const CreditContainer = Card.extend`
-  padding: 0;
-  margin: ${measurements.padding.container};
-  border-radius: ${measurements.border.circle};
-
-  &:hover {
-    & > img {
-      filter: ${effects.blurScale.blur};
-      transform: ${effects.blurScale.scale};
-    }
-
-    & > div {
-      transform: translateY(0);
-    }
-  }
-`;
 
 const CreditAvatar = styled.img`
   display: block;
@@ -41,6 +25,7 @@ const CreditDetails = styled.div`
   height: 50%;
   background: ${colors.secondary};
   transform: translateY(100%);
+  padding: 0 ${measurements.padding.container};
 
   &::before {
     content: '';
@@ -62,8 +47,25 @@ const CreditIcon = styled(SocialIcon)`
   margin: 0.5em;
 `;
 
+const CreditContainer = styled(Card)`
+  padding: 0;
+  margin: ${measurements.padding.container};
+  border-radius: ${measurements.border.circle};
+
+  &:hover {
+    & > ${CreditAvatar} {
+      filter: ${effects.blurScale.blur};
+      transform: ${effects.blurScale.scale};
+    }
+
+    & > ${CreditDetails} {
+      transform: translateY(0);
+    }
+  }
+`;
+
 const CreditsPage = () => (
-  <div>
+  <CardList>
     {credits.map(({ id, name, desc, social }) => (
       <CreditContainer key={id}>
         <CreditAvatar className="credit__avatar" src={creditImages[id]} alt={name} />
@@ -78,7 +80,7 @@ const CreditsPage = () => (
         </CreditDetails>
       </CreditContainer>
     ))}
-  </div>
+  </CardList>
 );
 
 export default CreditsPage;

@@ -4,9 +4,16 @@ import styled, { css } from 'styled-components';
 
 import Card from '../components/Card';
 import Icon from '../components/Icon';
+import { LoadingText as ImageLoadingText } from '../components/Image';
 
 import { getIconPath } from '../data/icons.svg';
 import { measurements, colors, opacities, fonts, effects } from '../data/values.css';
+
+const infoTextStyle = css`
+  margin: 0.25em;
+  font-size: 1rem;
+  font-weight: normal;
+`;
 
 const videoContentStyle = css`
   position: absolute;
@@ -24,7 +31,7 @@ const VideoWrapper = styled.div`
   max-width: calc(100vw - (${measurements.padding.container} * 4));
 `;
 
-const VideoContainer = Card.extend`
+const VideoContainer = styled(Card)`
   position: relative;
   padding: 0;
   width: 100%;
@@ -40,15 +47,20 @@ const InfoContainer = styled.div`
   align-items: center;
 `;
 
-const InfoText = styled.p`
-  margin: 0.25em;
-  font-size: 1em;
+const LoadingText = styled(ImageLoadingText)`
+  ${infoTextStyle};
 `;
 
 const ErrorText = styled.p`
   margin: 0;
-  font-size: ${fonts.sizes[12]};
+  font-size: ${fonts.sizes[14]};
   font-weight: bold;
+
+  &::before {
+    ${infoTextStyle};
+    content: 'Video could not be loaded';
+    display: block;
+  }
 `;
 
 const VideoThumbnailContainer = styled.div`
@@ -109,20 +121,19 @@ class YouTubeVideo extends Component {
     error: null,
   };
 
-  static renderLoading = () => (
-    <InfoContainer>
-      <InfoText>Loading...</InfoText>
-    </InfoContainer>
-  );
-
   state = { play: false };
 
   playVideo = () => this.setState({ play: true });
 
+  renderLoading = () => (
+    <InfoContainer>
+      <LoadingText />
+    </InfoContainer>
+  );
+
   renderError = () => (
     <InfoContainer>
-      <InfoText>Video could not be loaded</InfoText>
-      ${this.props.error !== null && <ErrorText>{`${this.props.error}`}</ErrorText>}
+      <ErrorText>{`${this.props.error}`}</ErrorText>
     </InfoContainer>
   );
 
@@ -153,7 +164,7 @@ class YouTubeVideo extends Component {
   renderContent = () => {
     const { loading, video } = this.props;
     if (loading) {
-      return YouTubeVideo.renderLoading();
+      return this.renderLoading();
     } else if (video !== null) {
       return <div>{this.state.play ? this.renderVideo() : this.renderThumbnail()}</div>;
     }
@@ -161,8 +172,10 @@ class YouTubeVideo extends Component {
   };
 
   render = () => (
-    <VideoWrapper>
-      <VideoContainer>{this.renderContent()}</VideoContainer>
+    <VideoWrapper {...this.props}>
+      <VideoContainer>
+        {this.renderContent()}
+      </VideoContainer>
     </VideoWrapper>
   );
 }

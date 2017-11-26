@@ -1,30 +1,35 @@
 import React from 'react';
 import { string } from 'prop-types';
+import styled from 'styled-components';
 
+import CardList from '../components/CardList';
 import Card from '../components/Card';
+import Image from '../components/Image';
 
 import { measurements } from '../data/values.css';
 
 const { sponsors } = require('../data/config.json');
 
-const SponsorBannerContainer = Card.extend`
+const SponsorBannerContainer = styled(Card)`
   margin: ${measurements.padding.container};
   padding: 0;
+  max-width: calc(100vw - (${measurements.padding.container} * 4));
 
   a {
     display: block;
 
     img {
       display: block;
-      max-width: calc(100vw - (${measurements.padding.container} * 4));
+      width: 100%;
+      height: 100%;
     }
   }
 `;
 
-const SponsorBanner = ({ name, link, imageSrc }) => (
-  <SponsorBannerContainer>
+const SponsorBanner = ({ name, link, imageSrc, ...props }) => (
+  <SponsorBannerContainer {...props}>
     <a href={link} title={name}>
-      <img src={imageSrc} alt={name} />
+      <Image src={imageSrc} alt={name} />
     </a>
   </SponsorBannerContainer>
 );
@@ -36,9 +41,9 @@ SponsorBanner.propTypes = {
 };
 
 const SponsorsPage = () => (
-  <div>
+  <CardList>
     {sponsors.map(({ id, ...props }) => <SponsorBanner key={id} {...props} />)}
-  </div>
+  </CardList>
 );
 
 export default SponsorsPage;

@@ -1,106 +1,34 @@
-import React, { Component } from 'react';
-import { bool } from 'prop-types';
-import styled, { css, keyframes } from 'styled-components';
+import React from 'react';
+import styled from 'styled-components';
 
 import { colors, opacities } from '../data/values.css';
-
-const pathDrawAnimation = keyframes`
-  0% {
-    stroke-width: inherit;
-    fill: transparent;
-  }
-
-  85% {
-    stroke-dashoffset: 0px;
-    stroke-width: inherit;
-    fill: transparent;
-  }
-
-  100% {
-    stroke-dashoffset: 0px;
-    stroke-width: 0;
-    fill: inherit;
-  }
-`;
-
-const pathAnimationStyle = css`
-  stroke-dasharray: ${({ length }) => `${length}px ${length}px`};
-  stroke-dashoffset: ${({ length }) => length}px;
-
-  animation-name: ${pathDrawAnimation};
-  animation-duration: 5s;
-  animation-timing-function: ease-in;
-  animation-iteration-count: 1;
-`;
 
 const LogoContainer = styled.svg.attrs({
   viewBox: '0 0 29 41',
 })`
   fill: ${colors.primary};
   stroke: ${colors.secondary};
-  stroke-width: ${0.25 / 16}em;
+  stroke-width: 0.125pt;
 `;
 
 const LogoBack = styled.path.attrs({
-  d: 'M21.95 32.27h-9.9c-.29 0-.53-.22-.53-.5v-6.85c0-.28.24-.5.53-.5h8.47c.29 0 .53-.22.53-.5V18.2c0-.28-.24-.5-.53-.5h-8.47c-.29 0-.53-.22-.53-.5v-6.85c0-.28.24-.5.53-.5h9.9c.18 0 .34-.08.44-.22L27 3.12H2.5c-.28 0-.5.22-.5.5V38.5c0 .28.22.5.5.5H27l-4.6-6.51c-.1-.13-.27-.22-.45-.22z',
+  d:
+    'M2.5 38.938c-.24 0-.438-.195-.438-.436V3.62c0-.24.196-.436.438-.436h24.38L22.344 9.59c-.087.123-.233.196-.39.196h-9.902c-.326 0-.59.25-.59.56V17.2c0 .308.264.56.59.56h8.466c.257 0 .466.196.466.436v5.73c0 .24-.21.436-.467.436h-8.467c-.326 0-.59.252-.59.562v6.852c0 .31.264.56.59.56h9.902c.156 0 .302.074.39.197l4.534 6.406H2.5z',
 })`
   fill-opacity: ${opacities.secondary};
   stroke-opacity: ${opacities.secondary};
-  ${({ animate, pathBackLength }) => (animate && pathBackLength !== null)
-    && pathAnimationStyle};
 `;
 
 const LogoFront = styled.path.attrs({
-  d: 'M21.95 31.15h-9.9c-.29 0-.53-.22-.53-.5V23.8c0-.28.24-.5.53-.5h8.47c.29 0 .53-.22.53-.5v-5.74c0-.28-.24-.5-.53-.5h-8.47c-.29 0-.53-.22-.53-.5V9.23c0-.28.24-.5.53-.5h9.9c.18 0 .34-.08.44-.22L27 2H2.5c-.28 0-.5.22-.5.5v34.88c0 .28.22.5.5.5H27l-4.6-6.51c-.1-.14-.27-.22-.45-.22z',
-})`
-  ${({ animate, pathFrontLength }) => (animate && pathFrontLength !== null)
-    && pathAnimationStyle};
-`;
+  d:
+    'M2.5 37.816c-.24 0-.438-.195-.438-.436V2.5c0-.24.196-.437.438-.437h24.38L22.344 8.47c-.087.122-.232.195-.39.195h-9.902c-.326 0-.59.25-.59.56v6.853c0 .31.264.56.59.56h8.466c.257 0 .466.197.466.437v5.73c0 .24-.21.436-.467.436h-8.467c-.326 0-.59.253-.59.563v6.852c0 .31.264.56.59.56h9.902c.157 0 .303.074.39.196l4.534 6.408H2.5z',
+})``;
 
-class Logo extends Component {
-  static propTypes = {
-    animated: bool,
-  };
-
-  static defaultProps = {
-    animated: false,
-  };
-
-  state = { pathBackLength: null, pathFrontLength: null };
-
-  componentDidMount = () => {
-    if (this.props.animated) {
-      const paths = [
-        { pathRef: this.pathBackRef, stateName: 'pathBackLength' },
-        { pathRef: this.pathFrontRef, stateName: 'pathFrontLength' },
-      ];
-      paths.forEach(this.animatePath);
-    }
-  };
-
-  animatePath = ({ pathRef: path, stateName }) => {
-    const length = path.getTotalLength();
-    this.setState({ [stateName]: length });
-  };
-
-  render = () => (
-    <LogoContainer {...this.props}>
-      <LogoBack
-        animate={this.props.animated}
-        length={this.state.pathBackLength}
-        innerRef={(pathBack) => {
-          this.pathBackRef = pathBack;
-        }}
-      />
-      <LogoFront
-        animate={this.props.animated}
-        length={this.state.pathFrontLength}
-        innerRef={(pathFront) => {
-          this.pathFrontRef = pathFront;
-        }}
-      />
-    </LogoContainer>
-  );
-}
+const Logo = ({ ...props }) => (
+  <LogoContainer {...props}>
+    <LogoBack />
+    <LogoFront />
+  </LogoContainer>
+);
 
 export default Logo;

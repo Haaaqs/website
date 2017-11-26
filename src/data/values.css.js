@@ -48,8 +48,8 @@ const values = {
   },
   colors: {
     primary: config.colors.theme,
-    secondary: '#f4faf6',
-    background: config.colors.background,
+    secondary: config.colors.background,
+    background: '#fafafa',
   },
   opacities: {
     primary: 0.87,

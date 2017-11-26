@@ -6,13 +6,12 @@ import Divider from '../../components/Divider';
 
 import { measurements, colors, opacities, fonts, shadows } from '../../data/values.css';
 
-// TODO: Add page transitions to content
 const ContentContainer = styled.main`
   flex: 1 0 auto;
   text-align: center;
   margin: 0;
+  /* overflow-x: hidden; */
   padding: ${measurements.padding.container};
-  /* Account for fixed header height */
   padding-top: calc(${measurements.height.header} + ${measurements.padding.container});
   ${shadows.box[16]};
   background: ${({ transparent }) => (transparent ? 'transparent' : colors.background)};
@@ -23,31 +22,25 @@ const TitleContainer = styled.div`
 `;
 
 const Title = styled.h1`
-  margin: 0.5em 0;
+  margin: 0.5em;
   font-size: ${fonts.sizes[32]};
   font-weight: bold;
+  text-align: start;
   text-transform: lowercase;
   white-space: nowrap;
   overflow-x: auto;
   color: ${colors.primary};
   opacity: ${opacities.primary};
-
-  &::before,
-  &::after {
-    /* space - em dash - space */
-    content: '\\0020\\2014\\0020';
-  }
 `;
 
 const isHome = title => title === '';
 
 const Content = ({ children, title }) => (
   <ContentContainer transparent={isHome(title)}>
-    {/* Include title as header if given */}
     {!isHome(title) && (
       <TitleContainer>
         <Title>{title}</Title>
-        <Divider baseColor={colors.primary} />
+        <Divider baseColor={colors.primary} align="start" />
       </TitleContainer>
     )}
     {children}
