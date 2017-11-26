@@ -1,5 +1,5 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+import { string } from 'prop-types';
 
 import Card from '../components/Card';
 
@@ -30,9 +30,9 @@ const SponsorBanner = ({ name, link, imageSrc }) => (
 );
 
 SponsorBanner.propTypes = {
-  name: PropTypes.string.isRequired,
-  link: PropTypes.string.isRequired,
-  imageSrc: PropTypes.string.isRequired,
+  name: string.isRequired,
+  link: string.isRequired,
+  imageSrc: string.isRequired,
 };
 
 const SponsorsPage = () => (

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
+import { bool } from 'prop-types';
 import styled, { css, keyframes } from 'styled-components';
 
 import { colors, opacities } from '../data/values.css';
@@ -59,7 +59,7 @@ const LogoFront = styled.path.attrs({
 
 class Logo extends Component {
   static propTypes = {
-    animated: PropTypes.bool,
+    animated: bool,
   };
 
   static defaultProps = {

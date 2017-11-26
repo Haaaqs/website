@@ -1,5 +1,5 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+import { string } from 'prop-types';
 
 import Icon from './Icon';
 
@@ -51,8 +51,8 @@ const SocialIcon = ({ id, link, ...props }) => {
 };
 
 SocialIcon.propTypes = {
-  id: PropTypes.string.isRequired,
-  link: PropTypes.string.isRequired,
+  id: string.isRequired,
+  link: string.isRequired,
 };
 
 export default SocialIcon;

@@ -1,5 +1,5 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+import { arrayOf, bool, string } from 'prop-types';
 import Link from 'gatsby-link';
 import styled from 'styled-components';
 
@@ -128,7 +128,7 @@ const Navigation = ({ routes }) => (
 );
 
 Navigation.propTypes = {
-  routes: PropTypes.arrayOf(PropTypes.string).isRequired,
+  routes: arrayOf(string).isRequired,
 };
 
 const Header = ({ routes, home }) => (
@@ -142,8 +142,8 @@ const Header = ({ routes, home }) => (
 );
 
 Header.propTypes = {
-  routes: PropTypes.arrayOf(PropTypes.string),
-  home: PropTypes.bool,
+  routes: arrayOf(string),
+  home: bool,
 };
 
 Header.defaultProps = {

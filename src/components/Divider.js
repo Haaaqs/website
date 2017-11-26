@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 import { measurements, opacities } from '../data/values.css';
@@ -23,16 +22,8 @@ const Divider = styled.hr`
   height: ${measurements.unit};
   background: linear-gradient(
     to right,
-    ${({ baseColor }) => getBackgroundGradient(baseColor)}
+    ${({ baseColor = '#000' }) => getBackgroundGradient(baseColor)}
   );
 `;
-
-Divider.propTypes = {
-  baseColor: PropTypes.string,
-};
-
-Divider.defaultProps = {
-  baseColor: '#000',
-};
 
 export default Divider;

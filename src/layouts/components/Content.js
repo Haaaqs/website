@@ -1,5 +1,5 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+import { node, string } from 'prop-types';
 import styled from 'styled-components';
 
 import Divider from '../../components/Divider';
@@ -55,8 +55,8 @@ const Content = ({ children, title }) => (
 );
 
 Content.propTypes = {
-  children: PropTypes.element.isRequired,
-  title: PropTypes.string,
+  children: node.isRequired,
+  title: string,
 };
 
 Content.defaultProps = {
