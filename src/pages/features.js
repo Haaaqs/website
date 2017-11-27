@@ -15,10 +15,9 @@ const FeaturesWrapper = styled(CardList)`
   flex-wrap: wrap;
 `;
 
-// FIXME: When max-width of card is exceeded, text content overflows
 const FeatureContainer = styled(Card)`
-  flex: 1;
-  overflow: visible;
+  flex: 1 0 auto;
+  overflow: auto;
   margin: ${measurements.padding.container};
   max-width: calc(100vw - (${measurements.padding.container} * 4));
 

@@ -10,7 +10,6 @@ const ContentContainer = styled.main`
   flex: 1 0 auto;
   text-align: center;
   margin: 0;
-  /* overflow-x: hidden; */
   padding: ${measurements.padding.container};
   padding-top: calc(${measurements.height.header} + ${measurements.padding.container});
   ${shadows.box[16]};
