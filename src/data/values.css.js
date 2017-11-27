@@ -119,7 +119,7 @@ const values = {
   },
   transitions: {
     duration: 0.25,
-    timingFunction: 'ease',
+    timingFunction: 'cubic-bezier(0.4, 0.0, 0.2, 1)',
     set: (...properties) =>
       css`
         transition-property: ${joinAsString(properties)};

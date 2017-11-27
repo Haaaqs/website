@@ -5,7 +5,7 @@ import Logo from '../components/Logo';
 
 import { measurements, colors, opacities, fonts, transitions } from '../data/values.css';
 
-import splashBg from '../images/index/splash-bg.jpg';
+import splashBg from '../images/index/hero-bg.png';
 
 const { metadata: { title, label, owner } } = require('../data/config.json');
 
