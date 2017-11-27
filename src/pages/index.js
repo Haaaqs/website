@@ -3,7 +3,7 @@ import styled, { css } from 'styled-components';
 
 import Logo from '../components/Logo';
 
-import { measurements, colors, opacities, fonts, transitions } from '../data/values.css';
+import { measurements, colors, opacities, fonts } from '../data/values.css';
 
 import splashBg from '../images/index/hero-bg.png';
 
@@ -45,13 +45,6 @@ const IndexContainer = styled.div`
     opacity: ${opacities.primary};
     filter: brightness(${opacities.secondary});
     ${imageBackgroundStyle};
-    ${transitions.set('opacity')};
-  }
-
-  &:hover {
-    &::before {
-      opacity: 1;
-    }
   }
 `;
 
@@ -84,15 +77,13 @@ const IndexPage = () => (
           textTransform: 'uppercase',
         }}
       >
-        {title.split(' ').map((word, index) => (
+        {title.split(' ').map(word => (
             word === label ? (
-              // eslint-disable-next-line react/no-array-index-key
-              <strong key={`${index}: ${word}`} style={{ fontWeight: 'bold' }}>
+              <strong key={word} style={{ fontWeight: 'bold' }}>
                 {word}
               </strong>
             ) : (
-              // eslint-disable-next-line react/no-array-index-key
-              <span key={`${index}: ${word}`} style={{ opacity: opacities.secondary }}>
+              <span key={word} style={{ opacity: opacities.secondary }}>
                 {word}
               </span>
             )

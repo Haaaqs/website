@@ -1,5 +1,5 @@
 import React, { Children } from 'react';
-import PropTypes from 'prop-types';
+import { oneOfType, arrayOf, node } from 'prop-types';
 import { TransitionGroup, CSSTransition } from 'react-transition-group';
 import styled, { css } from 'styled-components';
 
@@ -69,9 +69,9 @@ const CardList = ({ children, ...props }) => (
 );
 
 CardList.propTypes = {
-  children: PropTypes.oneOfType([
-    PropTypes.node,
-    PropTypes.arrayOf(PropTypes.node),
+  children: oneOfType([
+    node,
+    arrayOf(node),
   ]).isRequired,
 };
 

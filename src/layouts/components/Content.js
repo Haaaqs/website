@@ -24,12 +24,17 @@ const Title = styled.h1`
   margin: 0.5em;
   font-size: ${fonts.sizes[32]};
   font-weight: bold;
-  text-align: start;
   text-transform: lowercase;
   white-space: nowrap;
   overflow-x: auto;
   color: ${colors.primary};
   opacity: ${opacities.primary};
+
+  &::before,
+  &::after {
+    /* space - em dash - space */
+    content: '\\0020\\2014\\0020';
+  }
 `;
 
 const isHome = title => title === '';
@@ -39,7 +44,7 @@ const Content = ({ children, title }) => (
     {!isHome(title) && (
       <TitleContainer>
         <Title>{title}</Title>
-        <Divider baseColor={colors.primary} align="start" />
+        <Divider baseColor={colors.primary} />
       </TitleContainer>
     )}
     {children}

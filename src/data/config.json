@@ -15,9 +15,9 @@
     {
       "family": "Open Sans",
       "variants": [
-          400,
-          700
-        ]
+        400,
+        700
+      ]
     }
   ],
   "features": [
@@ -53,7 +53,12 @@
       "id": "mat",
       "name": "Mat",
       "desc": "Overall help with the client",
-      "social": []
+      "social": [
+        {
+          "id": "youtube",
+          "link": "https://www.youtube.com/channel/UCQ26c_8MzcQMVis2MYl1_YA"
+        }
+      ]
     },
     {
       "id": "hero_code",
