@@ -7,25 +7,7 @@ import Logo from '../../components/Logo';
 
 import { pathToTitleCase } from '../../utils/paths';
 
-import { measurements, colors, shadows, opacities } from '../../data/values.css';
-
-const HeaderContainer = styled.header`
-  position: fixed;
-  left: 0;
-  top: 0;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 100%;
-  margin: 0;
-  padding: 0 ${measurements.padding.container};
-  height: ${measurements.height.header};
-  overflow: hidden;
-  z-index: 1;
-  background: ${({ home }) => (home ? 'transparent' : colors.secondary)};
-  color: ${({ home }) => (home ? colors.secondary : colors.primary)};
-  ${({ home }) => (home ? 'box-shadow: none;' : shadows.box[4])};
-`;
+import { measurements, colors, opacities, shadows, transitions } from '../../data/values.css';
 
 const LogoLink = styled(Link)`
   position: relative;
@@ -34,6 +16,7 @@ const LogoLink = styled(Link)`
   padding-right: ${measurements.padding.container};
   border-right: ${measurements.unit} solid ${colors.primary};
   box-shadow: 0.25em 0 0.25em rgba(0, 0, 0, ${opacities.faint});
+  ${transitions.set('color')};
 
   &::before {
     content: '';
@@ -47,6 +30,7 @@ const LogoLink = styled(Link)`
     background: ${colors.primary};
     transform-origin: left top;
     transform: scaleX(0);
+    ${transitions.set('transform')};
   }
 
   &:hover {
@@ -84,6 +68,7 @@ const NavigationContainer = styled.nav`
     text-transform: uppercase;
     white-space: nowrap;
     text-overflow: ellipsis;
+    ${transitions.set('opacity', 'color')};
 
     &::before {
       content: '';
@@ -97,6 +82,7 @@ const NavigationContainer = styled.nav`
       background: ${colors.primary};
       transform-origin: left bottom;
       transform: scaleY(0);
+      ${transitions.set('transform')};
     }
 
     &:hover {
@@ -117,6 +103,28 @@ const NavigationContainer = styled.nav`
   }
 `;
 
+const HeaderContainer = styled.header`
+  position: fixed;
+  left: 0;
+  top: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  margin: 0;
+  padding: 0 ${measurements.padding.container};
+  height: ${measurements.height.header};
+  overflow: hidden;
+  z-index: 1;
+  background: ${({ home }) => (home ? 'transparent' : colors.secondary)};
+  color: ${({ home }) => (home ? colors.secondary : colors.primary)};
+  ${({ home }) => (home ? 'box-shadow: none;' : shadows.box[4])};
+
+  & > ${LogoLink} {
+    visibility: ${({ home }) => (home ? 'hidden' : '')};
+  }
+`;
+
 const Navigation = ({ routes }) => (
   <NavigationContainer>
     {routes.map(route => (
@@ -133,8 +141,7 @@ Navigation.propTypes = {
 
 const Header = ({ routes, home }) => (
   <HeaderContainer home={home}>
-    {/* Hide logo on home page */}
-    <LogoLink to="/" style={{ visibility: home ? 'hidden' : '' }}>
+    <LogoLink to="/">
       <Logo />
     </LogoLink>
     <Navigation routes={routes} />

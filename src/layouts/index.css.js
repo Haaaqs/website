@@ -1,6 +1,6 @@
 import { css, injectGlobal } from 'styled-components';
 
-import { measurements, colors, opacities, fonts, shadows } from '../data/values.css';
+import { measurements, colors, opacities, fonts, shadows, transitions } from '../data/values.css';
 
 const selectionStyle = css`
   background: ${colors.primary};
@@ -49,6 +49,7 @@ const index = injectGlobal`
     text-decoration: none;
     color: inherit;
     opacity: ${opacities.primary};
+    ${transitions.set('opacity', 'box-shadow')};
 
     &:hover {
       opacity: 1;

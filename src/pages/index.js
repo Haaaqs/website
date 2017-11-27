@@ -3,7 +3,7 @@ import styled, { css } from 'styled-components';
 
 import Logo from '../components/Logo';
 
-import { measurements, colors, opacities, fonts } from '../data/values.css';
+import { measurements, colors, opacities, fonts, transitions } from '../data/values.css';
 
 import splashBg from '../images/index/splash-bg.jpg';
 
@@ -45,6 +45,7 @@ const IndexContainer = styled.div`
     opacity: ${opacities.primary};
     filter: brightness(${opacities.secondary});
     ${imageBackgroundStyle};
+    ${transitions.set('opacity')};
   }
 
   &:hover {

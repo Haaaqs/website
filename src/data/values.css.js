@@ -117,6 +117,16 @@ const values = {
       ),
     },
   },
+  transitions: {
+    duration: 0.25,
+    timingFunction: 'ease',
+    set: (...properties) =>
+      css`
+        transition-property: ${joinAsString(properties)};
+        transition-duration: ${values.transitions.duration}s;
+        transition-timing-function: ${values.transitions.timingFunction};
+      `,
+  },
   effects: {
     blurScale: {
       blur: `blur(${pxToEm(8)})`,

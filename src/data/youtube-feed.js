@@ -23,7 +23,12 @@ const getFeedUrl = () => {
 
 const fetchVideoFeed = () => {
   // TODO: Using CORS proxy to bypass missing Access-Control-Allow-Origin header on feed
-  const corsProxies = ['https://cors-anywhere.herokuapp.com/', 'https://cors.io/?'];
+  // 'http://cors-proxy.htmldriven.com/?url=' requires JSON parsing for the body
+  const corsProxies = [
+    'https://cors-anywhere.herokuapp.com/',
+    'https://crossorigin.me/',
+    'https://cors.io/?',
+  ];
   const feedUrl = getFeedUrl();
   return fetch(`${corsProxies[0]}${feedUrl}`);
 };

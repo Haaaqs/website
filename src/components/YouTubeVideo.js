@@ -7,7 +7,7 @@ import Icon from '../components/Icon';
 import { LoadingText as ImageLoadingText } from '../components/Image';
 
 import { getIconPath } from '../data/icons.svg';
-import { measurements, colors, opacities, fonts, effects } from '../data/values.css';
+import { measurements, colors, opacities, fonts, effects, transitions } from '../data/values.css';
 
 const infoTextStyle = css`
   margin: 0.25em;
@@ -89,6 +89,7 @@ const VideoThumbnail = styled.input.attrs({
   top: auto;
   left: auto;
   filter: brightness(${opacities.secondary});
+  ${transitions.set('filter', 'transform')};
 
   &:hover {
     filter: brightness(${opacities.primary}) ${effects.blurScale.blur};

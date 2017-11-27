@@ -4,7 +4,7 @@ import { string } from 'prop-types';
 import Icon from './Icon';
 
 import { getIconPath } from '../data/icons.svg';
-import { measurements, opacities } from '../data/values.css';
+import { measurements, opacities, transitions } from '../data/values.css';
 
 const socialIconData = {
   youtube: {
@@ -31,6 +31,7 @@ const socialIconData = {
 
 const SocialIconContainer = Icon.extend`
   height: ${measurements.height.icon};
+  ${transitions.set('fill', 'filter')};
 
   &:hover {
     fill: ${({ socialColor }) => socialColor || 'currentColor'};

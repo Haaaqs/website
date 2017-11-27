@@ -3,15 +3,15 @@ import PropTypes from 'prop-types';
 import { TransitionGroup, CSSTransition } from 'react-transition-group';
 import styled, { css } from 'styled-components';
 
-import { measurements } from '../data/values.css';
+import { measurements, transitions } from '../data/values.css';
 
 const classNames = 'lift-transition';
-const timeoutFactor = 250;
+const timeoutFactor = transitions.duration * 1000;
 
 const transitionStyle = css`
   transition-property: opacity, transform;
   transition-duration: ${({ timeout }) => `${(timeout / timeoutFactor) * 100}ms`};
-  transition-timing-function: ease;
+  transition-timing-function: ${transitions.timingFunction};
   transition-delay: ${({ index = 0 }) => `${index * (timeoutFactor / 2)}ms`};
 `;
 

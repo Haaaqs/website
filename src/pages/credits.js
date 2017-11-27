@@ -7,13 +7,14 @@ import Card, { Title, Info } from '../components/Card';
 import SocialIcon from '../components/SocialIcon';
 
 import creditImages from '../data/credits.jpg';
-import { measurements, colors, effects } from '../data/values.css';
+import { measurements, colors, effects, transitions } from '../data/values.css';
 
 const { credits } = require('../data/config.json');
 
 const CreditAvatar = styled.img`
   display: block;
   max-width: calc(100vw - (${measurements.padding.container} * 4));
+  ${transitions.set('filter', 'transform')};
 `;
 
 const CreditDetails = styled.div`
@@ -26,6 +27,7 @@ const CreditDetails = styled.div`
   background: ${colors.secondary};
   transform: translateY(100%);
   padding: 0 ${measurements.padding.container};
+  ${transitions.set('transform')};
 
   &::before {
     content: '';

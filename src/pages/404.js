@@ -5,7 +5,7 @@ import styled from 'styled-components';
 import CardList from '../components/CardList';
 import Logo from '../components/Logo';
 
-import { measurements, colors } from '../data/values.css';
+import { measurements, colors, transitions } from '../data/values.css';
 
 const FourOhFourDetails = styled.div`
   margin: 0.5em
@@ -37,6 +37,7 @@ const LogoHome = styled(Logo)`
   display: block;
   width: 50vmin;
   max-width: calc(100vw - (${measurements.padding.container} * 2));
+  ${transitions.set('fill', 'stroke')};
 
   &:hover {
     fill: ${colors.secondary};
