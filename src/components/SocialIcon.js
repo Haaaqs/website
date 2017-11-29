@@ -1,9 +1,10 @@
 import React from 'react';
 import { string } from 'prop-types';
+import styled from 'styled-components';
 
 import Icon from './Icon';
 
-import { getIconPath } from '../data/icons.svg';
+import { getIconPaths } from '../data/icons.svg';
 import { measurements, opacities, transitions } from '../data/values.css';
 
 const socialIconData = {
@@ -33,9 +34,15 @@ const socialIconData = {
   },
 };
 
-const SocialIconContainer = Icon.extend`
+const SocialIconLink = styled.a`
+  display: inline-block;
   height: ${measurements.height.icon};
+`;
+
+const SocialIconContainer = styled(Icon)`
+  height: 100%;
   ${transitions.set('fill', 'filter')};
+  will-change: filter;
 
   &:hover {
     fill: ${({ socialColor }) => socialColor || 'currentColor'};
@@ -46,12 +53,11 @@ const SocialIconContainer = Icon.extend`
 const SocialIcon = ({ id, link, ...props }) => {
   const { title, color } = socialIconData[id];
   return (
-    <SocialIconContainer socialColor={color} {...props}>
-      <a href={link}>
-        <title>{title}</title>
-        {getIconPath(id)}
-      </a>
-    </SocialIconContainer>
+    <SocialIconLink href={link} title={title} {...props}>
+      <SocialIconContainer socialColor={color}>
+        {getIconPaths(id)}
+      </SocialIconContainer>
+    </SocialIconLink>
   );
 };
 

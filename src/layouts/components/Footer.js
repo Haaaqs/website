@@ -34,7 +34,7 @@ const FooterIcon = styled(SocialIcon)`
   margin: 0 0.5em;
 `;
 
-const socialIcons = () => (
+const SocialIcons = () => (
   <div>
     {social.map(({ id, link }) => (
       <FooterIcon key={id} id={id} link={link} />
@@ -47,7 +47,7 @@ const Footer = () => (
     <FooterContainer>
       <FooterText>&copy; {metadata.year} {metadata.owner}</FooterText>
       <FooterDivider baseColor={colors.secondary} />
-      {socialIcons()}
+      <SocialIcons />
     </FooterContainer>
   </FooterWrapper>
 );

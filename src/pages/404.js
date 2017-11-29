@@ -45,7 +45,6 @@ const LogoHome = styled(Logo)`
   }
 `;
 
-// TODO: Add special case for 404 page with head title and content title
 const NotFoundPage = () => (
   <CardList>
     <FourOhFourDetails>

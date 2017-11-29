@@ -12,8 +12,7 @@
   "license": "MIT",
   "scripts": {
     "build": "gatsby build",
-    "develop": "gatsby develop",
-    "deploy": "gatsby build --prefix-paths && gh-pages -d public"
+    "develop": "gatsby develop"
   },
   "dependencies": {
     "gatsby": "^1.9.126",

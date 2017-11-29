@@ -51,12 +51,10 @@ const LogoLink = styled(Link)`
 
 const NavigationContainer = styled.nav`
   display: flex;
-  /* Set to flex-start so mobile nav is displayed fully from the start */
   justify-content: flex-start;
   align-items: center;
   height: 100%;
   overflow-x: auto;
-  /* box-shadow: inset 1em 0 1em -1em black, inset -1em 0 1em -1em black; */
 
   a {
     position: relative;

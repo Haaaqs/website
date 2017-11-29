@@ -35,6 +35,6 @@ const iconPathData = {
   ],
 };
 
-export const getIconPath = id => iconPathData[id].map(d => <path key={d} d={d} />);
+export const getIconPaths = id => iconPathData[id].map(d => <path key={d} d={d} />);
 
-export const getIconSvg = id => <Icon>{getIconPath(id)}</Icon>;
+export const getIconSvg = id => <Icon>{getIconPaths(id)}</Icon>;

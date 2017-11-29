@@ -6,11 +6,6 @@ const Icon = styled.svg.attrs({
   fill: currentColor;
   stroke: currentColor;
   stroke-width: 0;
-
-  a {
-    fill: inherit;
-    stroke: inherit;
-  }
 `;
 
 export default Icon;

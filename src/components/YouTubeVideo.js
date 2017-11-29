@@ -6,7 +6,7 @@ import Card from '../components/Card';
 import Icon from '../components/Icon';
 import { LoadingText as ImageLoadingText } from '../components/Image';
 
-import { getIconPath } from '../data/icons.svg';
+import { getIconPaths } from '../data/icons.svg';
 import { measurements, colors, opacities, fonts, effects, transitions } from '../data/values.css';
 
 const infoTextStyle = css`
@@ -150,7 +150,7 @@ class YouTubeVideo extends Component {
           title={title}
           onClick={this.playVideo}
         />
-        <PlayIcon>{getIconPath('play')}</PlayIcon>
+        <PlayIcon>{getIconPaths('play')}</PlayIcon>
       </VideoThumbnailContainer>
     );
   };
