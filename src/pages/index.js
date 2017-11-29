@@ -11,6 +11,25 @@ const { metadata: { title, label, owner } } = require('../data/config.json');
 
 const fontSizeCalculation = em => `calc(${em} + 0.25vmin)`;
 
+const textTransformStyle = textCase => css`
+  text-transform: ${() => {
+    switch (textCase) {
+      case 'none': {
+        return 'none';
+      }
+      case 'lower': {
+        return 'lowercase';
+      }
+      case 'upper': {
+        return 'uppercase';
+      }
+      default: {
+        return '';
+      }
+    }
+  }};
+`;
+
 const imageBackgroundStyle = css`
   background-color: transparent;
   background-image: url(${splashBg});
@@ -22,8 +41,8 @@ const imageBackgroundStyle = css`
 
 const IndexContainer = styled.div`
   display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
+  flex-direction: row-reverse;
+  flex-wrap: wrap-reverse;
   justify-content: center;
   align-items: center;
   width: calc(100vw - (${measurements.padding.container} * 2));
@@ -42,78 +61,78 @@ const IndexContainer = styled.div`
     width: 100%;
     height: 100vh;
     z-index: -1;
-    opacity: ${opacities.primary};
     filter: brightness(${opacities.secondary});
     ${imageBackgroundStyle};
   }
 `;
 
+const IndexLogo = styled(Logo)`
+  width: 100%;
+  max-width: 50vw;
+  max-height: 50vh;
+`;
+
+const IndexInfoContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: ${measurements.padding.container};
+`;
+
+const IndexInfoTitle = styled.h1`
+  margin: 0;
+  display: block;
+  font-size: ${fontSizeCalculation(fonts.sizes[48])};
+  font-weight: normal;
+`;
+
+const IndexInfoAuthor = styled.h2`
+  margin: 0;
+  display: block;
+  font-size: ${fontSizeCalculation(fonts.sizes[16])};
+  font-weight: normal;
+`;
+
+const IndexInfoTextBold = styled.strong`
+  opacity: ${opacities.primary};
+  ${({ textCase }) => textTransformStyle(textCase)};
+`;
+
+const IndexInfoTextRegular = styled.span`
+  opacity: ${opacities.secondary};
+  ${({ textCase }) => textTransformStyle(textCase)};
+`;
+
+const IndexInfoButton = styled.a.attrs({
+  role: 'button',
+  href: 'http://ad.envyclient.com/1',
+})`
+  margin: ${measurements.padding.container};
+  font-size: ${fontSizeCalculation(fonts.sizes[16])};
+`;
+
 const IndexPage = () => (
   <IndexContainer>
-    {/* TODO: Prototype, not final */}
-    <Logo
-      style={{
-        width: '100%',
-        maxWidth: '50vw',
-        maxHeight: '50vh',
-      }}
-    />
-    <div
-      style={{
-        display: 'flex',
-        flexDirection: 'column',
-        justifyContent: 'center',
-        alignItems: 'center',
-        padding: measurements.padding.container,
-      }}
-    >
-      <h1
-        style={{
-          margin: 0,
-          display: 'block',
-          fontSize: fontSizeCalculation(fonts.sizes[48]),
-          fontWeight: 'normal',
-          opacity: opacities.primary,
-          textTransform: 'uppercase',
-        }}
-      >
-        {title.split(' ').map(word => (
-            word === label ? (
-              <strong key={word} style={{ fontWeight: 'bold' }}>
-                {word}
-              </strong>
-            ) : (
-              <span key={word} style={{ opacity: opacities.secondary }}>
-                {word}
-              </span>
-            )
-        ))}
-      </h1>
-      <p
-        style={{
-          margin: 0,
-          display: 'block',
-          fontSize: fontSizeCalculation(fonts.sizes[16]),
-          opacity: opacities.primary,
-          textTransform: 'lowercase',
-        }}
-      >
-        <span style={{ opacity: opacities.secondary }}>Developed by</span>{' '}
-        <strong style={{ textTransform: 'none' }}>{owner}</strong>
-      </p>
-      <a
-        style={{
-          margin: measurements.padding.container,
-          fontSize: fontSizeCalculation(fonts.sizes[16]),
-          opacity: opacities.primary,
-          textTransform: 'lowercase',
-        }}
-        href="http://ad.envyclient.com/1"
-        role="button"
-      >
-        Download <strong>{label}</strong>
-      </a>
-    </div>
+    <IndexInfoContainer>
+      <IndexInfoTitle>
+        {title
+          .split(' ')
+          .map(word => ((word === label)
+            ? <IndexInfoTextBold key={word} textCase="upper">{word}</IndexInfoTextBold>
+            : <IndexInfoTextRegular key={word} textCase="upper">{word}</IndexInfoTextRegular>
+          ))}
+      </IndexInfoTitle>
+      <IndexInfoAuthor>
+        <IndexInfoTextRegular textCase="lower">Developed by </IndexInfoTextRegular>
+        <IndexInfoTextBold>{owner}</IndexInfoTextBold>
+      </IndexInfoAuthor>
+      <IndexInfoButton>
+        <IndexInfoTextRegular textCase="lower">Download </IndexInfoTextRegular>
+        <IndexInfoTextBold textCase="lower">{label}</IndexInfoTextBold>
+      </IndexInfoButton>
+    </IndexInfoContainer>
+    <IndexLogo />
   </IndexContainer>
 );
 

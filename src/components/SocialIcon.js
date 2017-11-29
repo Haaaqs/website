@@ -19,6 +19,10 @@ const socialIconData = {
     title: 'Discord',
     color: '#7289da',
   },
+  twitch: {
+    title: 'Twitch',
+    color: '#6441a4',
+  },
   github: {
     title: 'GitHub',
     color: '#24292e',
