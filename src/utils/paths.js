@@ -14,7 +14,7 @@ const stripPathPrefix = (path) => {
 };
 
 export const isHomePath = path =>
-  stripPathPrefix(path) === '/';
+  stripPathPrefix(path) === '';
 
 export const pathToTitleCase = path =>
   strip(stripPathPrefix(path), '/')
