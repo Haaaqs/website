@@ -1,5 +1,5 @@
 {
-  "pathPrefix": "/envyclient",
+  "pathPrefix": "/",
   "metadata": {
     "title": "Envy Client",
     "label": "Envy",
