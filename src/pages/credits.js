@@ -54,6 +54,7 @@ const CreditContainer = styled(Card)`
   padding: 0;
   margin: ${measurements.padding.container};
   border-radius: ${measurements.border.circle};
+  will-change: contents;
 
   &:hover {
     & > ${CreditAvatar} {

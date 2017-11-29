@@ -31,6 +31,7 @@ const LogoLink = styled(Link)`
     transform-origin: left top;
     transform: scaleX(0);
     ${transitions.set('transform')};
+    will-change: transform;
   }
 
   &:hover {
@@ -81,6 +82,7 @@ const NavigationContainer = styled.nav`
       transform-origin: left bottom;
       transform: scaleY(0);
       ${transitions.set('transform')};
+      will-change: transform;
     }
 
     &:hover {
@@ -117,6 +119,7 @@ const HeaderContainer = styled.header`
   background: ${({ home }) => (home ? 'transparent' : colors.secondary)};
   color: ${({ home }) => (home ? colors.secondary : colors.primary)};
   ${({ home }) => (home ? 'box-shadow: none;' : shadows.box[4])};
+  will-change: contents;
 
   & > ${LogoLink} {
     visibility: ${({ home }) => (home ? 'hidden' : '')};
