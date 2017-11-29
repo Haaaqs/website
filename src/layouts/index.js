@@ -4,7 +4,7 @@ import Helmet from 'react-helmet';
 import { withPrefix } from 'gatsby-link';
 
 import { getFontImport } from '../utils/fonts';
-import { isHomePath, pathToTitleCase, getNavPaths } from '../utils/paths';
+import { isHomePath, pathToTitleCase, getEdgePaths } from '../utils/paths';
 
 import Wrapper from './components/Wrapper';
 import Header from './components/Header';
@@ -13,17 +13,25 @@ import Footer from './components/Footer';
 
 import './index.css';
 
-const { colors: { theme: themeColor } } = require('../data/config.json');
+const { pages, colors: { theme: themeColor } } = require('../data/config.json');
 
-const title = (page, site) => {
-  const separator = page === '' ? '' : ' | ';
+const metaTitle = (page, site) => {
+  const separator = (page === '') ? '' : ' | ';
   return `${page}${separator}${site}`;
+};
+
+const getRouteLinks = (edges) => {
+  const allPaths = getEdgePaths(edges);
+  const paths = pages
+    .map(page => `/${page.toLowerCase()}/`)
+    .filter(page => allPaths.includes(page));
+  return paths;
 };
 
 const TemplateWrapper = ({ children, location, data }) => (
   <Wrapper>
     <Helmet
-      title={title(pathToTitleCase(location.pathname), data.site.siteMetadata.title)}
+      title={metaTitle(pathToTitleCase(location.pathname), data.site.siteMetadata.title)}
       link={[
         getFontImport(),
         { rel: 'icon', type: 'image/png', sizes: '32x32', href: withPrefix('/favicon-32x32.png') },
@@ -32,14 +40,7 @@ const TemplateWrapper = ({ children, location, data }) => (
         { rel: 'mask-icon', color: themeColor, href: withPrefix('/safari-pinned-tab.svg') },
       ]}
     />
-    {/* TODO: Routes navigation should be in the order of:
-        Features
-        Sponsors
-        Credits
-        Videos
-        Download
-    */}
-    <Header routes={getNavPaths(data.allSitePage.edges)} home={isHomePath(location.pathname)} />
+    <Header routes={getRouteLinks(data.allSitePage.edges)} home={isHomePath(location.pathname)} />
     <Content title={pathToTitleCase(location.pathname)}>{children()}</Content>
     <Footer />
   </Wrapper>

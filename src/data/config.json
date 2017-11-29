@@ -7,6 +7,7 @@
     "owner": "iHaq",
     "year": 2017
   },
+  "pages": ["Features", "Sponsors", "Credits", "Videos", "Downloads"],
   "colors": {
     "theme": "#21aa2f",
     "background": "#f4faf6"
@@ -14,10 +15,7 @@
   "fonts": [
     {
       "family": "Open Sans",
-      "variants": [
-        400,
-        700
-      ]
+      "variants": [400, 700]
     }
   ],
   "features": [

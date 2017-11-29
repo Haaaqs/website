@@ -8,9 +8,9 @@ const pathAsString = path => `${path}`;
 
 const stripPathPrefix = (path) => {
   const pathString = pathAsString(path);
-  return pathString.startsWith(pathPrefix) ?
-    pathString.slice(pathPrefix.length) :
-    pathString;
+  return pathString.startsWith(pathPrefix)
+    ? pathString.slice(pathPrefix.length)
+    : pathString;
 };
 
 export const isHomePath = path =>
@@ -23,7 +23,5 @@ export const pathToTitleCase = path =>
     .map(toTitleCase)
     .join(' ');
 
-export const getNavPaths = edges =>
-  edges
-    .map(edge => edge.node.path)
-    .filter(path => !(isHomePath(path) || path.includes('404')));
+export const getEdgePaths = edges =>
+  edges.map(edge => edge.node.path);
