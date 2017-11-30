@@ -24,6 +24,7 @@ module.exports = {
         short_name: config.metadata.label,
         description: config.metadata.desc,
         start_url: config.pathPrefix,
+        orientation: 'portrait',
         display: 'standalone',
         theme_color: config.colors.theme,
         background_color: config.colors.background,
