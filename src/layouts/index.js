@@ -14,7 +14,7 @@ import Footer from './components/Footer';
 
 import './index.css';
 
-const { pages, colors: { theme: themeColor } } = require('../data/config.json');
+const { analyticsId, pages, colors: { theme: themeColor } } = require('../data/config.json');
 
 const googleAnalyticsScript = [
   {
@@ -27,7 +27,7 @@ const googleAnalyticsScript = [
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
 
-      gtag('config', 'UA-110415716-1');
+      gtag('config', '${analyticsId}');
     `,
   },
 ];

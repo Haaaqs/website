@@ -4,9 +4,10 @@
     "title": "Envy Client",
     "label": "Envy",
     "desc": "Envy Client website",
-    "owner": "iHaq",
+    "owner": "Haq",
     "year": 2017
   },
+  "analyticsId": "UA-110415716-1",
   "pages": ["Features", "Sponsors", "Credits", "Videos", "Downloads"],
   "colors": {
     "theme": "#21aa2f",
