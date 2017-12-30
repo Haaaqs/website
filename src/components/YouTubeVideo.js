@@ -87,11 +87,12 @@ const VideoThumbnail = styled.input.attrs({
   type: 'image',
 })`
   ${videoContentStyle};
+  cursor: pointer;
   top: auto;
   left: auto;
   filter: brightness(${opacities.secondary});
   ${transitions.set('filter', 'transform')};
-  will-change: filter;
+  will-change: filter, transform;
 
   &:hover {
     filter: brightness(${opacities.primary}) ${effects.blurScale.blur};

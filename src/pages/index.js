@@ -5,7 +5,7 @@ import Logo from '../components/Logo';
 
 import { measurements, colors, opacities, fonts } from '../data/values.css';
 
-import splashBg from '../images/index/hero-bg.png';
+import splashBg from '../images/index/hero-bg.jpg';
 
 const { metadata: { title, label, owner } } = require('../data/config.json');
 
@@ -61,7 +61,7 @@ const IndexContainer = styled.div`
     width: 100%;
     height: 100vh;
     z-index: -1;
-    filter: brightness(${opacities.secondary});
+    filter: brightness(0.25);
     ${imageBackgroundStyle};
   }
 `;

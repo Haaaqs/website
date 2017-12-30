@@ -15,7 +15,7 @@ const CreditAvatar = styled.img`
   display: block;
   max-width: calc(100vw - (${measurements.padding.container} * 4));
   ${transitions.set('filter', 'transform')};
-  will-change: filter;
+  will-change: filter, transform;
 `;
 
 const CreditDetails = styled.div`
@@ -29,6 +29,7 @@ const CreditDetails = styled.div`
   transform: translateY(100%);
   padding: 0 ${measurements.padding.container};
   ${transitions.set('transform')};
+  will-change: transform;
 
   &::before {
     content: '';
