@@ -3,9 +3,9 @@
   "metadata": {
     "title": "Envy Client",
     "label": "Envy",
-    "desc": "Envy Client website",
+    "desc": "Official website of Envy Client, a hacked client for Minecraft 1.8.8",
     "owner": "iHaq",
-    "year": 2017
+    "year": 2018
   },
   "analyticsId": "UA-110415716-1",
   "pages": ["Features", "Sponsors", "Credits", "Videos", "Downloads"],

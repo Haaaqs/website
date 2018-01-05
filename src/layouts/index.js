@@ -14,7 +14,12 @@ import Footer from './components/Footer';
 
 import './index.css';
 
-const { analyticsId, pages, colors: { theme: themeColor } } = require('../data/config.json');
+const {
+  metadata: { desc: siteDescription },
+  analyticsId,
+  pages,
+  colors: { theme: themeColor },
+} = require('../data/config.json');
 
 const googleAnalyticsScript = [
   {
@@ -49,6 +54,9 @@ const TemplateWrapper = ({ children, location, data }) => (
   <Wrapper>
     <Helmet
       title={metaTitle(pathToTitleCase(location.pathname), data.site.siteMetadata.title)}
+      meta={[
+        { name: 'description', content: `${siteDescription}` },
+      ]}
       link={[
         getFontImport(),
         { rel: 'icon', type: 'image/png', sizes: '32x32', href: withPrefix('/favicon-32x32.png') },
