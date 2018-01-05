@@ -6,6 +6,7 @@ module.exports = {
   ...((pathPrefix !== '') && { pathPrefix }),
   siteMetadata: {
     title: config.metadata.title,
+    siteUrl: 'https://envyclient.com',
   },
   plugins: [
     'gatsby-plugin-react-helmet',
@@ -17,6 +18,7 @@ module.exports = {
         showSpinner: false,
       },
     },
+    'gatsby-plugin-sitemap',
     {
       resolve: 'gatsby-plugin-manifest',
       options: {
