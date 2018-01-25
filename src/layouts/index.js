@@ -37,6 +37,21 @@ const googleAnalyticsScript = [
   },
 ];
 
+const googleAdSenseScript = [
+  {
+    async: true,
+    src: '//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js',
+  },
+  {
+    innerHTML: deIndent`
+      (adsbygoogle = window.adsbygoogle || []).push({
+        google_ad_client: "ca-pub-1721608899854972",
+        enable_page_level_ads: true
+      });
+    `,
+  },
+];
+
 const metaTitle = (page, site) => {
   const separator = (page === '') ? '' : ' | ';
   return `${page}${separator}${site}`;
@@ -64,7 +79,7 @@ const TemplateWrapper = ({ children, location, data }) => (
         { rel: 'apple-touch-icon', sizes: '180x180', href: withPrefix('/apple-touch-icon.png') },
         { rel: 'mask-icon', color: themeColor, href: withPrefix('/safari-pinned-tab.svg') },
       ]}
-      script={googleAnalyticsScript}
+      script={[].concat(...[googleAnalyticsScript, googleAdSenseScript])}
     />
     <Header routes={getRouteLinks(data.allSitePage.edges)} home={isHomePath(location.pathname)} />
     <Content title={pathToTitleCase(location.pathname)}>{children()}</Content>

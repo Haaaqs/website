@@ -3,12 +3,12 @@
   "metadata": {
     "title": "Envy Client",
     "label": "Envy",
-    "desc": "Official website of Envy Client, a hacked client for Minecraft 1.8.8",
+    "desc": "Official website of Envy Client, a hacked client for Minecraft 1.8",
     "owner": "iHaq",
     "year": 2018
   },
   "analyticsId": "UA-110415716-1",
-  "pages": ["Features", "Sponsors", "Credits", "Videos", "Downloads"],
+  "pages": ["Features", "Discord", "Credits", "Videos", "Downloads"],
   "colors": {
     "theme": "#21aa2f",
     "background": "#f4faf6"
@@ -39,14 +39,6 @@
       "icon": "laptop"
     }
   ],
-  "sponsors": [
-    {
-      "id": "super_alts",
-      "name": "SuperAlts",
-      "link": "https://superalts.com/",
-      "imageSrc": "https://multimc.info/assets/img/SuperAlts.gif"
-    }
-  ],
   "credits": [
     {
       "id": "mat",
@@ -56,21 +48,6 @@
         {
           "id": "youtube",
           "link": "https://www.youtube.com/channel/UCQ26c_8MzcQMVis2MYl1_YA"
-        }
-      ]
-    },
-    {
-      "id": "hero_code",
-      "name": "HeroCode",
-      "desc": "Settings Manager",
-      "social": [
-        {
-          "id": "youtube",
-          "link": "https://www.youtube.com/channel/UCJum3PIbnYvIfIEu05GL_yQ"
-        },
-        {
-          "id": "twitter",
-          "link": "https://twitter.com/intent/user?user_id=899267504354324480"
         }
       ]
     },
@@ -112,6 +89,10 @@
     {
       "id": "youtube",
       "link": "https://www.youtube.com/channel/UCL2p91rc87TExMrzvxd2CWg"
+    },
+    {
+      "id": "discord",
+      "link": "https://discord.gg/kSGh4ws"
     },
     {
       "id": "twitter",
