@@ -3,12 +3,12 @@
   "metadata": {
     "title": "Envy Client",
     "label": "Envy",
-    "desc": "Official website of Envy Client, a hacked client for Minecraft 1.8",
+    "desc": "Official website of Envy Client, a hacked client for Minecraft 1.8.8.",
     "owner": "iHaq",
     "year": 2018
   },
   "analyticsId": "UA-110415716-1",
-  "pages": ["Features", "Discord", "Credits", "Videos", "Downloads"],
+  "pages": ["Features", "Credits", "Videos", "Downloads"],
   "colors": {
     "theme": "#21aa2f",
     "background": "#f4faf6"
@@ -89,10 +89,6 @@
     {
       "id": "youtube",
       "link": "https://www.youtube.com/channel/UCL2p91rc87TExMrzvxd2CWg"
-    },
-    {
-      "id": "discord",
-      "link": "https://discord.gg/kSGh4ws"
     },
     {
       "id": "twitter",
