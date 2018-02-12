@@ -3,7 +3,7 @@
   "metadata": {
     "title": "Envy Client",
     "label": "Envy",
-    "desc": "Official website of Envy Client, a hacked client for Minecraft 1.8.8.",
+    "desc": "Official website of Envy Client.",
     "owner": "iHaq",
     "year": 2018
   },
@@ -23,19 +23,19 @@
     {
       "id": "undetectable",
       "title": "Undetectable",
-      "desc": "Capable of bypassing NCP, WatchDog, and G.W.E.N",
+      "desc": "literally an unusable client",
       "icon": "privacy"
     },
     {
       "id": "noob_friendly",
       "title": "Noob Friendly",
-      "desc": "Sports a simple and clean design",
+      "desc": "can't figure it out? your mom's a hoe!",
       "icon": "group"
     },
     {
       "id": "opti_fine",
       "title": "OptiFine",
-      "desc": "Do I even have to explain this?",
+      "desc": "capez are cool!",
       "icon": "laptop"
     }
   ],
@@ -43,7 +43,7 @@
     {
       "id": "mat",
       "name": "Mat",
-      "desc": "Overall help with the client",
+      "desc": "no one loves him",
       "social": [
         {
           "id": "youtube",
@@ -54,7 +54,7 @@
     {
       "id": "og",
       "name": "OG",
-      "desc": "Help with some modules",
+      "desc": "I think he died",
       "social": [
         {
           "id": "youtube",
@@ -65,7 +65,7 @@
     {
       "id": "roygbiv",
       "name": "ROYGBIV",
-      "desc": "Design ideas",
+      "desc": "master of ideas",
       "social": [
         {
           "id": "youtube",
@@ -76,7 +76,7 @@
     {
       "id": "louise",
       "name": "Louise",
-      "desc": "Graphics",
+      "desc": "chandler envy's him",
       "social": [
         {
           "id": "youtube",
@@ -88,15 +88,11 @@
   "social": [
     {
       "id": "youtube",
-      "link": "https://www.youtube.com/channel/UCL2p91rc87TExMrzvxd2CWg"
+      "link": "https://www.youtube.com/ihaq"
     },
     {
       "id": "twitter",
       "link": "https://twitter.com/intent/user?user_id=2786788057"
-    },
-    {
-      "id": "twitch",
-      "link": "https://www.twitch.tv/HaqGamer"
     },
     {
       "id": "github",
