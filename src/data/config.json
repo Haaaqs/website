@@ -5,6 +5,7 @@
     "label": "Envy",
     "desc": "Official website of Envy Client.",
     "owner": "iHaq",
+	"owner1": "Mat",
     "year": 2018
   },
   "analyticsId": "UA-110415716-1",
@@ -22,20 +23,20 @@
   "features": [
     {
       "id": "undetectable",
-      "title": "Undetectable",
-      "desc": "literally an unusable client",
+      "title": "undetectable",
+      "desc": "gets you banned on every server, useless piece of shit",
       "icon": "privacy"
     },
     {
       "id": "noob_friendly",
-      "title": "Noob Friendly",
-      "desc": "can't figure it out? your mom's a hoe!",
+      "title": "noob friendly",
+      "desc": "can't figure it out? your mom's a hoe",
       "icon": "group"
     },
     {
       "id": "opti_fine",
-      "title": "OptiFine",
-      "desc": "capez are cool!",
+      "title": "optifine",
+      "desc": "capes are cool",
       "icon": "laptop"
     }
   ],
@@ -88,7 +89,7 @@
   "social": [
     {
       "id": "youtube",
-      "link": "https://www.youtube.com/ihaq"
+      "link": "https://www.youtube.com/channel/UCL2p91rc87TExMrzvxd2CWg"
     },
     {
       "id": "twitter",
@@ -96,11 +97,11 @@
     },
     {
       "id": "github",
-      "link": "https://github.com/HaqGamer"
+      "link": "https://github.com/envyclient"
     },
     {
       "id": "email",
-      "link": "mailto:ihaq@envyclient.com"
+      "link": "mailto:support@envyclient.com"
     }
   ]
 }

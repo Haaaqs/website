@@ -7,7 +7,7 @@ import { measurements, colors, opacities, fonts } from '../data/values.css';
 
 import splashBg from '../images/index/hero-bg.jpg';
 
-const { metadata: { title, label, owner } } = require('../data/config.json');
+const { metadata: { title, label, owner, owner1 } } = require('../data/config.json');
 
 const fontSizeCalculation = em => `calc(${em} + 0.25vmin)`;
 
@@ -124,8 +124,10 @@ const IndexPage = () => (
           ))}
       </IndexInfoTitle>
       <IndexInfoAuthor>
-        <IndexInfoTextRegular textCase="lower">Developed by </IndexInfoTextRegular>
+        <IndexInfoTextRegular textCase="lower">by </IndexInfoTextRegular>
         <IndexInfoTextBold>{owner}</IndexInfoTextBold>
+		<IndexInfoTextRegular textCase="lower"> & </IndexInfoTextRegular>
+		<IndexInfoTextBold>{owner1}</IndexInfoTextBold>
       </IndexInfoAuthor>
       <IndexInfoButton>
         <IndexInfoTextRegular textCase="lower">Download </IndexInfoTextRegular>
