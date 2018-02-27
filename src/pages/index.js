@@ -106,7 +106,7 @@ const IndexInfoTextRegular = styled.span`
 
 const IndexInfoButton = styled.a.attrs({
   role: 'button',
-  href: 'http://ad.envyclient.com/1',
+  href: 'http://festyy.com/wno94L',
 })`
   margin: ${measurements.padding.container};
   font-size: ${fontSizeCalculation(fonts.sizes[16])};
