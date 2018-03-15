@@ -7,7 +7,7 @@ import { measurements, colors, opacities, fonts } from '../data/values.css';
 
 import splashBg from '../images/index/hero-bg.jpg';
 
-const { metadata: { title, label, owner, owner1 } } = require('../data/config.json');
+const { metadata: { title, label, owner } } = require('../data/config.json');
 
 const fontSizeCalculation = em => `calc(${em} + 0.25vmin)`;
 
@@ -106,7 +106,7 @@ const IndexInfoTextRegular = styled.span`
 
 const IndexInfoButton = styled.a.attrs({
   role: 'button',
-  href: 'http://festyy.com/wno94L',
+  href: 'http://ad.envyclient.com/1',
 })`
   margin: ${measurements.padding.container};
   font-size: ${fontSizeCalculation(fonts.sizes[16])};
@@ -126,8 +126,6 @@ const IndexPage = () => (
       <IndexInfoAuthor>
         <IndexInfoTextRegular textCase="lower">by </IndexInfoTextRegular>
         <IndexInfoTextBold>{owner}</IndexInfoTextBold>
-		<IndexInfoTextRegular textCase="lower"> & </IndexInfoTextRegular>
-		<IndexInfoTextBold>{owner1}</IndexInfoTextBold>
       </IndexInfoAuthor>
       <IndexInfoButton>
         <IndexInfoTextRegular textCase="lower">Download </IndexInfoTextRegular>

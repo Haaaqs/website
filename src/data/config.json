@@ -5,7 +5,6 @@
     "label": "Envy",
     "desc": "Official website of Envy Client.",
     "owner": "iHaq",
-	"owner1": "Mat",
     "year": 2018
   },
   "analyticsId": "UA-110415716-1",
@@ -24,13 +23,13 @@
     {
       "id": "undetectable",
       "title": "undetectable",
-      "desc": "gets you banned on every server, useless piece of shit",
+      "desc": "aimed at bypassing NCP, Watchdog, and G.W.E.N.",
       "icon": "privacy"
     },
     {
       "id": "noob_friendly",
       "title": "noob friendly",
-      "desc": "can't figure it out? your mom's a hoe",
+      "desc": "designed for ease of use",
       "icon": "group"
     },
     {
@@ -44,7 +43,7 @@
     {
       "id": "mat",
       "name": "Mat",
-      "desc": "no one loves him",
+      "desc": "overall help with the client",
       "social": [
         {
           "id": "youtube",
@@ -55,7 +54,7 @@
     {
       "id": "og",
       "name": "OG",
-      "desc": "I think he died",
+      "desc": "helped with some basic modules",
       "social": [
         {
           "id": "youtube",
@@ -66,7 +65,7 @@
     {
       "id": "roygbiv",
       "name": "ROYGBIV",
-      "desc": "master of ideas",
+      "desc": "gave design ideas",
       "social": [
         {
           "id": "youtube",
@@ -77,7 +76,7 @@
     {
       "id": "louise",
       "name": "Louise",
-      "desc": "chandler envy's him",
+      "desc": "made envy graphics",
       "social": [
         {
           "id": "youtube",
@@ -97,7 +96,7 @@
     },
     {
       "id": "github",
-      "link": "https://github.com/envyclient"
+      "link": "https://github.com/haqgamer/"
     },
     {
       "id": "email",
