@@ -50,20 +50,18 @@ const parseVideoFeedDom = videoFeedDom =>
       };
     });
 
-const parseVideoFeed = async (feedResponse) => {
-  const videoFeedData = await feedResponse.text();
-  const parsedVideoFeedData = (new DOMParser()).parseFromString(videoFeedData, 'application/xml');
+const parseVideoFeed = feedResponse => feedResponse.text().then((videoFeedData) => {
+  const parsedVideoFeedData = new DOMParser().parseFromString(videoFeedData, 'application/xml');
   const videoFeedDom = parsedVideoFeedData.documentElement;
   const videoFeedInfo = parseVideoFeedDom(videoFeedDom);
   return videoFeedInfo;
-};
+});
 
-const filterVideos = async (feedResponse) => {
-  const videoFeedInfo = await parseVideoFeed(feedResponse);
+const filterVideos = feedResponse => parseVideoFeed(feedResponse).then((videoFeedInfo) => {
   const filteredVideoFeed = videoFeedInfo.filter(({ title }) => title.includes(videoFilter));
   return filteredVideoFeed;
-};
+});
 
-const fetchVideos = async () => filterVideos(await fetchVideoFeed());
+const fetchVideos = () => fetchVideoFeed().then(videos => filterVideos(videos));
 
 export default fetchVideos;
