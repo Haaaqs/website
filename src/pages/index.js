@@ -3,6 +3,7 @@ import styled, { css } from 'styled-components';
 
 import Logo from '../components/Logo';
 
+import { getIconSvg } from '../data/icons.svg';
 import { measurements, colors, opacities, fonts } from '../data/values.css';
 
 import splashBg from '../images/index/hero-bg.jpg';
@@ -104,10 +105,18 @@ const IndexInfoTextRegular = styled.span`
   ${({ textCase }) => textTransformStyle(textCase)};
 `;
 
+const IndexInfoIconWrapper = styled.div`
+  display: inline-block;
+  width: 1.5em;
+  height: 1.5em;
+`;
+
 const IndexInfoButton = styled.a.attrs({
   role: 'button',
-  href: 'http://ad.envyclient.com/1',
 })`
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
   margin: ${measurements.padding.container};
   font-size: ${fontSizeCalculation(fonts.sizes[16])};
 `;
@@ -127,10 +136,17 @@ const IndexPage = () => (
         <IndexInfoTextRegular textCase="lower">by </IndexInfoTextRegular>
         <IndexInfoTextBold>{owner}</IndexInfoTextBold>
       </IndexInfoAuthor>
-      <IndexInfoButton>
-        <IndexInfoTextRegular textCase="lower">Download </IndexInfoTextRegular>
-        <IndexInfoTextBold textCase="lower">{label}</IndexInfoTextBold>
-      </IndexInfoButton>
+      <div>
+        <IndexInfoButton href="http://ad.envyclient.com/1">
+          <IndexInfoTextRegular textCase="lower">Download&nbsp;</IndexInfoTextRegular>
+          <IndexInfoTextBold textCase="lower">{label}</IndexInfoTextBold>
+        </IndexInfoButton>
+        |
+        <IndexInfoButton href="https://www.paypal.me/Haq">
+          <IndexInfoTextRegular textCase="lower">Donate&nbsp;</IndexInfoTextRegular>
+          <IndexInfoIconWrapper>{getIconSvg('paypal')}</IndexInfoIconWrapper>
+        </IndexInfoButton>
+      </div>
     </IndexInfoContainer>
     <IndexLogo />
   </IndexContainer>

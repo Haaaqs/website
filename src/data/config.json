@@ -22,20 +22,20 @@
   "features": [
     {
       "id": "undetectable",
-      "title": "undetectable",
-      "desc": "aimed at bypassing NCP, Watchdog, and G.W.E.N.",
+      "title": "Undetectable",
+      "desc": "Aimed at bypassing NCP, Watchdog, and G.W.E.N.",
       "icon": "privacy"
     },
     {
       "id": "noob_friendly",
-      "title": "noob friendly",
-      "desc": "designed for ease of use",
+      "title": "Noob Friendly",
+      "desc": "Designed for ease of use",
       "icon": "group"
     },
     {
       "id": "opti_fine",
-      "title": "optifine",
-      "desc": "improves Minecraft performance",
+      "title": "Optifine",
+      "desc": "Improves Minecraft performance",
       "icon": "laptop"
     }
   ],
@@ -43,7 +43,7 @@
     {
       "id": "mat",
       "name": "Mat",
-      "desc": "overall help with the client",
+      "desc": "Provided overall help with the client",
       "social": [
         {
           "id": "youtube",
@@ -54,7 +54,7 @@
     {
       "id": "og",
       "name": "OG",
-      "desc": "helped with some basic modules",
+      "desc": "Helped with some basic modules",
       "social": [
         {
           "id": "youtube",
@@ -65,7 +65,7 @@
     {
       "id": "roygbiv",
       "name": "ROYGBIV",
-      "desc": "gave design ideas",
+      "desc": "Contributed a few design ideas",
       "social": [
         {
           "id": "youtube",
@@ -76,7 +76,7 @@
     {
       "id": "louise",
       "name": "Louise",
-      "desc": "made envy graphics",
+      "desc": "Created some Envy graphics",
       "social": [
         {
           "id": "youtube",

@@ -1,6 +1,6 @@
 import { css, injectGlobal } from 'styled-components';
 
-import { measurements, colors, opacities, fonts, shadows, transitions } from '../data/values.css';
+import { medias, measurements, colors, opacities, fonts, shadows, transitions } from '../data/values.css';
 
 const selectionStyle = css`
   background: ${colors.primary};
@@ -56,7 +56,6 @@ const index = injectGlobal`
     }
 
     &[role='button'] {
-      display: inline-block;
       padding: 1em 1.5em;
       text-transform: lowercase;
       background: ${colors.primary};
@@ -69,6 +68,12 @@ const index = injectGlobal`
       }
     }
   }
+
+  ${medias.mobile`
+    body {
+      font-size: 14px;
+    }
+  `}
 `;
 
 export default index;
