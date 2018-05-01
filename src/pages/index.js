@@ -142,7 +142,7 @@ const IndexPage = () => (
           <IndexInfoTextBold textCase="lower">{label}</IndexInfoTextBold>
         </IndexInfoButton>
         |
-        <IndexInfoButton href="https://www.paypal.me/Haq">
+        <IndexInfoButton href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=273GMZG3CVGMU">
           <IndexInfoTextRegular textCase="lower">Donate&nbsp;</IndexInfoTextRegular>
           <IndexInfoIconWrapper>{getIconSvg('paypal')}</IndexInfoIconWrapper>
         </IndexInfoButton>
