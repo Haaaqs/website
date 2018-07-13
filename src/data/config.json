@@ -8,7 +8,7 @@
     "year": 2018
   },
   "analyticsId": "UA-110415716-1",
-  "pages": ["Features", "Credits", "Downloads"],
+  "pages": ["Features", "Credits", "Videos"],
   "colors": {
     "theme": "#21aa2f",
     "background": "#f4faf6"
@@ -59,6 +59,10 @@
         {
           "id": "youtube",
           "link": "https://www.youtube.com/channel/UCnefepAz8P7zz6bzCnhx-4Q"
+        },
+		{
+          "id": "twitter",
+          "link": "https://twitter.com/OG_Artworks"
         }
       ]
     },
@@ -70,6 +74,10 @@
         {
           "id": "youtube",
           "link": "https://www.youtube.com/channel/UCbmnT-JpuReyTDLzuoiLiTA"
+        },
+		{
+          "id": "twitter",
+          "link": "https://twitter.com/jaedengreen1009"
         }
       ]
     },
@@ -81,6 +89,10 @@
         {
           "id": "youtube",
           "link": "https://www.youtube.com/channel/UCd3oLEaa15W6ARtahlue-VQ"
+        },
+		{
+          "id": "twitter",
+          "link": "https://twitter.com/LoouiseSan"
         }
       ]
     }
@@ -88,7 +100,13 @@
   "social": [
     {
       "id": "youtube",
-      "link": "https://www.youtube.com/channel/UCwFRVvetOF3DqNj8z5-4d_A"
+      "link": "https://www.youtube.com/channel/UCwFRVvetOF3DqNj8z5-4d_A",
+	    "links": [
+        "https://www.youtube.com/channel/UCCMOWeYXxnlH7dyRqqBxkXQ",
+        "https://www.youtube.com/channel/UCwFRVvetOF3DqNj8z5-4d_A",
+        "https://www.youtube.com/channel/UC-jX7A4tKUtqZWBqnJ2CaJw",
+        "https://www.youtube.com/channel/UCsbTYdgjTTjUlTct6yOq2Hw"
+      ]
     },
     {
       "id": "twitter",

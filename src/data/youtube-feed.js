@@ -12,9 +12,14 @@ const getPathnameId = (url) => {
   return segments.pop();
 };
 
-const getChannelUrl = () => social.find(({ id }) => id === 'youtube').link;
+const getChannelUrls = () => social.find(({ id }) => id === 'youtube').links;
 
-const getChannelId = () => getPathnameId(getChannelUrl());
+const getChannelId = () => {
+  const channels = getChannelUrls();
+  const rand = Math.floor((Math.random() * channels.length));
+  console.log(channels[rand]);
+  return getPathnameId(channels[rand]);
+}
 
 const getFeedUrl = () => {
   const channelId = getChannelId();
@@ -26,7 +31,6 @@ const fetchVideoFeed = () => {
   // 'http://cors-proxy.htmldriven.com/?url=' requires JSON parsing for the body
   const corsProxies = [
     'https://cors-anywhere.herokuapp.com/',
-    'https://crossorigin.me/',
     'https://cors.io/?',
   ];
   const feedUrl = getFeedUrl();
@@ -38,8 +42,9 @@ const parseVideoFeedDom = videoFeedDom =>
     .map(({ children }) => Array.from(children).find(({ tagName }) => tagName === 'media:group'))
     .map(({ children }) =>
       Array.from(children)
-        // .filter(({ localName }) => ['title', 'thumbnail', 'content'].includes(localName))
-        .reduce((entry, media) => ({ ...entry, [media.localName]: media }), {}))
+         //.filter(({ localName }) => ['title', 'thumbnail', 'content'].includes(localName))
+        .reduce((entry, media) => ({ ...entry, [media.localName]: media }), {})
+      )
     .map(({ title, content, thumbnail }) => {
       const videoId = getPathnameId(content.attributes.url.textContent);
       return {

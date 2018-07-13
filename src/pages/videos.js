@@ -10,16 +10,16 @@ class YouTubeVideoContainer extends Component {
 
   componentDidMount = () => {
     this.mounted = true;
-
-    fetchYouTubeVideos()
+    
+  fetchYouTubeVideos()
       .then((videos) => {
         this.setStateIfMounted({ loading: false, videos });
       })
       .catch((error) => {
         this.setStateIfMounted({ loading: false, error });
       });
-  };
-
+  }
+    
   componentWillUnmount = () => {
     this.mounted = false;
   };
@@ -36,7 +36,7 @@ class YouTubeVideoContainer extends Component {
     const { loading, videos, error } = this.state;
     return (
       <CardList>
-        {videos === null ? (
+        {(videos === null) ? (
           <YouTubeVideo {...this.state} />
         ) : (
           videos.map(({ id, title, thumbnail, content }) => {
