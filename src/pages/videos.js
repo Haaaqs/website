@@ -11,7 +11,7 @@ class YouTubeVideoContainer extends Component {
   componentDidMount = () => {
     this.mounted = true;
     
-  fetchYouTubeVideos()
+    fetchYouTubeVideos()
       .then((videos) => {
         this.setStateIfMounted({ loading: false, videos });
       })

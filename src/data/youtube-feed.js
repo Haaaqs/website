@@ -17,7 +17,6 @@ const getChannelUrls = () => social.find(({ id }) => id === 'youtube').links;
 const getChannelId = () => {
   const channels = getChannelUrls();
   const rand = Math.floor((Math.random() * channels.length));
-  console.log(channels[rand]);
   return getPathnameId(channels[rand]);
 }
 
