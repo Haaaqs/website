@@ -1,2 +1,2 @@
-# envyclient
-Envy Client website
+# Website
+Website of Envy Client.
