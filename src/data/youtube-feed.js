@@ -14,26 +14,23 @@ const getPathnameId = (url) => {
 
 const getChannelUrls = () => social.find(({ id }) => id === 'youtube').links;
 
-const getChannelId = () => {
+const getChannelIds = () => {
   const channels = getChannelUrls();
-  const rand = Math.floor((Math.random() * channels.length));
-  return getPathnameId(channels[rand]);
+  return channels.map(channel => getPathnameId(channel));
 }
 
-const getFeedUrl = () => {
-  const channelId = getChannelId();
-  return `${baseUrl.feed}${channelId}`;
+const getFeedUrls = () => {
+  return getChannelIds().map(channelId => `${baseUrl.feed}${channelId}`);
 };
 
-const fetchVideoFeed = () => {
+const fetchVideoFeeds = () => {
   // TODO: Using CORS proxy to bypass missing Access-Control-Allow-Origin header on feed
   // 'http://cors-proxy.htmldriven.com/?url=' requires JSON parsing for the body
   const corsProxies = [
     'https://cors-anywhere.herokuapp.com/',
     'https://cors.io/?',
   ];
-  const feedUrl = getFeedUrl();
-  return fetch(`${corsProxies[0]}${feedUrl}`);
+  return getFeedUrls().map(feedUrl => fetch(`${corsProxies[0]}${feedUrl}`));
 };
 
 const parseVideoFeedDom = videoFeedDom =>
@@ -66,6 +63,6 @@ const filterVideos = feedResponse => parseVideoFeed(feedResponse).then((videoFee
   return filteredVideoFeed;
 });
 
-const fetchVideos = () => fetchVideoFeed().then(videos => filterVideos(videos));
+const fetchChannelVideos = () => fetchVideoFeeds().map(videoFeed => videoFeed.then(videos => filterVideos(videos)));
 
-export default fetchVideos;
+export default fetchChannelVideos;

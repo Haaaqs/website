@@ -3,11 +3,11 @@
   "version": "1.0.0",
   "description": "Envy Client website",
   "author": "Ahmad Ouerfelli <a.ouerf@gmail.com>",
-  "private": true,
+  "private": false,
   "homepage": "https://envyclient.com",
   "repository": {
     "type": "git",
-    "url": "https://github.com/aouerfelli/envyclient.git"
+    "url": "https://github.com/envyclient/website.git"
   },
   "license": "MIT",
   "scripts": {

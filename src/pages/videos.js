@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import CardList from '../components/CardList';
 import YouTubeVideo from '../components/YouTubeVideo';
 
-import fetchYouTubeVideos from '../data/youtube-feed';
+import fetchYouTubeChannelVideos from '../data/youtube-feed';
 
 class YouTubeVideoContainer extends Component {
   state = { loading: true, videos: null, error: null };
@@ -11,8 +11,9 @@ class YouTubeVideoContainer extends Component {
   componentDidMount = () => {
     this.mounted = true;
     
-    fetchYouTubeVideos()
-      .then((videos) => {
+    Promise.all(fetchYouTubeChannelVideos())
+      .then((channels) => {
+        const videos = channels.flat();
         this.setStateIfMounted({ loading: false, videos });
       })
       .catch((error) => {
