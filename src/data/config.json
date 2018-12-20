@@ -8,7 +8,11 @@
     "year": 2018
   },
   "analyticsId": "UA-110415716-1",
-  "pages": ["Features", "Credits", "Videos"],
+  "pages": [
+    "Features",
+    "Credits",
+    "Videos"
+  ],
   "colors": {
     "theme": "#21aa2f",
     "background": "#f4faf6"
@@ -16,7 +20,10 @@
   "fonts": [
     {
       "family": "Open Sans",
-      "variants": [400, 700]
+      "variants": [
+        400,
+        700
+      ]
     }
   ],
   "features": [
@@ -48,6 +55,10 @@
         {
           "id": "youtube",
           "link": "https://www.youtube.com/channel/UCQ26c_8MzcQMVis2MYl1_YA"
+        },
+        {
+          "id": "github",
+          "link": "https://github.com/Mat1337"
         }
       ]
     },
@@ -60,7 +71,7 @@
           "id": "youtube",
           "link": "https://www.youtube.com/channel/UCnefepAz8P7zz6bzCnhx-4Q"
         },
-		{
+        {
           "id": "twitter",
           "link": "https://twitter.com/OG_Artworks"
         }
@@ -75,7 +86,7 @@
           "id": "youtube",
           "link": "https://www.youtube.com/channel/UCbmnT-JpuReyTDLzuoiLiTA"
         },
-		{
+        {
           "id": "twitter",
           "link": "https://twitter.com/jaedengreen1009"
         }
@@ -90,7 +101,7 @@
           "id": "youtube",
           "link": "https://www.youtube.com/channel/UCd3oLEaa15W6ARtahlue-VQ"
         },
-		{
+        {
           "id": "twitter",
           "link": "https://twitter.com/LoouiseSan"
         }
@@ -101,7 +112,7 @@
     {
       "id": "youtube",
       "link": "https://www.youtube.com/channel/UCwFRVvetOF3DqNj8z5-4d_A",
-	    "links": [
+      "links": [
         "https://www.youtube.com/channel/UCCMOWeYXxnlH7dyRqqBxkXQ",
         "https://www.youtube.com/channel/UCwFRVvetOF3DqNj8z5-4d_A",
         "https://www.youtube.com/channel/UCGXK5G5w82QlXLZMVBkscHQ"
