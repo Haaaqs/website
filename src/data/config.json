@@ -45,6 +45,68 @@
       "icon": "laptop"
     }
   ],
+  "credits": [
+    {
+      "id": "mat",
+      "name": "Mat",
+      "desc": "Provided overall help with the client",
+      "social": [
+        {
+          "id": "youtube",
+          "link": "https://www.youtube.com/channel/UCQ26c_8MzcQMVis2MYl1_YA"
+        },
+        {
+          "id": "github",
+          "link": "https://github.com/Mat1337"
+        }
+      ]
+    },
+    {
+      "id": "og",
+      "name": "OG",
+      "desc": "Helped with some basic modules",
+      "social": [
+        {
+          "id": "youtube",
+          "link": "https://www.youtube.com/channel/UCnefepAz8P7zz6bzCnhx-4Q"
+        },
+        {
+          "id": "twitter",
+          "link": "https://twitter.com/OG_Artworks"
+        }
+      ]
+    },
+    {
+      "id": "roygbiv",
+      "name": "ROYGBIV",
+      "desc": "Contributed a few design ideas",
+      "social": [
+        {
+          "id": "youtube",
+          "link": "https://www.youtube.com/channel/UCbmnT-JpuReyTDLzuoiLiTA"
+        },
+        {
+          "id": "twitter",
+          "link": "https://twitter.com/jaedengreen1009"
+        }
+      ]
+    },
+    {
+      "id": "louise",
+      "name": "Louise",
+      "desc": "Created some Envy graphics",
+      "social": [
+        {
+          "id": "youtube",
+          "link": "https://www.youtube.com/channel/UCd3oLEaa15W6ARtahlue-VQ"
+        },
+        {
+          "id": "twitter",
+          "link": "https://twitter.com/LoouiseSan"
+        }
+      ]
+    }
+  ],
   "social": [
     {
       "id": "youtube",
