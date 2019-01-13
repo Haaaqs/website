@@ -132,19 +132,10 @@ const IndexPage = () => (
             : <IndexInfoTextRegular key={word} textCase="upper">{word}</IndexInfoTextRegular>
           ))}
       </IndexInfoTitle>
-      <IndexInfoAuthor>
-        <IndexInfoTextRegular textCase="lower">by </IndexInfoTextRegular>
-        <IndexInfoTextBold>{owner}</IndexInfoTextBold>
-      </IndexInfoAuthor>
       <div>
         <IndexInfoButton href="http://ad.envyclient.com/1">
           <IndexInfoTextRegular textCase="lower">Download&nbsp;</IndexInfoTextRegular>
           <IndexInfoTextBold textCase="lower">{label}</IndexInfoTextBold>
-        </IndexInfoButton>
-        |
-        <IndexInfoButton href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=273GMZG3CVGMU">
-          <IndexInfoTextRegular textCase="lower">Donate&nbsp;</IndexInfoTextRegular>
-          <IndexInfoIconWrapper>{getIconSvg('paypal')}</IndexInfoIconWrapper>
         </IndexInfoButton>
       </div>
     </IndexInfoContainer>

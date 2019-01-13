@@ -4,13 +4,12 @@
     "title": "Envy Client",
     "label": "Envy",
     "desc": "Official website of Envy Client.",
-    "owner": "iHaq",
-    "year": 2018
+    "owner": "Envy Client",
+    "year": 2019
   },
   "analyticsId": "UA-110415716-1",
   "pages": [
     "Features",
-    "Credits",
     "Videos"
   ],
   "colors": {
@@ -35,7 +34,7 @@
     },
     {
       "id": "noob_friendly",
-      "title": "Noob Friendly",
+      "title": "User Friendly",
       "desc": "Designed for ease of use",
       "icon": "group"
     },
@@ -46,72 +45,10 @@
       "icon": "laptop"
     }
   ],
-  "credits": [
-    {
-      "id": "mat",
-      "name": "Mat",
-      "desc": "Provided overall help with the client",
-      "social": [
-        {
-          "id": "youtube",
-          "link": "https://www.youtube.com/channel/UCQ26c_8MzcQMVis2MYl1_YA"
-        },
-        {
-          "id": "github",
-          "link": "https://github.com/Mat1337"
-        }
-      ]
-    },
-    {
-      "id": "og",
-      "name": "OG",
-      "desc": "Helped with some basic modules",
-      "social": [
-        {
-          "id": "youtube",
-          "link": "https://www.youtube.com/channel/UCnefepAz8P7zz6bzCnhx-4Q"
-        },
-        {
-          "id": "twitter",
-          "link": "https://twitter.com/OG_Artworks"
-        }
-      ]
-    },
-    {
-      "id": "roygbiv",
-      "name": "ROYGBIV",
-      "desc": "Contributed a few design ideas",
-      "social": [
-        {
-          "id": "youtube",
-          "link": "https://www.youtube.com/channel/UCbmnT-JpuReyTDLzuoiLiTA"
-        },
-        {
-          "id": "twitter",
-          "link": "https://twitter.com/jaedengreen1009"
-        }
-      ]
-    },
-    {
-      "id": "louise",
-      "name": "Louise",
-      "desc": "Created some Envy graphics",
-      "social": [
-        {
-          "id": "youtube",
-          "link": "https://www.youtube.com/channel/UCd3oLEaa15W6ARtahlue-VQ"
-        },
-        {
-          "id": "twitter",
-          "link": "https://twitter.com/LoouiseSan"
-        }
-      ]
-    }
-  ],
   "social": [
     {
       "id": "youtube",
-      "link": "https://www.youtube.com/channel/UCwFRVvetOF3DqNj8z5-4d_A",
+      "link": "https://www.youtube.com/results?search_query=envyclient",
       "links": [
         "https://www.youtube.com/channel/UCCMOWeYXxnlH7dyRqqBxkXQ",
         "https://www.youtube.com/channel/UCwFRVvetOF3DqNj8z5-4d_A",
@@ -119,12 +56,8 @@
       ]
     },
     {
-      "id": "twitter",
-      "link": "https://twitter.com/intent/user?user_id=2786788057"
-    },
-    {
       "id": "github",
-      "link": "https://github.com/haq"
+      "link": "https://github.com/envyclient"
     },
     {
       "id": "email",
