@@ -22,6 +22,7 @@ steps:
 
 - task: CopyFiles@2
   inputs:
+    SourceFolder: '$(System.DefaultWorkingDirectory)/public'
     Contents: '**'
     TargetFolder: '$(Build.ArtifactStagingDirectory)/public'
     CleanTargetFolder: true
