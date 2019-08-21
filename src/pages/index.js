@@ -133,7 +133,7 @@ const IndexPage = () => (
           ))}
       </IndexInfoTitle>
       <div>
-        <IndexInfoButton href="http://ad.envyclient.com/4914561">
+        <IndexInfoButton href="http://adfoc.us/4914561">
           <IndexInfoTextRegular textCase="lower">Download&nbsp;</IndexInfoTextRegular>
           <IndexInfoTextBold textCase="lower">{label}</IndexInfoTextBold>
         </IndexInfoButton>
