@@ -24,7 +24,7 @@
     "gatsby-plugin-react-helmet": "^1.0.8",
     "gatsby-plugin-sitemap": "^1.2.25",
     "gatsby-plugin-styled-components": "^2.0.11",
-    "npm": "^5.10.0",
+    "npm": "^6.13.4",
     "react-image": "^1.5.1",
     "react-transition-group": "^2.5.1",
     "styled-components": "^2.4.1"
