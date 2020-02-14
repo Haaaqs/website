@@ -139,7 +139,7 @@ const IndexPage = () => (
         </IndexInfoButton>
         |
         <IndexInfoButton href="https://forums.envyclient.com/">
-          <IndexInfoTextRegular textCase="lower">Fourms</IndexInfoTextRegular>
+          <IndexInfoTextRegular textCase="lower">Forums</IndexInfoTextRegular>
         </IndexInfoButton>
       </div>
     </IndexInfoContainer>
