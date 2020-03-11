@@ -1,18 +1,21 @@
 import React from 'react';
 import styled, { css } from 'styled-components';
 
+import Layout from '../components/layout/layout';
+
 import Logo from '../components/Logo';
 
-import { getIconSvg } from '../data/icons.svg';
 import { measurements, colors, opacities, fonts } from '../data/values.css';
 
 import splashBg from '../images/index/hero-bg.jpg';
 
-const { metadata: { title, label, owner } } = require('../data/config.json');
+const {
+  metadata: { title, label },
+} = require('../data/config.json');
 
-const fontSizeCalculation = em => `calc(${em} + 0.25vmin)`;
+const fontSizeCalculation = (em) => `calc(${em} + 0.25vmin)`;
 
-const textTransformStyle = textCase => css`
+const textTransformStyle = (textCase) => css`
   text-transform: ${() => {
     switch (textCase) {
       case 'none': {
@@ -88,13 +91,6 @@ const IndexInfoTitle = styled.h1`
   font-weight: normal;
 `;
 
-const IndexInfoAuthor = styled.h2`
-  margin: 0;
-  display: block;
-  font-size: ${fontSizeCalculation(fonts.sizes[16])};
-  font-weight: normal;
-`;
-
 const IndexInfoTextBold = styled.strong`
   opacity: ${opacities.primary};
   ${({ textCase }) => textTransformStyle(textCase)};
@@ -103,12 +99,6 @@ const IndexInfoTextBold = styled.strong`
 const IndexInfoTextRegular = styled.span`
   opacity: ${opacities.secondary};
   ${({ textCase }) => textTransformStyle(textCase)};
-`;
-
-const IndexInfoIconWrapper = styled.div`
-  display: inline-block;
-  width: 1.5em;
-  height: 1.5em;
 `;
 
 const IndexInfoButton = styled.a.attrs({
@@ -121,30 +111,35 @@ const IndexInfoButton = styled.a.attrs({
   font-size: ${fontSizeCalculation(fonts.sizes[16])};
 `;
 
-const IndexPage = () => (
-  <IndexContainer>
-    <IndexInfoContainer>
-      <IndexInfoTitle>
-        {title
-          .split(' ')
-          .map(word => ((word === label)
-            ? <IndexInfoTextBold key={word} textCase="upper">{word}</IndexInfoTextBold>
-            : <IndexInfoTextRegular key={word} textCase="upper">{word}</IndexInfoTextRegular>
-          ))}
-      </IndexInfoTitle>
-      <div>
-        <IndexInfoButton href="http://ad.envyclient.com/1">
-          <IndexInfoTextRegular textCase="lower">Download&nbsp;</IndexInfoTextRegular>
-          <IndexInfoTextBold textCase="lower">{label}</IndexInfoTextBold>
-        </IndexInfoButton>
-        |
-        <IndexInfoButton href="https://forums.envyclient.com/">
-          <IndexInfoTextRegular textCase="lower">Forums</IndexInfoTextRegular>
-        </IndexInfoButton>
-      </div>
-    </IndexInfoContainer>
-    <IndexLogo />
-  </IndexContainer>
+const IndexPage = ({ children, location }) => (
+  <Layout children={children} location={location}>
+    <IndexContainer>
+      <IndexInfoContainer>
+        <IndexInfoTitle>
+          {title.split(' ').map((word) => (word === label ? (
+            <IndexInfoTextBold key={word} textCase="upper">
+              {word}
+            </IndexInfoTextBold>
+          ) : (
+            <IndexInfoTextRegular key={word} textCase="upper">
+              {word}
+            </IndexInfoTextRegular>
+          )))}
+        </IndexInfoTitle>
+        <div>
+          <IndexInfoButton href="http://ad.envyclient.com/1">
+            <IndexInfoTextRegular textCase="lower">Download&nbsp;</IndexInfoTextRegular>
+            <IndexInfoTextBold textCase="lower">{label}</IndexInfoTextBold>
+          </IndexInfoButton>
+          |
+          <IndexInfoButton href="https://forums.envyclient.com/">
+            <IndexInfoTextRegular textCase="lower">Forums</IndexInfoTextRegular>
+          </IndexInfoButton>
+        </div>
+      </IndexInfoContainer>
+      <IndexLogo />
+    </IndexContainer>
+  </Layout>
 );
 
 export default IndexPage;

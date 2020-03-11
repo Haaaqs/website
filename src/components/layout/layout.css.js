@@ -1,6 +1,6 @@
-import { css, injectGlobal } from 'styled-components';
+import { css, createGlobalStyle } from 'styled-components';
 
-import { medias, measurements, colors, opacities, fonts, shadows, transitions } from '../data/values.css';
+import { medias, measurements, colors, opacities, fonts, shadows, transitions } from '../../data/values.css';
 
 const selectionStyle = css`
   background: ${colors.primary};
@@ -8,7 +8,7 @@ const selectionStyle = css`
   text-shadow: none;
 `;
 
-const index = injectGlobal`
+const index = createGlobalStyle`
   ::-moz-selection {
     ${selectionStyle};
   }

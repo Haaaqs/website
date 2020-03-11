@@ -5,24 +5,21 @@ import { getFontFamilies } from '../utils/fonts';
 
 const config = require('./config.json');
 
-const pxToEm = px => `${px / 16}em`;
+const pxToEm = (px) => `${px / 16}em`;
 
-const asBoxShadowStyle = (...shadows) =>
-  css`
-    box-shadow: ${joinAsString(shadows)};
-  `;
+const asBoxShadowStyle = (...shadows) => css`
+  box-shadow: ${joinAsString(shadows)};
+`;
 
-const asFontFamilyStyle = (...fontStack) =>
-  css`
-    font-family: ${joinAsString(fontStack)};
-  `;
+const asFontFamilyStyle = (...fontStack) => css`
+  font-family: ${joinAsString(fontStack)};
+`;
 
-const asMediaQuery = maxWidth =>
-  (...args) => css`
-    @media (max-width: ${maxWidth}px) {
-      ${css(...args)}
-    }
-  `;
+const asMediaQuery = (maxWidth) => (...args) => css`
+  @media (max-width: ${maxWidth}px) {
+    ${css(...args)}
+  }
+`;
 
 const values = {
   medias: {
@@ -120,12 +117,11 @@ const values = {
   transitions: {
     duration: 0.25,
     timingFunction: 'cubic-bezier(0.4, 0.0, 0.2, 1)',
-    set: (...properties) =>
-      css`
-        transition-property: ${joinAsString(properties)};
-        transition-duration: ${values.transitions.duration}s;
-        transition-timing-function: ${values.transitions.timingFunction};
-      `,
+    set: (...properties) => css`
+      transition-property: ${joinAsString(properties)};
+      transition-duration: ${values.transitions.duration}s;
+      transition-timing-function: ${values.transitions.timingFunction};
+    `,
   },
   effects: {
     blurScale: {
@@ -134,5 +130,7 @@ const values = {
     },
   },
 };
+
+export const { medias, measurements, colors, opacities, fonts, shadows, transitions, effects } = values;
 
 export default values;

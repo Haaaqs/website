@@ -1,6 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 
+import Layout from '../components/layout/layout';
+
 import CardList from '../components/CardList';
 import Card, { Title, Info } from '../components/Card';
 
@@ -69,23 +71,25 @@ const CreditContainer = styled(Card)`
   }
 `;
 
-const CreditsPage = () => (
-  <CardList>
-    {credits.map(({ id, name, desc, social }) => (
-      <CreditContainer key={id}>
-        <CreditAvatar className="credit__avatar" src={creditImages[id]} alt={name} />
-        <CreditDetails className="credit__details">
-          <Title>{name}</Title>
-          <Info>{desc}</Info>
-          <div>
-            {social.map(props => (
-              <CreditIcon key={props.id} {...props} />
-            ))}
-          </div>
-        </CreditDetails>
-      </CreditContainer>
-    ))}
-  </CardList>
+const CreditsPage = ({ children, location }) => (
+  <Layout children={children} location={location}>
+    <CardList>
+      {credits.map(({ id, name, desc, social }) => (
+        <CreditContainer key={id}>
+          <CreditAvatar className="credit__avatar" src={creditImages[id]} alt={name} />
+          <CreditDetails className="credit__details">
+            <Title>{name}</Title>
+            <Info>{desc}</Info>
+            <div>
+              {social.map((props) => (
+                <CreditIcon key={props.id} {...props} />
+              ))}
+            </div>
+          </CreditDetails>
+        </CreditContainer>
+      ))}
+    </CardList>
+  </Layout>
 );
 
 export default CreditsPage;

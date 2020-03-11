@@ -27,7 +27,7 @@ const Text = styled.div`
   font-size: 1em;
 `;
 
-export const LoadingText = Text.extend`
+export const LoadingText = styled(Text)`
   &::before {
     content: 'Loading';
   }
