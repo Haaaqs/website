@@ -1,13 +1,13 @@
 import React from 'react';
 import { arrayOf, bool, string } from 'prop-types';
-import Link from 'gatsby-link';
+import { Link } from 'gatsby';
 import styled from 'styled-components';
 
-import Logo from '../../components/Logo';
+import Logo from '../../../components/Logo';
 
-import { pathToTitleCase } from '../../utils/paths';
+import { pathToTitleCase } from '../../../utils/paths';
 
-import { measurements, colors, opacities, shadows, transitions } from '../../data/values.css';
+import { measurements, colors, opacities, shadows, transitions } from '../../../data/values.css';
 
 const LogoLink = styled(Link)`
   position: relative;

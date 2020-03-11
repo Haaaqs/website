@@ -1,6 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 
+import Layout from '../components/layout/layout';
+
 import CardList from '../components/CardList';
 import Card, { Title, Info } from '../components/Card';
 import Divider from '../components/Divider';
@@ -28,17 +30,19 @@ const FeatureContainer = styled(Card)`
   }
 `;
 
-const FeaturesPage = () => (
-  <FeaturesWrapper>
-    {features.map(({ id, title, desc, icon }) => (
-      <FeatureContainer key={id}>
-        {getIconSvg(icon)}
-        <Divider baseColor={colors.primary} />
-        <Title>{title}</Title>
-        <Info>{desc}</Info>
-      </FeatureContainer>
-    ))}
-  </FeaturesWrapper>
+const FeaturesPage = ({ children, location }) => (
+  <Layout children={children} location={location}>
+    <FeaturesWrapper>
+      {features.map(({ id, title, desc, icon }) => (
+        <FeatureContainer key={id}>
+          {getIconSvg(icon)}
+          <Divider baseColor={colors.primary} />
+          <Title>{title}</Title>
+          <Info>{desc}</Info>
+        </FeatureContainer>
+      ))}
+    </FeaturesWrapper>
+  </Layout>
 );
 
 export default FeaturesPage;

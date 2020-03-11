@@ -2,9 +2,9 @@ import React from 'react';
 import { node, string } from 'prop-types';
 import styled from 'styled-components';
 
-import Divider from '../../components/Divider';
+import Divider from '../../../components/Divider';
 
-import { measurements, colors, opacities, fonts, shadows } from '../../data/values.css';
+import { measurements, colors, opacities, fonts, shadows } from '../../../data/values.css';
 
 const ContentContainer = styled.main`
   flex: 1 0 auto;

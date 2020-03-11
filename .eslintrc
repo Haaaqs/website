@@ -5,9 +5,6 @@
   "env": {
     "browser": true
   },
-  "globals": {
-    "graphql": false
-  },
   "rules": {
     "function-paren-newline": ["error", "consistent"],
     "object-curly-newline": ["error", { "consistent": true }],

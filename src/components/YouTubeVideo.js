@@ -111,7 +111,7 @@ const VideoEmbed = styled.iframe.attrs({
 
 class YouTubeVideo extends Component {
   static propTypes = {
-    loading: bool.isRequired,
+    isLoading: bool.isRequired,
     error: instanceOf(Error),
     video: shape({
       title: string.isRequired,
@@ -166,8 +166,8 @@ class YouTubeVideo extends Component {
   };
 
   renderContent = () => {
-    const { loading, video } = this.props;
-    if (loading) {
+    const { isLoading, video } = this.props;
+    if (isLoading) {
       return this.renderLoading();
     } else if (video !== null) {
       return <div>{this.state.play ? this.renderVideo() : this.renderThumbnail()}</div>;

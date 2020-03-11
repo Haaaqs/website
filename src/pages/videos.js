@@ -1,26 +1,28 @@
 import React, { Component } from 'react';
 
+import Layout from '../components/layout/layout';
+
 import CardList from '../components/CardList';
 import YouTubeVideo from '../components/YouTubeVideo';
 
 import fetchYouTubeChannelVideos from '../data/youtube-feed';
 
 class YouTubeVideoContainer extends Component {
-  state = { loading: true, videos: null, error: null };
+  state = { isLoading: true, videos: null, error: null };
 
   componentDidMount = () => {
     this.mounted = true;
-    
+
     Promise.all(fetchYouTubeChannelVideos())
       .then((channels) => {
         const videos = channels.flat();
-        this.setStateIfMounted({ loading: false, videos });
+        this.setStateIfMounted({ isLoading: false, videos });
       })
       .catch((error) => {
-        this.setStateIfMounted({ loading: false, error });
+        this.setStateIfMounted({ isLoading: false, error });
       });
-  }
-    
+  };
+
   componentWillUnmount = () => {
     this.mounted = false;
   };
@@ -34,14 +36,14 @@ class YouTubeVideoContainer extends Component {
   mounted = false;
 
   render = () => {
-    const { loading, videos, error } = this.state;
+    const { isLoading, videos, error } = this.state;
     return (
       <CardList>
-        {(videos === null) ? (
+        {videos === null ? (
           <YouTubeVideo {...this.state} />
         ) : (
           videos.map(({ id, title, thumbnail, content }) => {
-            const props = { loading, error, video: { title, thumbnail, content } };
+            const props = { isLoading, error, video: { title, thumbnail, content } };
             return <YouTubeVideo key={id} {...props} />;
           })
         )}
@@ -50,6 +52,10 @@ class YouTubeVideoContainer extends Component {
   };
 }
 
-const VideoPage = () => <YouTubeVideoContainer />;
+const VideoPage = ({ children, location }) => (
+  <Layout children={children} location={location}>
+    <YouTubeVideoContainer />
+  </Layout>
+);
 
 export default VideoPage;

@@ -1,6 +1,8 @@
 import React from 'react';
-import Link from 'gatsby-link';
+import { Link } from 'gatsby';
 import styled from 'styled-components';
+
+import Layout from '../components/layout/layout';
 
 import CardList from '../components/CardList';
 import Logo from '../components/Logo';
@@ -8,7 +10,7 @@ import Logo from '../components/Logo';
 import { measurements, colors, transitions } from '../data/values.css';
 
 const FourOhFourDetails = styled.div`
-  margin: 0.5em
+  margin: 0.5em;
 `;
 
 const FourOhFourTitle = styled.h2`
@@ -45,20 +47,22 @@ const LogoHome = styled(Logo)`
   }
 `;
 
-const NotFoundPage = () => (
-  <CardList>
-    <FourOhFourDetails>
-      <FourOhFourTitle>Route Not Found</FourOhFourTitle>
-      <FourOhFourDesc>
-        You&#39;ve lost your path. Click on the logo to get back on track.
-      </FourOhFourDesc>
-    </FourOhFourDetails>
-    <LogoHomeContainer>
-      <LogoHomeLink to="/">
-        <LogoHome />
-      </LogoHomeLink>
-    </LogoHomeContainer>
-  </CardList>
+const NotFoundPage = ({ children, location }) => (
+  <Layout children={children} location={location}>
+    <CardList>
+      <FourOhFourDetails>
+        <FourOhFourTitle>Route Not Found</FourOhFourTitle>
+        <FourOhFourDesc>
+          You&#39;ve lost your path. Click on the logo to get back on track.
+        </FourOhFourDesc>
+      </FourOhFourDetails>
+      <LogoHomeContainer>
+        <LogoHomeLink to="/">
+          <LogoHome />
+        </LogoHomeLink>
+      </LogoHomeContainer>
+    </CardList>
+  </Layout>
 );
 
 export default NotFoundPage;
