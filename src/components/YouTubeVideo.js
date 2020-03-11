@@ -75,7 +75,7 @@ const VideoThumbnailContainer = styled.div`
   will-change: contents;
 `;
 
-const PlayIcon = Icon.extend`
+const PlayIcon = styled(Icon)`
   pointer-events: none;
   position: absolute;
   width: 25%;
