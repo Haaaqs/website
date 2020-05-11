@@ -131,8 +131,8 @@ const IndexPage = ({ children, location }) => (
             <IndexInfoTextRegular textCase="lower">Download&nbsp;</IndexInfoTextRegular>
             <IndexInfoTextBold textCase="lower">{label}</IndexInfoTextBold>
           </IndexInfoButton>
-          <IndexInfoButton href="https://forums.envyclient.com/">
-            <IndexInfoTextRegular textCase="lower">Forums</IndexInfoTextRegular>
+          <IndexInfoButton href="https://discord.com/invite/kfdEehR">
+            <IndexInfoTextRegular textCase="lower">Discord</IndexInfoTextRegular>
           </IndexInfoButton>
         </div>
       </IndexInfoContainer>
