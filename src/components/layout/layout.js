@@ -78,15 +78,6 @@ const TemplateWrapper = ({ children, location }) => (
               gtag('config', '${analyticsId}');
             `}
           </script>
-          {/* Google AdSense */}
-          <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js">
-            {deIndent`
-              (adsbygoogle = window.adsbygoogle || []).push({
-                google_ad_client: "ca-pub-1721608899854972",
-                enable_page_level_ads: true
-              });
-            `}
-          </script>
         </Helmet>
         <Header
           routes={getRouteLinks(data.allSitePage.edges)}
