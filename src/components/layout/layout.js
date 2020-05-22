@@ -1,5 +1,5 @@
 import React from 'react';
-import { arrayOf, shape, object, node, string } from 'prop-types';
+import { shape, object, node, string } from 'prop-types';
 import { StaticQuery, graphql, withPrefix } from 'gatsby';
 import { Helmet } from 'react-helmet';
 
@@ -131,41 +131,9 @@ TemplateWrapper.propTypes = {
     search: string,
     state: object,
   }).isRequired,
-  data: shape({
-    site: shape({
-      siteMetadata: shape({
-        title: string,
-      }),
-    }),
-    allSitePage: shape({
-      edges: arrayOf(
-        shape({
-          node: shape({
-            path: string,
-          }),
-        }),
-      ),
-    }),
-  }),
 };
 
 TemplateWrapper.defaultProps = {
-  data: {
-    site: {
-      siteMetadata: {
-        title: '',
-      },
-    },
-    allSitePage: {
-      edges: [
-        {
-          node: {
-            path: '',
-          },
-        },
-      ],
-    },
-  },
 };
 
 export default TemplateWrapper;
