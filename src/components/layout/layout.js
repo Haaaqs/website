@@ -68,16 +68,13 @@ const TemplateWrapper = ({ children, location }) => (
           <link rel="apple-touch-icon" sizes="180x180" href={withPrefix('/apple-touch-icon.png')} />
           <link rel="mask-icon" color={themeColor} href={withPrefix('/safari-pinned-tab.svg')} />
 
-          {/* Google Analytics */}
-          <script async src="https://www.googletagmanager.com/gtag/js?id=UA-110415716-1">
-            {deIndent`
-              window.dataLayer = window.dataLayer || [];
-              function gtag(){dataLayer.push(arguments);}
-              gtag('js', new Date());
-
-              gtag('config', '${analyticsId}');
-            `}
-          </script>
+          {/* Ackee (analytics) */}
+          <script
+            async
+            src="https://ackee.affanhaq.me/tracker.js"
+            data-ackee-server="https://ackee.affanhaq.me"
+            data-ackee-domain-id={analyticsId}
+          />
         </Helmet>
         <Header
           routes={getRouteLinks(data.allSitePage.edges)}
@@ -100,7 +97,6 @@ TemplateWrapper.propTypes = {
   }).isRequired,
 };
 
-TemplateWrapper.defaultProps = {
-};
+TemplateWrapper.defaultProps = {};
 
 export default TemplateWrapper;
