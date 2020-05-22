@@ -1,7 +1,7 @@
 import React from 'react';
 import { arrayOf, shape, object, node, string } from 'prop-types';
 import { StaticQuery, graphql, withPrefix } from 'gatsby';
-import Helmet from 'react-helmet';
+import { Helmet } from 'react-helmet';
 
 import { deIndent } from '../../utils/strings';
 import { getFontImport } from '../../utils/fonts';
