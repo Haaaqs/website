@@ -52,11 +52,6 @@ const googleAdSenseScript = [
   },
 ];
 
-const metaTitle = (page, site) => {
-  const separator = page === '' ? '' : ' | ';
-  return `${page}${separator}${site}`;
-};
-
 const getRouteLinks = (edges) => {
   const allPaths = getEdgePaths(edges);
   const paths = pages
@@ -87,31 +82,22 @@ const TemplateWrapper = ({ children, location }) => (
       <Wrapper>
         <GlobalStyle />
         <Helmet
-          title={metaTitle(pathToTitleCase(location.pathname), data.site.siteMetadata.title)}
-          meta={[{ name: 'description', content: `${siteDescription}` }]}
-          link={[
-            getFontImport(),
-            {
-              rel: 'icon',
-              type: 'image/png',
-              sizes: '32x32',
-              href: withPrefix('/favicon-32x32.png'),
-            },
-            {
-              rel: 'icon',
-              type: 'image/png',
-              sizes: '16x16',
-              href: withPrefix('/favicon-16x16.png'),
-            },
-            {
-              rel: 'apple-touch-icon',
-              sizes: '180x180',
-              href: withPrefix('/apple-touch-icon.png'),
-            },
-            { rel: 'mask-icon', color: themeColor, href: withPrefix('/safari-pinned-tab.svg') },
-          ]}
+          defaultTitle={data.site.siteMetadata.title}
+          titleTemplate={`%s | ${data.site.siteMetadata.title}`}
           script={[].concat(...[googleAnalyticsScript, googleAdSenseScript])}
-        />
+        >
+          <title>{pathToTitleCase(location.pathname)}</title>
+          <meta name="description" content={siteDescription} />
+
+          {/* eslint-disable react/jsx-props-no-spreading */}
+          <link {...getFontImport()} />
+          {/* eslint-enable react/jsx-props-no-spreading */}
+
+          <link rel="icon" sizes="32x32" href={withPrefix('/favicon-32x32.png')} />
+          <link rel="icon" sizes="16x16" href={withPrefix('/favicon-16x16.png')} />
+          <link rel="apple-touch-icon" sizes="180x180" href={withPrefix('/apple-touch-icon.png')} />
+          <link rel="mask-icon" color={themeColor} href={withPrefix('/safari-pinned-tab.svg')} />
+        </Helmet>
         <Header
           routes={getRouteLinks(data.allSitePage.edges)}
           home={isHomePath(location.pathname)}
