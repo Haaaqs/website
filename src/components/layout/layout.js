@@ -21,37 +21,6 @@ const {
   colors: { theme: themeColor },
 } = require('../../data/config.json');
 
-const googleAnalyticsScript = [
-  {
-    async: true,
-    src: 'https://www.googletagmanager.com/gtag/js?id=UA-110415716-1',
-  },
-  {
-    innerHTML: deIndent`
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-
-      gtag('config', '${analyticsId}');
-    `,
-  },
-];
-
-const googleAdSenseScript = [
-  {
-    async: true,
-    src: '//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js',
-  },
-  {
-    innerHTML: deIndent`
-      (adsbygoogle = window.adsbygoogle || []).push({
-        google_ad_client: "ca-pub-1721608899854972",
-        enable_page_level_ads: true
-      });
-    `,
-  },
-];
-
 const getRouteLinks = (edges) => {
   const allPaths = getEdgePaths(edges);
   const paths = pages
@@ -84,19 +53,40 @@ const TemplateWrapper = ({ children, location }) => (
         <Helmet
           defaultTitle={data.site.siteMetadata.title}
           titleTemplate={`%s | ${data.site.siteMetadata.title}`}
-          script={[].concat(...[googleAnalyticsScript, googleAdSenseScript])}
         >
           <title>{pathToTitleCase(location.pathname)}</title>
           <meta name="description" content={siteDescription} />
 
+          {/* Fonts */}
           {/* eslint-disable react/jsx-props-no-spreading */}
           <link {...getFontImport()} />
           {/* eslint-enable react/jsx-props-no-spreading */}
 
+          {/* Favicons */}
           <link rel="icon" sizes="32x32" href={withPrefix('/favicon-32x32.png')} />
           <link rel="icon" sizes="16x16" href={withPrefix('/favicon-16x16.png')} />
           <link rel="apple-touch-icon" sizes="180x180" href={withPrefix('/apple-touch-icon.png')} />
           <link rel="mask-icon" color={themeColor} href={withPrefix('/safari-pinned-tab.svg')} />
+
+          {/* Google Analytics */}
+          <script async src="https://www.googletagmanager.com/gtag/js?id=UA-110415716-1">
+            {deIndent`
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+
+              gtag('config', '${analyticsId}');
+            `}
+          </script>
+          {/* Google AdSense */}
+          <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js">
+            {deIndent`
+              (adsbygoogle = window.adsbygoogle || []).push({
+                google_ad_client: "ca-pub-1721608899854972",
+                enable_page_level_ads: true
+              });
+            `}
+          </script>
         </Helmet>
         <Header
           routes={getRouteLinks(data.allSitePage.edges)}
