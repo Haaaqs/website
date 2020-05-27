@@ -24,17 +24,10 @@ const Title = styled.h1`
   margin: 0.5em;
   font-size: ${fonts.sizes[32]};
   font-weight: bold;
-  text-transform: lowercase;
   white-space: nowrap;
   overflow-x: auto;
   color: ${colors.primary};
   opacity: ${opacities.primary};
-
-  &::before,
-  &::after {
-    /* space - em dash - space */
-    content: '\\0020\\2014\\0020';
-  }
 `;
 
 const isHome = title => title === '';
