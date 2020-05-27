@@ -28,7 +28,7 @@ const Card = styled.div`
   ${transitions.set('box-shadow')};
 
   &:hover {
-    ${shadows.box[8]}
+    ${shadows.box[4]}
   }
 `;
 

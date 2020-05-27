@@ -118,7 +118,7 @@ const HeaderContainer = styled.header`
   z-index: 1;
   background: ${({ home }) => (home ? 'transparent' : colors.secondary)};
   color: ${({ home }) => (home ? colors.secondary : colors.primary)};
-  ${({ home }) => (home ? 'box-shadow: none;' : shadows.box[4])};
+  ${({ home }) => (home ? 'box-shadow: none;' : shadows.box[2])};
   will-change: contents;
 
   & > ${LogoLink} {

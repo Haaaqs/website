@@ -12,7 +12,7 @@ const ContentContainer = styled.main`
   margin: 0;
   padding: ${measurements.padding.container};
   padding-top: calc(${measurements.height.header} + ${measurements.padding.container});
-  ${shadows.box[16]};
+  ${shadows.box[8]};
   background: ${({ transparent }) => (transparent ? 'transparent' : colors.background)};
 `;
 
