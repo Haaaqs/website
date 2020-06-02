@@ -28,27 +28,24 @@ const ScreenshotTitle = styled(Title)`
   display: flex;
   justify-content: center;
   align-items: center;
+  text-align: center;
   margin: 0;
+  padding: 0 ${measurements.padding.container};
   position: absolute;
   left: 0;
   bottom: 0;
-  text-align: center;
   width: 100%;
   height: 25%;
   background: ${colors.secondary};
   border-top: solid ${measurements.unit} ${colors.primary};
   transform: translateY(100%);
-  padding: 0 ${measurements.padding.container};
   ${transitions.set('transform')};
 `;
 
 const ScreenshotContainer = styled(Card)`
-  display: inline-flex;
-  flex: 1 0 auto;
   padding: 0;
-  width: ${measurements.width.player};
-  height: 100%;
   margin: ${measurements.padding.container};
+  width: ${measurements.width.player};
   max-width: calc(100vw - (${measurements.padding.container} * 4));
 
   &:hover {
