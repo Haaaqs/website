@@ -3,7 +3,7 @@ import { arrayOf, bool, string } from 'prop-types';
 import { Link } from 'gatsby';
 import styled from 'styled-components';
 
-import Logo from '../../../components/Logo';
+import Logo from '../../Logo';
 
 import { pathToTitleCase } from '../../../utils/paths';
 
@@ -91,6 +91,14 @@ const NavigationContainer = styled.nav`
       }
     }
 
+    &:active {
+      color: ${colors.secondary};
+
+      &::before {
+        transform: scaleY(1);
+      }
+    }
+
     &.active[aria-current] {
       opacity: 1;
       font-weight: bold;
@@ -128,7 +136,7 @@ const HeaderContainer = styled.header`
 
 const Navigation = ({ routes }) => (
   <NavigationContainer>
-    {routes.map(route => (
+    {routes.map((route) => (
       <Link key={`${route}`} to={route} activeClassName="active">
         {pathToTitleCase(route)}
       </Link>
