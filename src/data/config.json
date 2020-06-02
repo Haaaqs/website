@@ -8,7 +8,7 @@
     "year": 2020
   },
   "analyticsId": "c85dcb51-eca4-47ed-a56c-2958c9e3251e",
-  "pages": ["Features", "Credits", "Videos", "Pricing"],
+  "pages": ["Features", "Credits", "Screenshots", "Videos", "Pricing"],
   "colors": {
     "theme": "#21aa2f",
     "background": "#f4faf6"
@@ -99,6 +99,28 @@
           "link": "https://twitter.com/LoouiseSan"
         }
       ]
+    }
+  ],
+  "screenshots": [
+    {
+      "id": "launcher",
+      "title": "Launcher"
+    },
+    {
+      "id": "click_gui",
+      "title": "Click GUI"
+    },
+    {
+      "id": "two_d_esp",
+      "title": "2D ESP"
+    },
+    {
+      "id": "website_dashboard",
+      "title": "Website Dashboard"
+    },
+    {
+      "id": "subscriptions",
+      "title": "Subscriptions"
     }
   ],
   "pricing": [
