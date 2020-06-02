@@ -5,7 +5,7 @@ import Layout from '../components/layout/layout';
 import Card, { Title } from '../components/Card';
 import CardList from '../components/CardList';
 
-import { measurements, colors, effects, transitions } from '../data/values.css';
+import { measurements, shadows, colors, opacities, effects, transitions } from '../data/values.css';
 
 import screenshotsImages from '../data/screenshots.jpg';
 import { screenshots } from '../data/config.json';
@@ -43,6 +43,7 @@ const ScreenshotTitle = styled(Title)`
 `;
 
 const ScreenshotContainer = styled(Card)`
+  cursor: pointer;
   padding: 0;
   margin: ${measurements.padding.container};
   width: ${measurements.width.player};
@@ -60,14 +61,70 @@ const ScreenshotContainer = styled(Card)`
   }
 `;
 
+const ScreenshotOverlay = styled.div`
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  background-color: rgba(0, 0, 0, ${opacities.secondary});
+
+  & > ${ScreenshotImage} {
+    object-fit: contain;
+    max-width: 80%;
+    max-height: 80%;
+    // box-shadow doesn't work well with object-fit, and filter drop-shadows are limited
+    // ${shadows.box[24]}
+  }
+`;
+
+type ScreenshotProps = {
+  imgId: string;
+  title: string;
+};
+
+type ScreenshotState = {
+  isFullscreen: boolean;
+};
+
+class Screenshot extends React.Component<ScreenshotProps, ScreenshotState> {
+  state = { isFullscreen: false };
+
+  handleClick = () => {
+    this.setState((state) => ({
+      isFullscreen: !state.isFullscreen,
+    }));
+  };
+
+  render() {
+    const { imgId, title } = this.props;
+
+    return (
+      <div>
+        <ScreenshotContainer onClick={this.handleClick}>
+          <ScreenshotImage src={screenshotsImages[imgId]} alt={title} />
+          <ScreenshotTitle>{title}</ScreenshotTitle>
+        </ScreenshotContainer>
+        {this.state.isFullscreen && (
+          <ScreenshotOverlay onClick={this.handleClick}>
+            <ScreenshotImage src={screenshotsImages[imgId]} alt={title} />
+          </ScreenshotOverlay>
+        )}
+      </div>
+    );
+  }
+}
+
 export default ({ location }) => (
   <Layout location={location}>
     <ScreenshotList>
       {screenshots.map(({ id, title }) => (
-        <ScreenshotContainer key={id}>
-          <ScreenshotImage src={screenshotsImages[id]} alt={title} />
-          <ScreenshotTitle>{title}</ScreenshotTitle>
-        </ScreenshotContainer>
+        <Screenshot key={id} imgId={id} title={title} />
       ))}
     </ScreenshotList>
   </Layout>
