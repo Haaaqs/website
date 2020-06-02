@@ -8,10 +8,7 @@
     "year": 2020
   },
   "analyticsId": "c85dcb51-eca4-47ed-a56c-2958c9e3251e",
-  "pages": [
-    "Features",
-    "Videos"
-  ],
+  "pages": ["Features", "Screenshots", "Videos", "Pricing"],
   "colors": {
     "theme": "#21aa2f",
     "background": "#f4faf6"
@@ -19,10 +16,7 @@
   "fonts": [
     {
       "family": "Open Sans",
-      "variants": [
-        400,
-        700
-      ]
+      "variants": [400, 700]
     }
   ],
   "features": [
@@ -33,13 +27,13 @@
       "icon": "privacy"
     },
     {
-      "id": "noob_friendly",
+      "id": "user_friendly",
       "title": "User Friendly",
       "desc": "Designed for ease of use",
       "icon": "group"
     },
     {
-      "id": "opti_fine",
+      "id": "optifine",
       "title": "Optifine",
       "desc": "Improves Minecraft performance",
       "icon": "laptop"
@@ -105,6 +99,42 @@
           "link": "https://twitter.com/LoouiseSan"
         }
       ]
+    }
+  ],
+  "screenshots": [
+    {
+      "id": "launcher",
+      "title": "Launcher"
+    },
+    {
+      "id": "click_gui",
+      "title": "Click GUI"
+    },
+    {
+      "id": "two_d_esp",
+      "title": "2D ESP"
+    },
+    {
+      "id": "website_dashboard",
+      "title": "Website Dashboard"
+    },
+    {
+      "id": "subscriptions",
+      "title": "Subscriptions"
+    }
+  ],
+  "pricing": [
+    {
+      "title": "Standard",
+      "duration": 30,
+      "cost": 7,
+      "features": ["5 config slots"]
+    },
+    {
+      "title": "Premium",
+      "duration": 30,
+      "cost": 10,
+      "features": ["5 config slots", "Capes access", "Beta access"]
     }
   ],
   "social": [
