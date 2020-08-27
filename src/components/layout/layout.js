@@ -68,11 +68,11 @@ const TemplateWrapper = ({ children, location }) => (
           <link rel="mask-icon" color={themeColor} href={withPrefix('/safari-pinned-tab.svg')} />
 
           {/* Ackee (analytics) */}
-          <script
-            async
-            src="https://ackee.affanhaq.me/tracker.js"
-            data-ackee-server="https://ackee.affanhaq.me"
-            data-ackee-domain-id={analyticsId}
+          <script 
+            async 
+            defer 
+            data-website-id="87bf8c62-742d-4e25-acf2-f206c7d073ca" 
+            src="https://umami.affanhaq.me/umami.js"
           />
         </Helmet>
         <Header
