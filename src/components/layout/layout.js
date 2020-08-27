@@ -15,7 +15,6 @@ import GlobalStyle from './layout.css';
 
 const {
   metadata: { desc: siteDescription },
-  analyticsId,
   pages,
   colors: { theme: themeColor },
 } = require('../../data/config.json');
@@ -67,7 +66,7 @@ const TemplateWrapper = ({ children, location }) => (
           <link rel="apple-touch-icon" sizes="180x180" href={withPrefix('/apple-touch-icon.png')} />
           <link rel="mask-icon" color={themeColor} href={withPrefix('/safari-pinned-tab.svg')} />
 
-          {/* Ackee (analytics) */}
+          {/* Umami (analytics) */}
           <script 
             async 
             defer 
