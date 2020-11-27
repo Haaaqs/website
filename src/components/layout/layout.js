@@ -66,13 +66,15 @@ const TemplateWrapper = ({ children, location }) => (
           <link rel="apple-touch-icon" sizes="180x180" href={withPrefix('/apple-touch-icon.png')} />
           <link rel="mask-icon" color={themeColor} href={withPrefix('/safari-pinned-tab.svg')} />
 
-          {/* Umami (analytics) */}
-          <script 
-            async 
-            defer 
-            data-website-id="87bf8c62-742d-4e25-acf2-f206c7d073ca" 
-            src="https://umami.affanhaq.me/umami.js"
-          />
+          {/* Google Analytics */}
+          <script async src="https://www.googletagmanager.com/gtag/js?id=G-RGBDY51MMG"/>
+          <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', 'G-RGBDY51MMG');
+          </script>
         </Helmet>
         <Header
           routes={getRouteLinks(data.allSitePage.edges)}
