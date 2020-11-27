@@ -39,7 +39,7 @@
     },
     {
       "id": "opti_fine",
-      "title": "Optifine",
+      "title": "OptiFine",
       "desc": "Improves Minecraft performance",
       "icon": "laptop"
     }
@@ -111,9 +111,9 @@
       "id": "youtube",
       "link": "https://www.youtube.com/results?search_query=envyclient",
       "links": [
+		"https://www.youtube.com/channel/UCduYU5aWhwfB-Twu5XcEyew",
         "https://www.youtube.com/channel/UCCMOWeYXxnlH7dyRqqBxkXQ",
-        "https://www.youtube.com/channel/UCwFRVvetOF3DqNj8z5-4d_A",
-        "https://www.youtube.com/channel/UCGXK5G5w82QlXLZMVBkscHQ"
+        "https://www.youtube.com/channel/UCwFRVvetOF3DqNj8z5-4d_A"
       ]
     },
     {
