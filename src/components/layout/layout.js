@@ -66,16 +66,10 @@ const TemplateWrapper = ({ children, location }) => (
           <link rel="apple-touch-icon" sizes="180x180" href={withPrefix('/apple-touch-icon.png')} />
           <link rel="mask-icon" color={themeColor} href={withPrefix('/safari-pinned-tab.svg')} />
 
-          {/* Google Analytics */}
-          <script async src="https://www.googletagmanager.com/gtag/js?id=G-RGBDY51MMG"/>
-          <script>
-			{`
-				window.dataLayer = window.dataLayer || [];
-				function gtag(){dataLayer.push(arguments);}
-				gtag('js', new Date());
-
-				gtag('config', 'G-RGBDY51MMG');
-			`}
+          {/* Cloudflare Analytics */}
+          <script src='https://static.cloudflareinsights.com/beacon.min.js' 
+                  data-cf-beacon='{"token": "84c979ca91574da6bd382f7062ce5002"}'
+                  defer>
           </script>
         </Helmet>
         <Header
